@@ -1,85 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'post_lost_cat_comments/index'
-    get 'post_lost_cat_comments/destroy'
-  end
-  namespace :admin do
-    get 'post_image_comments/index'
-    get 'post_image_comments/destroy'
-  end
-  namespace :admin do
-    get 'post_lost_cats/index'
-    get 'post_lost_cats/show'
-    get 'post_lost_cats/destroy'
-  end
-  namespace :admin do
-    get 'post_images/index'
-    get 'post_images/show'
-    get 'post_images/destroy'
-  end
-  namespace :admin do
-    get 'users/show'
-    get 'users/edit'
-    get 'users/update'
-  end
-  namespace :admin do
-    get 'types/create'
-    get 'types/destroy'
-    get 'types/index'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'relationships/create'
-    get 'relationships/destroy'
-  end
-  namespace :public do
-    get 'post_lost_cat_favorites/index'
-    get 'post_lost_cat_favorites/create'
-    get 'post_lost_cat_favorites/destroy'
-  end
-  namespace :public do
-    get 'post_lost_cat_comments/create'
-    get 'post_lost_cat_comments/destroy'
-  end
-  namespace :public do
-    get 'post_lost_cats/new'
-    get 'post_lost_cats/create'
-    get 'post_lost_cats/index'
-    get 'post_lost_cats/show'
-    get 'post_lost_cats/edit'
-    get 'post_lost_cats/update'
-    get 'post_lost_cats/destroy'
-  end
-  namespace :public do
-    get 'post_image_favorites/index'
-    get 'post_image_favorites/create'
-    get 'post_image_favorites/destroy'
-  end
-  namespace :public do
-    get 'post_image_comments/create'
-    get 'post_image_comments/destroy'
-  end
-  namespace :public do
-    get 'post_images/new'
-    get 'post_images/create'
-    get 'post_images/index'
-    get 'post_images/show'
-    get 'post_images/edit'
-    get 'post_images/update'
-    get 'post_images/deatroy'
-  end
-  namespace :public do
-    get 'users/show'
-    get 'users/edit'
-    get 'users/update'
-    get 'users/unsubscribe'
-    get 'users/withdraw'
-  end
-  namespace :public do
-    get 'homes/top'
-  end
+
   devise_for :admin, controllers: {
     sessions:"admin/sessions"
   }
@@ -87,5 +7,33 @@ Rails.application.routes.draw do
     registrations:"public/registrations",
     sessions:"public/sessions"
   }
+
+  get "users/my_page", to: "public/user#show", as:"user"
+  get "users/infomation/edit", to: "public/user#edit", as:"edit_user"
+
+
+  scope module: "public" do
+    root to: "homes#top"
+    get "users/unsubscribe"
+    patch "users/withdraw"
+    resources :users, only: [:edit, :update]
+    resources :post_images
+    resources :post_lost_cats
+    resources :post_image_comments, only: [:create, :destroy]
+    resources :post_lost_cat_comments, only: [:create, :destroy]
+    resources :post_image_favorites, only: [:index, :create, :destroy]
+    resources :post_lost_cat_favorites, only: [:index, :create, :destroy]
+    resources :relationships, only: [:create, :destroy]
+  end
+
+  namespace :admin do
+    get "/" => "homes#top", as: "top"
+    resources :users, only: [:show, :edit, :update]
+    resources :types, only: [:index, :create, :destroy]
+    resources :post_images, only: [:index, :show, :destroy]
+    resources :post_lost_cats, only: [:index, :show, :destroy]
+    resources :post_image_comments, only: [:index, :destroy]
+    resources :post_lost_cat_comments, only: [:index, :destroy]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
