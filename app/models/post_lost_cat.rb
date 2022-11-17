@@ -1,0 +1,2 @@
+class PostLostCat < ApplicationRecord
+end

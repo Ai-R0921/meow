@@ -1,0 +1,2 @@
+class PostLostCatFavorite < ApplicationRecord
+end
