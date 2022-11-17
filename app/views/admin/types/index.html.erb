@@ -1,6 +1,13 @@
 <h1>Type of Cat</h1>
 <div class="container">
   <table class="table table bordered">
-    
+    <tbody>
+      <% @types.each do |type| %>
+      <tr>
+        <td><%= type.name %></td>
+        <td><%= link_to "Delete", admin_type_path(type), method: :delete %></td>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
