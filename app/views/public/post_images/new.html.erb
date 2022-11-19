@@ -1,17 +1,17 @@
 <h1>New Post</h1>
-<%= form_with model: @post_image do |f| %>
+<%= form_with model: @post_image, url:post_images_path, method: :post, local: true do |f| %>
   <h4>Image</h4>
     <%= f.file_field :image, accept: "image/*" %>
   <h4>Title</h4>
     <%= f.text_field :title %>
   <h4>Comments</h4>
     <%= f.text_field :body %>
-    <%= f.submit "Post" %>
   <h4>Type of cat</h4>
-    <%= f.text_field :type.name %>
+    <%#= f.text_field :type.name %>
   <h4>Sex</h4>
     <%= f.radio_button :sex, PostImage.sexes.key(0), checked: "checked" %>
     <%= f.label :sex, PostImage.sexes_i18n[:male] %>
     <%= f.radio_button :sex, PostImage.sexes.key(1) %>
     <%= f.label :sex, PostImage.sexes_i18n[:female] %>
+    <%= f.submit "Post" %>
 <% end %>
