@@ -1,6 +1,8 @@
 <h1>Cats</h1>
 <% @post_images.each do |post_image| %>
   <%= post_image.title %>
-  <%= post_image.image %>
+  <%= link_to post_image_path(post_image) do %>
+    <%= image_tag post_image.image %>
+  <% end %>
   <%= post_image.user.user_name %>
 <% end %>

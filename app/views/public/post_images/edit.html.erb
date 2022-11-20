@@ -1,2 +1,17 @@
-<h1>Public::PostImages#edit</h1>
-<p>Find me in app/views/public/post_images/edit.html.erb</p>
+<h1>Edit</h1>
+<%= form_with model: @post_image, local: true do |f| %>
+  <h4>Title</h4>
+    <%= f.text_field :title %>
+  <h4>Comments</h4>
+    <%= f.text_field :body %>
+  <h4>Type of cat</h4>
+    <%= f.collection_select :type_id, Type.all, :id, :name, prompt: "Choose Type" %>
+  <h4>Sex</h4>
+    <%= f.radio_button :sex, PostImage.sexes.key(0), checked: "checked" %>
+    <%= f.label :sex, PostImage.sexes_i18n[:male] %>
+    <%= f.radio_button :sex, PostImage.sexes.key(1) %>
+    <%= f.label :sex, PostImage.sexes_i18n[:female] %>
+    <%= f.radio_button :sex, PostImage.sexes.key(2) %>
+    <%= f.label :sex, PostImage.sexes_i18n[:unknown] %>
+    <%= f.submit "Post" %>
+<% end %>
