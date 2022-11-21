@@ -1,2 +1,7 @@
-<h1>Public::Users#unsubscribe</h1>
-<p>Find me in app/views/public/users/unsubscribe.html.erb</p>
+<h3>退会すると今までの投稿データがなくなり、<br>
+コメントや投稿ができなくなります。<br>
+退会しますか？
+</h3>
+
+<%= link_to "No", user_path, class:"btn btn-primary" %>
+<%= link_to "Yes", root_path, class:"btn btn-danger" %>
