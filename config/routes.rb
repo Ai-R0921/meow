@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     sessions:"public/sessions"
   }
 
-  get "users/my_page", to: "public/users#show", as:"user"
+  get "users/my_page", to: "public/users#my_page", as:"my_page"
   get "users/infomation/edit", to: "public/users#edit", as:"edit_user"
 
 
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "users/unsubscribe"
     patch "users/withdraw"
-    resources :users, only: [:edit, :update]
+    resources :users, only: [:edit, :update, :show]
     resources :post_images
     resources :post_lost_cats
     resources :post_image_comments, only: [:create, :destroy]

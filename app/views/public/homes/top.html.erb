@@ -7,6 +7,7 @@
 <h1>What's New</h1>
 <% @post_images.each do |post_image| %>
   <%= post_image.title %>
-  <%= image_tag post_image.image %>
+  <%= image_tag post_image.image, :size =>'200x200' %>
   <%= post_image.user.user_name %>
 <% end %>
+<%= link_to "show more >>", post_images_path %>
