@@ -11,3 +11,15 @@
   <%= post_image.user.user_name %>
 <% end %>
 <%= link_to "show more >>", post_images_path %>
+
+<h1>Lost Cats</h1>
+<% @post_lost_cats.each do |post_lost_cat| %>
+  <%= post_lost_cat.title %>
+  <%= image_tag post_lost_cat.image, :size =>'200x200' %>
+  <%= post_lost_cat.user.user_name %>
+<% end %>
+<%= link_to "show more >>", post_lost_cats_path %>
+
+<% if user_signed_in? %>
+  <%= link_to "New Post", new_post_lost_cat_path %>
+<% end %>
