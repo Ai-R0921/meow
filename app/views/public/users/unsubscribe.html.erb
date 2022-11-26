@@ -3,5 +3,5 @@
 退会しますか？
 </h3>
 
-<%= link_to "No", user_path, class:"btn btn-primary" %>
-<%= link_to "Yes", root_path, class:"btn btn-danger" %>
+<%= link_to "No", my_page_path, class:"btn btn-primary" %>
+<%= link_to "Yes", users_withdraw_path, method: :patch, data: { confirm: "Are you sure?"}, class:"btn btn-danger" %>

@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     get "users/unsubscribe"
     patch "users/withdraw"
     resources :users, only: [:edit, :update, :show]
-    resources :post_images
+    resources :post_images do
+      get :search, on: :collection
+    end
     resources :post_lost_cats
     resources :post_image_comments, only: [:create, :destroy]
     resources :post_lost_cat_comments, only: [:create, :destroy]

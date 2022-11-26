@@ -1,1 +1,14 @@
 <h1>My Page</h1>
+<% if @user.profile_image.attached? %>
+  <%= image_tag @user.profile_image, :size => '200x200' %>
+<% else %>
+  <%= image_tag 'NO_IMAGE.png', size: '200x200' %>
+<% end %>
+<%= @user.user_name %>
+<%= link_to "Edit", edit_user_path %>
+
+<h2>Posts</h2>
+<% @post_images.each do |post_image| %>
+  <%= post_image.title %>
+  <%= image_tag post_image.image, size: '200x200' %>
+<% end %>

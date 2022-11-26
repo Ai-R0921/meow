@@ -20,6 +20,12 @@
         <li><%= link_to "Sign up", new_user_registration_path %></li>
         <li><%= link_to "Sign in", new_user_session_path %></li>
       <% end %>
+      <div class="post_image_search">
+        <%= form_with url: search_post_images_path, method: :get, local: true do |f| %>
+          <%= f.text_field :search, class: "form-control", placeholder: "キーワード検索" %>
+          <%= f.submit "Go" %>
+        <% end %>
+      </div>
     </header>
     <%= yield %>
   </body>

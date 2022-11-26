@@ -1,0 +1,8 @@
+<%= @section_title %>
+<% @post_images.each do |post_image| %>
+  <%= post_image.title %>
+  <%= link_to post_image_path(post_image) do %>
+    <%= image_tag post_image.image, :size => '200x200' %>
+  <% end %>
+  <%= post_image.user.user_name %>
+<% end %>

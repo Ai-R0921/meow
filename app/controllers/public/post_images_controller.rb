@@ -35,6 +35,15 @@ class Public::PostImagesController < ApplicationController
   def destroy
   end
 
+  def search
+    @section_title = "「#{params[:search]}」の検索結果"
+    @post_images = if params[:search].present?
+                    PostImage.where('title LIKE ?', "%#{params[:search]}%")
+                  else
+                    @post_images = PostImage.all
+                  end
+  end
+
   private
 
   def post_image_params

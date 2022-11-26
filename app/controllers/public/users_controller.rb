@@ -1,10 +1,13 @@
 class Public::UsersController < ApplicationController
+
+
   def show
     @user = User.find(params[:id])
   end
 
   def my_page
     @user = current_user
+    @post_images = @user.post_images
   end
 
   def edit
@@ -21,6 +24,10 @@ class Public::UsersController < ApplicationController
   end
 
   def withdraw
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to my_page_path
   end
 
   private
