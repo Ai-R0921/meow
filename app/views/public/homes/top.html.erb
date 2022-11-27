@@ -23,3 +23,17 @@
 <% if user_signed_in? %>
   <%= link_to "New Post", new_post_lost_cat_path %>
 <% end %>
+
+<h1>Search Cats</h1>
+<%= form_tag({controller:"homes", action:"top"}, method: :get) do %>
+  <%= select_tag :type_search, options_from_collection_for_select(@type, "id", "name") %>
+  <%= submit_tag "Go" %>
+<% end %>
+
+<% if @post_image.exists? %>
+  <% @post_image.each do |post_image| %>
+    <%= post_image.title %>
+    <%= image_tag post_image.image, size: "200x200" %>
+    <%= post_image.user.user_name %>
+  <% end %>
+<% end %>
