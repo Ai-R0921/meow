@@ -30,10 +30,10 @@
   <%= submit_tag "Go" %>
 <% end %>
 
-<% if @post_image.exists? %>
-  <% @post_image.each do |post_image| %>
-    <%= post_image.title %>
-    <%= image_tag post_image.image, size: "200x200" %>
-    <%= post_image.user.user_name %>
+<% if @searched_post_images.present? %>
+  <% @searched_post_images.each do |searched_post_image| %>
+    <%= searched_post_image.title %>
+    <%= image_tag searched_post_image.image, size: "200x200" %>
+    <%= searched_post_image.user.user_name %>
   <% end %>
 <% end %>

@@ -5,7 +5,7 @@ class Public::HomesController < ApplicationController
     @type = Type.select("name", "id")
     type_search = params[:type_search]
     if type_search != nil
-      @post_image = Type.find_by(id: type_search).post_images
+      @searched_post_images = Type.find_by(id: type_search).post_images
     else
       @post_images = PostImage.order('id DESC').limit(6)
     end

@@ -8,7 +8,7 @@ class PostImage < ApplicationRecord
     male: 0, female: 1, unknown: 2
   }
 
-  def post_image_favorited_by?(user)
+  def favorited_by?(user)
     post_image_favorites.exists?(user_id: user.id)
   end
 
