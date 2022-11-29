@@ -19,12 +19,14 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :update, :show]
     resources :post_images do
       get :search, on: :collection
+      resource :post_image_favorites, only: [:index, :create, :destroy]
+      resources :post_image_comments, only: [:create, :destroy]
     end
-    resources :post_lost_cats
-    resources :post_image_comments, only: [:create, :destroy]
-    resources :post_lost_cat_comments, only: [:create, :destroy]
-    resource :post_image_favorites, only: [:index, :create, :destroy]
-    resource :post_lost_cat_favorites, only: [:index, :create, :destroy]
+
+    resources :post_lost_cats do
+      resource :post_lost_cat_favorites, only: [:index, :create, :destroy]
+      resources :post_lost_cat_comments, only: [:create, :destroy]
+    end
     resources :relationships, only: [:create, :destroy]
   end
 

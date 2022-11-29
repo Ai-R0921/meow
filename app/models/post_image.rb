@@ -3,6 +3,7 @@ class PostImage < ApplicationRecord
   belongs_to :user
   belongs_to :type
   has_many :post_image_favorites, dependent: :destroy
+  has_many :post_image_comments, dependent: :destroy
 
   enum sex: {
     male: 0, female: 1, unknown: 2
