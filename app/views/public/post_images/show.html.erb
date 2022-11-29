@@ -6,20 +6,32 @@
 <%= @post_image.body %>
 <%= @post_image.sex %>
 
-<% if @post_image.favorited_by?(current_user) %>
+<% if user_signed_in? %>
+  <% if @post_image.favorited_by?(current_user) %>
   <h3>
-    <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
+    <%= link_to post_image_post_image_favorites_path(@post_image), method: :delete do %>
       ♥<%= @post_image.post_image_favorites.count %>いいね
     <% end %>
   </h3>
+  <% else %>
   <h3>
-    <%= link_to post_image_favorites_path(@post_image), method: :post do %>
+    <%= link_to post_image_post_image_favorites_path(@post_image), method: :post do %>
       ♡<%= @post_image.post_image_favorites.count %>いいね
     <% end %>
   </h3>
+  <% end %>
 <% end %>
-
 <% if @user == current_user %>
   <%= link_to "Edit", edit_post_image_path(@post_image) %>
 <% end %>
 
+<p>コメント件数 : <%= @post_image.post_image_comments.count %></p>
+<% @post_image.post_image_comments.each do |post_image_comment| %>
+  <%= post_image_comment.user.user_name %>
+  <%= post_image_comment.created_at.strftime('%Y/%m/%d') %>
+  <%= post_image_comment.comment %>
+<% end %>
+<%= form_with model: [@post_image, @post_image_comment] do |f| %>
+  <%= f.text_area :comment, placeholder:"comments" %>
+  <%= f.submit "Post" %>
+<% end %>

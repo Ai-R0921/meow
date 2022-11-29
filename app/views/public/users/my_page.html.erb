@@ -6,6 +6,7 @@
 <% end %>
 <%= @user.user_name %>
 <%= link_to "Edit", edit_user_path %>
+<%= link_to "ブックマーク一覧", favorites_user_path(current_user) %>
 
 <h2>Posts</h2>
 <% @post_images.each do |post_image| %>
