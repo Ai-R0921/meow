@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       member do
         get :favorites
       end
+      resource :relationships, only: [:create, :destroy]
+      get "followings" => "relationships#followings", as: "followings"
+      get "followers" => "relationships#followers", as: "followers"
     end
     resources :post_images do
       get :search, on: :collection
@@ -31,7 +34,6 @@ Rails.application.routes.draw do
       resource :post_lost_cat_favorites, only: [:create, :destroy]
       resources :post_lost_cat_comments, only: [:create, :destroy]
     end
-    resources :relationships, only: [:create, :destroy]
   end
 
   namespace :admin do

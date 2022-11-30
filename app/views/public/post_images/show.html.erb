@@ -1,7 +1,9 @@
 <h1>Post Detail</h1>
 <%= image_tag @post_image.image, :size => '300x300' %>
 <%= @post_image.created_at.strftime('%Y/%m/%d') %>
-<%= @post_image.user.user_name %>
+<%= link_to user_path(@user) do %>
+  <%= @post_image.user.user_name %>
+<% end %>
 <%= @post_image.title %>
 <%= @post_image.body %>
 <%= @post_image.sex %>
@@ -31,7 +33,9 @@
   <%= post_image_comment.created_at.strftime('%Y/%m/%d') %>
   <%= post_image_comment.comment %>
 <% end %>
-<%= form_with model: [@post_image, @post_image_comment] do |f| %>
-  <%= f.text_area :comment, placeholder:"comments" %>
-  <%= f.submit "Post" %>
+<% if user_signed_in? %>
+  <%= form_with model: [@post_image, @post_image_comment] do |f| %>
+    <%= f.text_area :comment, placeholder:"comments" %>
+    <%= f.submit "Post" %>
+  <% end %>
 <% end %>

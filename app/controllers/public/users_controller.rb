@@ -3,6 +3,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @post_images = @user.post_images
   end
 
   def my_page
@@ -29,7 +30,7 @@ class Public::UsersController < ApplicationController
     reset_session
     redirect_to root_path
   end
-  
+
   def favorites
     @user = User.find(params[:id])
     favorites = PostImageFavorite.where(user_id: @user.id).pluck(:post_image_id)
