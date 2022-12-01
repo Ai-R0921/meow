@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-
+before_action :authenticate_user!
 
   def show
     @user = User.find(params[:id])
@@ -35,6 +35,16 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     favorites = PostImageFavorite.where(user_id: @user.id).pluck(:post_image_id)
     @post_image_favorites = PostImage.find(favorites)
+  end
+
+  def followings
+    user = User.find(params[:user_id])
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(params[:user_id])
+    @users = user.followers
   end
 
   private
