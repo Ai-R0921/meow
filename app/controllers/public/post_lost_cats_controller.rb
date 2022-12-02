@@ -20,6 +20,7 @@ class Public::PostLostCatsController < ApplicationController
   def show
     @post_lost_cat = PostLostCat.find(params[:id])
     @user = @post_lost_cat.user
+    @post_lost_cat_comment = PostLostCatComment.new
   end
 
   def edit
@@ -34,11 +35,11 @@ class Public::PostLostCatsController < ApplicationController
 
   def destroy
   end
-  
+
   private
-  
+
   def post_lost_cat_params
     params.require(:post_lost_cat).permit(:user_id, :type_id, :image, :title, :body, :sex)
   end
-  
+
 end

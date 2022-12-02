@@ -17,4 +17,5 @@
 <% @post_images.each do |post_image| %>
   <%= post_image.title %>
   <%= image_tag post_image.image, size: '200x200' %>
+  <%= link_to "#{post_image.post_image_comments.count} コメント", post_image_path(post_image) %>
 <% end %>
