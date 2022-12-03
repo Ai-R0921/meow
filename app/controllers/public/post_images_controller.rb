@@ -15,6 +15,7 @@ class Public::PostImagesController < ApplicationController
 
   def index
     @post_images = PostImage.all
+    @all_ranks = PostImage.create_all_ranks
   end
 
   def show
@@ -34,6 +35,9 @@ class Public::PostImagesController < ApplicationController
   end
 
   def destroy
+    @post_image = PostImage.find(params[:id])
+    @post_image.destroy
+    redirect_to my_page_path
   end
 
   def search

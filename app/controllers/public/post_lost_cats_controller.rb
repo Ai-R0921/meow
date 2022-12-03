@@ -34,6 +34,9 @@ class Public::PostLostCatsController < ApplicationController
   end
 
   def destroy
+    @post_lost_cat = PostLostCat.find(params[:id])
+    @post_lost_cat.destroy
+    redirect_to my_page_path
   end
 
   private

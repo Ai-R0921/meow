@@ -1,5 +1,7 @@
 <h1>Post Detail</h1>
-<%= image_tag @post_lost_cat.image, :size => '300x300' %>
+<% if @post_lost_cat.image.attached? %>
+  <%= image_tag @post_lost_cat.image, :size => '300x300' %>
+<% end %>
 <%= @post_lost_cat.created_at.strftime('%Y/%m/%d') %>
 <%= link_to user_path(@user) do %>
   <%= @post_lost_cat.user.user_name %>

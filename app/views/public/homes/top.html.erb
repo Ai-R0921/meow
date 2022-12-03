@@ -7,7 +7,9 @@
 <h1>What's New</h1>
 <% @post_images.each do |post_image| %>
   <%= post_image.title %>
-  <%= image_tag post_image.image, :size =>'200x200' %>
+  <% if post_image.image.attached? %>
+    <%= image_tag post_image.image, :size =>'200x200' %>
+  <% end %>
   <%= post_image.user.user_name %>
 <% end %>
 <%= link_to "show more >>", post_images_path %>
@@ -15,7 +17,9 @@
 <h1>Lost Cats</h1>
 <% @post_lost_cats.each do |post_lost_cat| %>
   <%= post_lost_cat.title %>
-  <%= image_tag post_lost_cat.image, :size =>'200x200' %>
+  <% if post_lost_cat.image.attached? %>
+    <%= image_tag post_lost_cat.image, :size =>'200x200' %>
+  <% end %>
   <%= post_lost_cat.user.user_name %>
 <% end %>
 <%= link_to "show more >>", post_lost_cats_path %>
@@ -33,7 +37,9 @@
 <% if @searched_post_images.present? %>
   <% @searched_post_images.each do |searched_post_image| %>
     <%= searched_post_image.title %>
-    <%= image_tag searched_post_image.image, size: "200x200" %>
+    <% if searched_post_image.image.attached? %>
+      <%= image_tag searched_post_image.image, size: "200x200" %>
+    <% end %>
     <%= searched_post_image.user.user_name %>
   <% end %>
 <% end %>

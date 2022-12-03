@@ -15,3 +15,5 @@
     <%= f.label :sex, PostImage.sexes_i18n[:unknown] %>
     <%= f.submit "Post" %>
 <% end %>
+
+<%= link_to "Delete Post", post_image_path(@post_image), method: :delete %>

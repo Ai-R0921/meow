@@ -13,4 +13,7 @@ class PostImage < ApplicationRecord
      post_image_favorites.exists?(user_id: user.id)
   end
 
+  def self.create_all_ranks
+    PostImage.find(PostImageFavorite.group(:post_image_id).order('count(post_image_id) desc').limit(3).pluck(:post_image_id))
+  end
 end

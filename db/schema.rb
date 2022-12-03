@@ -95,11 +95,11 @@ ActiveRecord::Schema.define(version: 2022_11_18_123327) do
   end
 
   create_table "post_lost_cat_favorites", force: :cascade do |t|
-    t.integer "post_Lost_cat_id", null: false
+    t.integer "post_lost_cat_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_Lost_cat_id"], name: "index_post_lost_cat_favorites_on_post_Lost_cat_id"
+    t.index ["post_lost_cat_id"], name: "index_post_lost_cat_favorites_on_post_lost_cat_id"
     t.index ["user_id"], name: "index_post_lost_cat_favorites_on_user_id"
   end
 
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 2022_11_18_123327) do
   add_foreign_key "post_images", "users"
   add_foreign_key "post_lost_cat_comments", "post_lost_cats"
   add_foreign_key "post_lost_cat_comments", "users"
-  add_foreign_key "post_lost_cat_favorites", "post_Lost_cats"
+  add_foreign_key "post_lost_cat_favorites", "post_lost_cats"
   add_foreign_key "post_lost_cat_favorites", "users"
   add_foreign_key "post_lost_cats", "types"
   add_foreign_key "post_lost_cats", "users"
