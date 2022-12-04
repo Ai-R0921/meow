@@ -36,6 +36,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :show]
+
   namespace :admin do
     get "/" => "homes#top", as: "top"
     resources :users, only: [:show, :edit, :update]
