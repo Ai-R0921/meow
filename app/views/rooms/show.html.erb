@@ -5,9 +5,11 @@
 <% @entries.each do |e| %>
   <div class="user-name">
   <strong>
-    <%= image_tag e.user.avatar, class:"user-image" %>
+    <% if e.user.profile_image.attached? %>
+      <%= image_tag e.user.profile_image, size: '200x200', class:"user-image" %>
+    <% end %>
       <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-        <%= e.user.name %>さん
+        <%= e.user.user_name %>さん
       </a>
   </strong>
   </div>
@@ -19,7 +21,9 @@
       <% @messages.each do |m| %>
         <div class="chat-box">
           <div class="chat-face">
-            <%= image_tag m.user.avatar, class:"user-image" %>
+            <% if m.user.profile_image.attached? %>
+              <%= image_tag m.user.profile_image, size: '200x200', class:"user-image" %>
+            <% end %>
           </div>
           <div class="chat-hukidashi"> <strong><%= m.content %></strong> <br>
             <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
