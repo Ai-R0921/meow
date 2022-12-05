@@ -1,2 +1,9 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<h1>Users</h1>
+<% @users.each do |user| %>
+  <%= user.user_name %>
+  <% if user.profile_image.attached? %>
+    <%= image_tag user.profile_image, :size => '200x200' %>
+  <% else %>
+    <%= image_tag 'NO_IMAGE.png', size: '200x200' %>
+  <% end %>
+<% end %>
