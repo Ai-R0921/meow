@@ -44,5 +44,4 @@ class Public::PostLostCatsController < ApplicationController
   def post_lost_cat_params
     params.require(:post_lost_cat).permit(:user_id, :type_id, :image, :title, :body, :sex)
   end
-
 end

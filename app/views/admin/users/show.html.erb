@@ -1,2 +1,8 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<h1>User Details</h1>
+<% if @user.profile_image.attached? %>
+  <%= image_tag @user.profile_image, :size => '200x200' %>
+<% else %>
+  <%= image_tag 'NO_IMAGE.png', size: '200x200' %>
+<% end %>
+<%= @user.user_name %><br>
+<%= link_to "Edit", edit_admin_user_path(@user) %>
