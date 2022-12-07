@@ -34,12 +34,12 @@
   <%= submit_tag "Go" %>
 <% end %>
 
-<% if @searched_post_images.present? %>
-  <% @searched_post_images.each do |searched_post_image| %>
-    <%= searched_post_image.title %>
-    <% if searched_post_image.image.attached? %>
-      <%= image_tag searched_post_image.image, size: "200x200" %>
+<% if @results.present? %>
+  <% @results.each do |result| %>
+    <%= result.title %>
+    <% if result.image.attached? %>
+      <%= image_tag result.image, size: "200x200" %>
     <% end %>
-    <%= searched_post_image.user.user_name %>
+    <%= result.user.user_name %>
   <% end %>
 <% end %>
