@@ -1,2 +1,11 @@
-<h1>Admin::PostLostCats#show</h1>
-<p>Find me in app/views/admin/post_lost_cats/show.html.erb</p>
+<h1>迷子猫詳細</h1>
+<% if @post_lost_cat.image.attached? %>
+  <%= image_tag @post_lost_cat.image, :size => '300x300' %><br>
+<% end %>
+<%= @post_lost_cat.created_at.strftime('%Y/%m/%d') %><br>
+<%= link_to "#{@user.user_name}", admin_user_path(@user) %><br>
+<%= @post_lost_cat.title %><br>
+<%= @post_lost_cat.body %><br>
+<%= @post_lost_cat.sex %><br>
+<%= link_to "投稿を削除", admin_post_lost_cat_path(@post_lost_cat), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger" %>
+

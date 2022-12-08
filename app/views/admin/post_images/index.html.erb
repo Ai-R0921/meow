@@ -1,2 +1,12 @@
-<h1>Admin::PostImages#index</h1>
-<p>Find me in app/views/admin/post_images/index.html.erb</p>
+<h1>投稿一覧</h1>
+<%= link_to "迷子猫一覧へ >>", admin_post_lost_cats_path %><br>
+<% @post_images.each do |post_image| %>
+  <%= post_image.title %><br>
+  <%= link_to admin_post_image_path(post_image) do %>
+    <% if post_image.image.attached? %>
+      <%= image_tag post_image.image, :size => '200x200' %><br>
+    <% end %>
+  <% end %>
+  <%= post_image.user.user_name %>
+<% end %>
+
