@@ -26,6 +26,7 @@ before_action :authenticate_user!
   def my_page
     @user = current_user
     @post_images = @user.post_images.published
+    @post_lost_cats = @user.post_lost_cats
   end
 
   def edit

@@ -14,7 +14,9 @@
     <%= f.radio_button :sex, PostLostCat.sexes.key(1) %>
     <%= f.label :sex, PostLostCat.sexes_i18n[:female] %>
     <%= f.radio_button :sex, PostLostCat.sexes.key(2) %>
-    <%= f.label :sex, PostLostCat.sexes_i18n[:unknown] %>
+    <%= f.label :sex, PostLostCat.sexes_i18n[:unknown] %><br>
+
+    <%= f.select :status, PostLostCat.statuses.keys.map { |k| [t("enums.post_lost_cat.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
     <%= f.submit "Post" %>
 <% end %>
 

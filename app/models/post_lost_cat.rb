@@ -9,6 +9,10 @@ class PostLostCat < ApplicationRecord
     male: 0, female: 1, unknown: 2
   }
 
+  enum status: {
+    published: 0, draft: 1
+  }
+
   def favorited_by?(user)
     post_lost_cat_favorites.exists?(user_id: user.id)
   end

@@ -14,7 +14,7 @@
     <%= f.radio_button :sex, PostImage.sexes.key(2) %>
     <%= f.label :sex, PostImage.sexes_i18n[:unknown] %><br>
 
-    <%= f.select :status, PostImage.statuses.keys.map { |k| [t("enums.post_.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+    <%= f.select :status, PostImage.statuses.keys.map { |k| [t("enums.post_image.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
     <%= f.submit "Save" %>
 <% end %>
 

@@ -14,7 +14,7 @@ class Public::PostLostCatsController < ApplicationController
   end
 
   def index
-    @post_lost_cats = PostLostCat.all
+    @post_lost_cats = PostLostCat.published
   end
 
   def show
@@ -42,6 +42,6 @@ class Public::PostLostCatsController < ApplicationController
   private
 
   def post_lost_cat_params
-    params.require(:post_lost_cat).permit(:user_id, :type_id, :image, :title, :body, :sex)
+    params.require(:post_lost_cat).permit(:user_id, :type_id, :image, :title, :body, :sex, :status)
   end
 end

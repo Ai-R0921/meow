@@ -45,16 +45,16 @@ class Public::PostImagesController < ApplicationController
 
     # PostImageをキーワード検索
     if params[:search].present?
-      post_images = PostImage.where('title LIKE ?', "%#{params[:search]}%").or(PostImage.where('body LIKE ?', "%#{params[:search]}%"))
+      post_images = PostImage.where('title LIKE ?', "%#{params[:search]}%").or(PostImage.where('body LIKE ?', "%#{params[:search]}%")).published
     else
-      post_images = PostImage.all
+      post_images = PostImage.published
     end
 
     # PostLostCatをキーワード検索
     if params[:search].present?
-      post_lost_cats = PostLostCat.where('title LIKE ?', "%#{params[:search]}%").or(PostLostCat.where('body LIKE ?', "%#{params[:search]}%"))
+      post_lost_cats = PostLostCat.where('title LIKE ?', "%#{params[:search]}%").or(PostLostCat.where('body LIKE ?', "%#{params[:search]}%")).published
     else
-      post_lost_cats = PostLostCat.all
+      post_lost_cats = PostLostCat.published
     end
 
     # ハッシュ
@@ -80,6 +80,7 @@ class Public::PostImagesController < ApplicationController
 
   def confirm
     @post_images = current_user.post_images.draft
+    @post_lost_cats = current_user.post_lost_cats.draft
   end
 
   private
