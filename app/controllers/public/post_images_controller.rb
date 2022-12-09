@@ -14,7 +14,7 @@ class Public::PostImagesController < ApplicationController
   end
 
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.published
     @all_ranks = PostImage.create_all_ranks
   end
 
@@ -78,10 +78,13 @@ class Public::PostImagesController < ApplicationController
     # 60-77行目までコピーしてタグ検索にも使用
   end
 
+  def confirm
+    @post_images = current_user.post_images.draft
+  end
+
   private
 
   def post_image_params
-    params.require(:post_image).permit(:user_id, :type_id, :image, :title, :body, :sex)
+    params.require(:post_image).permit(:user_id, :type_id, :image, :title, :body, :sex, :status)
   end
-
 end

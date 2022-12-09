@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
     resources :post_images do
       get :search, on: :collection
+      get :confirm, on: :collection
       resource :post_image_favorites, only: [:create, :destroy]
       resources :post_image_comments, only: [:create, :destroy]
     end

@@ -2,5 +2,6 @@ ja:
   enums:
     post_image:
       sex:
-        male: 0
-        female: 1
+        male: 'オス'
+        female: 'メス'
+        unknown: '不明'
