@@ -1,9 +1,40 @@
-<h1>Users</h1>
-<% @users.each do |user| %>
-<%= link_to "#{user.user_name}", admin_user_path(user) %>
-  <% if user.profile_image.attached? %>
-    <%= image_tag user.profile_image, :size => '200x200' %>
-  <% else %>
-    <%= image_tag 'NO_IMAGE.png', size: '200x200' %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h1>ユーザー一覧</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mx-auto">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>ユーザーID</th>
+            <th>ユーザー名</th>
+            <th>メールアドレス</th>
+            <th>投稿</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td>
+              <% if user.profile_image.attached? %>
+                <%= image_tag user.profile_image, :size => '50x50', class:"rounded img-responsive" %>
+              <% else %>
+                <%= image_tag 'NO_IMAGE.png', size: '50x50', class:"rounded img-responsive" %>
+              <% end %>
+              <%= link_to "#{user.user_name}", admin_user_path(user) %>
+            </td>
+            <td><%= user.email %></td>
+            <td><%= user.post_images.count %></td>
+            <td><%= user.is_deleted ? '退会' : '有効' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

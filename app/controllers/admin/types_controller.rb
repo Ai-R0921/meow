@@ -16,7 +16,7 @@ class Admin::TypesController < ApplicationController
   end
 
   def index
-    @types = Type.all
+    @types = Type.order("name")
   end
 
 

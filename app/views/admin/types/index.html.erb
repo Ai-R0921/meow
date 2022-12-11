@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row text-center mt-5">
     <div class="col mx-auto">
-      <h1>Type of Cat</h1>
-      <%= link_to "New Type", new_admin_type_path, class:"btn btn-outline-primary rounded-pill" %>
+      <h1>猫種</h1>
+      <%= link_to "新規登録", new_admin_type_path, class:"btn btn-outline-primary rounded-pill" %>
     </div>
   </div>
   <div class="row mt-3">
@@ -12,7 +12,7 @@
           <% @types.each do |type| %>
           <tr>
             <td><%= type.name %></td>
-            <td><%= link_to "Delete", admin_type_path(type), method: :delete, class:"btn btn-outline-danger rounded-pill" %></td>
+            <td><%= link_to "削除", admin_type_path(type), method: :delete, class:"btn btn-outline-danger rounded-pill" %></td>
           </tr>
           <% end %>
         </tbody>
