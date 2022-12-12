@@ -1,13 +1,42 @@
-<h1>Edit User</h1>
-<p>User name</p>
-<%= @user.user_name %><br>
-<p>Email</p>
-<%= @user.email %><br>
-<p>Status</p>
-<%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
-  <%= f.radio_button :is_deleted, :false %>
-  <%= f.label :is_deleted, "有効", {value: false, style: "display: inline-block;"} %>
-  <%= f.radio_button :is_deleted, :true %>
-  <%= f.label :is_deleted, "退会", {value: true, style: "display: inline-block;"} %>
-  <%= f.submit "変更を保存", class: "btn btn-success" %>
-<% end %>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h2>ユーザー編集</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <table class="table table-borderless">
+        <tbody>
+          <%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
+          <tr>
+            <td>会員ID</td>
+            <td><%= @user.id %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :user_name, "ユーザー名" %></td>
+            <td><%= f.text_field :user_name, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :email, "メールアドレス" %></td>
+            <td><%= f.text_field :email, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :is_deleted, "会員ステータス" %></td>
+            <td>
+              <%= f.radio_button :is_deleted, :false %>
+              <%= f.label :is_deleted, "有効", {value: false, style: "display: inline-block;"} %>
+              <%= f.radio_button :is_deleted, :true %>
+              <%= f.label :is_deleted, "退会", {value: true, style: "display: inline-block;"} %>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "変更を保存", class: "btn btn-outline-success rounded-pill" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

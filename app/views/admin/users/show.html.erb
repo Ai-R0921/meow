@@ -1,8 +1,50 @@
-<h1>User Details</h1>
-<% if @user.profile_image.attached? %>
-  <%= image_tag @user.profile_image, :size => '200x200' %>
-<% else %>
-  <%= image_tag 'NO_IMAGE.png', size: '200x200' %>
-<% end %>
-<%= @user.user_name %><br>
-<%= link_to "Edit", edit_admin_user_path(@user) %>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h2>ユーザー詳細</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 text-right">
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image, :size => '200x200', class:"rounded img-responsive" %>
+      <% else %>
+        <%= image_tag 'NO_IMAGE.png', size: '200x200', class:"rounded img-responsive" %>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>会員ID</td>
+            <td><%= @user.id %></td>
+          </tr>
+          <tr>
+            <td>ユーザー名</td>
+            <td><%= @user.user_name %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td>フォロー数</td>
+            <td><%= @user.followings.count %></td>
+          </tr>
+          <tr>
+            <td>フォロワー数</td>
+            <td><%= @user.followers.count %></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td><%= @user.is_deleted ? '退会' : '有効' %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col text-center">
+      <%= link_to "編集する", edit_admin_user_path(@user), class:"btn btn-outline-success rounded-pill" %>
+    </div>
+  </div>

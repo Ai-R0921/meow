@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row text-center mt-5 mb-5">
     <div class="col mx-auto">
-      <h1>ユーザー一覧</h1>
+      <h2>ユーザー一覧</h2>
     </div>
   </div>
   <div class="row">
@@ -29,7 +29,7 @@
               <%= link_to "#{user.user_name}", admin_user_path(user) %>
             </td>
             <td><%= user.email %></td>
-            <td><%= user.post_images.count %></td>
+            <td><%= user.post_count %></td>
             <td><%= user.is_deleted ? '退会' : '有効' %></td>
           </tr>
           <% end %>
