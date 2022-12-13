@@ -1,8 +1,43 @@
-<h1>コメント一覧</h1>
-<% @post_image_comments.each do |post_image_comment| %>
-  <%= post_image_comment.user.user_name %>
-  <%= post_image_comment.created_at.strftime('%Y/%m/%d') %>
-  <%= post_image_comment.comment %>
-  <%= link_to "コメントを削除する", admin_post_image_comment_path(post_image_comment), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger" %>
-<% end %>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col-7 text-right">
+      <h2>コメント一覧</h2>
+    </div>
+    <div class="col-5 text-right">
+      <%= link_to "迷子猫コメント一覧", admin_post_lost_cat_comments_path, class:"btn btn-outline-info rounded-pill" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mx-auto">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>日付</th>
+            <th>ユーザー名</th>
+            <th>コメント</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @post_image_comments.each do |post_image_comment| %>
+          <tr>
+            <td>
+              <%= post_image_comment.created_at.strftime('%Y/%m/%d') %>
+            </td>
+            <td>
+              <%= post_image_comment.user.user_name %>
+            </td>
+            <td>
+              <%= post_image_comment.comment %>
+            </td>
+            <td>
+              <%= link_to "コメントを削除する", admin_post_image_comment_path(post_image_comment), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-outline-danger rounded-pill" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 

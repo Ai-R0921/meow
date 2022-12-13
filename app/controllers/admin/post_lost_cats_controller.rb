@@ -1,6 +1,6 @@
 class Admin::PostLostCatsController < ApplicationController
   def index
-    @post_lost_cats = PostLostCat.all
+    @post_lost_cats = PostLostCat.published
   end
 
   def show

@@ -1,6 +1,6 @@
 class Admin::PostImagesController < ApplicationController
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.published
   end
 
   def show

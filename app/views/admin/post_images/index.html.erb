@@ -1,12 +1,23 @@
-<h1>投稿一覧</h1>
-<%= link_to "迷子猫一覧へ >>", admin_post_lost_cats_path %><br>
-<% @post_images.each do |post_image| %>
-  <%= post_image.title %><br>
-  <%= link_to admin_post_image_path(post_image) do %>
-    <% if post_image.image.attached? %>
-      <%= image_tag post_image.image, :size => '200x200' %><br>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col-7 text-right">
+      <h2>投稿一覧</h2>
+    </div>
+    <div class="col-5 text-right">
+      <%= link_to "迷子猫一覧", admin_post_lost_cats_path, class:"btn btn-outline-info rounded-pill" %>
+    </div>
+  </div>
+  <div class="row">
+    <% @post_images.each do |post_image| %>
+      <%= post_image.title %><br>
+      <%= link_to admin_post_image_path(post_image) do %>
+        <% if post_image.image.attached? %>
+          <%= image_tag post_image.image, :size => '200x200' %><br>
+        <% end %>
+      <% end %>
+      <%= post_image.user.user_name %>
     <% end %>
-  <% end %>
-  <%= post_image.user.user_name %>
-<% end %>
+  </div>
+</div>
+
 
