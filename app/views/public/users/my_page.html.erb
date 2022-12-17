@@ -1,26 +1,61 @@
-<h1>My Page</h1>
-<% if @user.profile_image.attached? %>
-  <%= image_tag @user.profile_image, :size => '200x200' %>
-<% else %>
-  <%= image_tag 'NO_IMAGE.png', size: '200x200' %>
-<% end %>
-<%= @user.user_name %>
-<%= link_to "Edit", edit_user_path %>
-<%= link_to "ブックマーク一覧", favorites_user_path(current_user) %>
-
-<h2>Posts</h2>
-<% @post_images.each do |post_image| %>
-  <%= post_image.title %>
-  <% if post_image.image.attached? %>
-    <%= image_tag post_image.image, size: '200x200' %>
-  <% end %>
-<% end %>
-<% @post_lost_cats.each do |post_lost_cat| %>
-  <%= post_lost_cat.title %>
-  <% if post_lost_cat.image.attached? %>
-    <%= image_tag post_lost_cat.image, size: '200x200' %>
-  <% end %>
-<% end %>
-
-<h3>下書き一覧</h3>
-<%= link_to "下書き一覧", confirm_post_images_path %>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h1>My Page</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 text-right">
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image, :size => '200x200', class:"rounded img-responsive" %>
+      <% else %>
+        <%= image_tag 'NO_IMAGE.png', size: '200x200', class:"rounded img-responsive" %>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td><%= @user.user_name %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "Favorites", favorites_user_path(current_user), class:"btn btn-outline-info rounded-pill" %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "Edit", edit_user_path, class:"btn btn-outline-success rounded-pill" %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "Drafts", confirm_post_images_path, class:"btn btn-outline-dark rounded-pill" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h2>Posts</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <% @post_images.each do |post_image| %>
+    <div class="one-post">
+      <p class="caption"><%= post_image.title %></p>
+      <%= link_to post_image_path(post_image) do %>
+        <% if post_image.image.attached? %>
+          <%= image_tag post_image.image, size: '200x200', class:"rounded img-responsive" %>
+        <% end %>
+      <% end %>
+    </div>
+    <% end %>
+    <% @post_lost_cats.each do |post_lost_cat| %>
+    <div class="one-post">
+      <p class="caption"><%= post_lost_cat.title %></p>
+      <%= link_to post_lost_cat_path(post_lost_cat) do %>
+        <% if post_lost_cat.image.attached? %>
+          <%= image_tag post_lost_cat.image, size: '200x200', class:"rounded img-responsive" %>
+        <% end %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

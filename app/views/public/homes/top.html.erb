@@ -5,10 +5,7 @@
       <h4>猫好きによる猫好きのためのコミュニティサイト</h4>
     </div>
   </div>
-  <% if user_signed_in? %>
-    <%= link_to "New Post", new_post_image_path %>
-  <% end %>
-  <div class="row text-center mt-5">
+  <div class="row text-center mt-5 mb-5">
     <div class="col mx-auto">
       <h1>What's New</h1>
     </div>
@@ -28,9 +25,16 @@
       <p class="caption"><%= post_image.user.user_name %></p>
     </div>
     <% end %>
-    <%= link_to "show more >>", post_images_path %>
   </div>
-  <div class="row text-center mt-5">
+  <div class="row justify-content-center">
+    <%= link_to "show more >>", post_images_path, class:"btn btn-outline-primary rounded-pill" %>
+  </div>
+  <div class="row mt-3 justify-content-center">
+    <% if user_signed_in? %>
+      <%= link_to "New Post", new_post_image_path, class:"btn btn-outline-success rounded-pill" %>
+    <% end %>
+  </div>
+  <div class="row text-center mt-5 mb-5">
     <div class="col mx-auto">
       <h1>Lost Cats</h1>
     </div>
@@ -48,33 +52,36 @@
     </div>
     <% end %>
   </div>
-  <%= link_to "show more >>", post_lost_cats_path %>
-
-<% if user_signed_in? %>
-  <%= link_to "New Post", new_post_lost_cat_path %>
-<% end %>
-<div class="row text-center mt-5">
-  <div class="col mx-auto">
-    <h1>Search Cats</h1>
+  <div class="row justify-content-center">
+    <%= link_to "show more >>", post_lost_cats_path, class:"btn btn-outline-primary rounded-pill" %>
   </div>
-</div>
-<div class="row justify-content-center">
-  <%= form_tag({controller:"homes", action:"top"}, method: :get) do %>
-    <%= select_tag :type_search, options_from_collection_for_select(@type, "id", "name") %>
-    <%= submit_tag "Go" %>
-  <% end %>
-</div>
-<div class="row justify-content-center">
-  <% if @results.present? %>
-    <% @results.each do |result| %>
-    <div class="one-post">
-      <p class="caption"><%= result.title %></p>
-      <% if result.image.attached? %>
-        <%= image_tag result.image, size: "200x200", class:"rounded img-responsive" %>
-      <% end %>
-      <p class="caption"><%= result.user.user_name %></p>
-    </div>
+  <div class="row mt-3 justify-content-center">
+    <% if user_signed_in? %>
+      <%= link_to "New Post", new_post_lost_cat_path, class:"btn btn-outline-success rounded-pill" %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+  <div class="row text-center mt-5">
+    <div class="col mx-auto">
+      <h1>Search Cats</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= form_tag({controller:"homes", action:"top"}, method: :get) do %>
+      <%= select_tag :type_search, options_from_collection_for_select(@type, "id", "name") %>
+      <%= submit_tag "Go", class:"btn btn-outline-primary btn-sm" %>
+    <% end %>
+  </div>
+  <div class="row mt-5 justify-content-center">
+    <% if @results.present? %>
+      <% @results.each do |result| %>
+      <div class="one-post">
+        <p class="caption"><%= result.title %></p>
+        <% if result.image.attached? %>
+          <%= image_tag result.image, size: "200x200", class:"rounded img-responsive" %>
+        <% end %>
+        <p class="caption"><%= result.user.user_name %></p>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
