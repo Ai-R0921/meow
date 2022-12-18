@@ -3,7 +3,11 @@ before_action :authenticate_user!
 
   def show
     @user = User.find(params[:id])
-    @post_images = @user.post_images
+    if @user == current_user
+      redirect_to my_page_path
+    end
+    @post_images = @user.post_images.published
+    @post_lost_cats = @user.post_lost_cats.published
     @currentUserEntry = Entry.where(user_id: current_user.id)
     @userEntry = Entry.where(user_id: @user.id)
     unless @user.id == current_user.id
