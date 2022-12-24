@@ -57,6 +57,8 @@ before_action :authenticate_user!
     @user = User.find(params[:id])
     favorites = PostImageFavorite.where(user_id: @user.id).pluck(:post_image_id)
     @post_image_favorites = PostImage.find(favorites)
+    favorites_lost = PostLostCatFavorite.where(user_id: @user.id).pluck(:post_lost_cat_id)
+    @post_lost_cat_favorites = PostLostCat.find(favorites_lost)
   end
 
   def followings

@@ -1,7 +1,24 @@
-<h3>退会すると今までの投稿データがなくなり、<br>
-コメントや投稿ができなくなります。<br>
-退会しますか？
-</h3>
-
-<%= link_to "No", my_page_path, class:"btn btn-primary" %>
-<%= link_to "Yes", users_withdraw_path, method: :patch, data: { confirm: "Are you sure?" }, class:"btn btn-danger" %>
+<div class="container">
+  <div class="row mb-5"></div>
+  <div class="row text-center mb-5">
+    <div class="col mx-auto mt-5">
+      <h4 class="font-weight-bold">本当に退会しますか？</h4>
+    </div>
+  </div>
+  <div class="row text-center mb-5">
+    <div class="col mx-auto">
+      <h5>退会すると今までの投稿データがなくなり、<br>
+      コメントや投稿ができなくなります。<br>
+      退会する場合は「Yes」をクリックしてください。
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 text-right">
+      <%= link_to "No", my_page_path, class:"btn btn-outline-primary rounded-pill" %>
+    </div>
+    <div class="col-6 text-left">
+      <%= link_to "Yes", users_withdraw_path, method: :patch, data: { confirm: "Are you sure?" }, class:"btn btn-outline-danger rounded-pill" %>
+    </div>
+  </div>
+</div>

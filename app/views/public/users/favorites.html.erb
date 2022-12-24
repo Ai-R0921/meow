@@ -1,6 +1,29 @@
-<h1>Favorites</h1>
-<% @post_image_favorites.each do |post_image| %>
-  <%= image_tag post_image.image, size: "200x200" %>
-  <%= post_image.title %>
-  <%= post_image.user.user_name %>
-<% end %>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h1>Favorites</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <% @post_image_favorites.each do |post_image| %>
+    <div class="one-post">
+      <p class="caption"><%= post_image.title %></p>
+      <%= link_to post_image_path(post_image) do %>
+        <%= image_tag post_image.image, size: "200x200", class:"rounded img-responsive" %>
+      <% end %>
+      <p class="caption"><%= post_image.user.user_name %></p>
+    </div>
+    <% end %>
+    <% @post_lost_cat_favorites.each do |post_lost_cat| %>
+    <div class="one-post">
+      <p class="caption"><%= post_lost_cat.title %></p>
+      <%= link_to post_lost_cat_path(post_lost_cat) do %>
+        <%# if post_lost_cat.image.attached? %>
+          <%= image_tag post_lost_cat.image, size: '200x200', class:"rounded img-responsive" %>
+        <%# end %>
+      <% end %>
+      <p class="caption"><%= post_lost_cat.user.user_name %></p>
+    </div>
+    <% end %>
+  </div>
+</div>
