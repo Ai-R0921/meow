@@ -1,18 +1,24 @@
-<h1>Edit Profile</h1>
-<%= form_with model: @user do |f| %>
-  <div class="field">
-    <%= f.label :user_name %><br />
-    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h1>Edit Profile</h1>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
-    <%= f.label :profile_image %><br />
-    <%= f.file_field :profile_image, accept: "image/*" %>
-  </div>
-  <%= f.submit "Save" %>
-<% end %>
-
-<%= link_to "Delete an account >>", users_unsubscribe_path %>
+  
+      <%= form_with model: @user do |f| %>
+        <div class="field">
+          <%= f.label :user_name %><br />
+          <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
+        </div>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="field">
+          <%= f.label :profile_image %><br />
+          <%= f.file_field :profile_image, accept: "image/*" %>
+        </div>
+        <%= f.submit "Save" %>
+      <% end %>
+      
+      <%= link_to "Delete an account >>", users_unsubscribe_path %>
