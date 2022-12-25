@@ -1,14 +1,45 @@
-<h1>Post Detail</h1>
-<% if @post_image.image.attached? %>
-  <%= image_tag @post_image.image, :size => '300x300' %>
-<% end %>
-<%= @post_image.created_at.strftime('%Y/%m/%d') %>
-<%= link_to user_path(@user) do %>
-  <%= @post_image.user.user_name %>
-<% end %>
-<%= @post_image.title %>
-<%= @post_image.body %>
-<%= @post_image.sex %>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h1>Post Detail</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 text-right">
+      <% if @post_image.image.attached? %>
+        <%= image_tag @post_image.image, :size => '300x300', class:"rounded img-responsive" %>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td></td>
+            <td><%= @post_image.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to "#{@user.user_name}", user_path(@user) %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= @post_image.title %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= @post_image.body %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= @post_image.sex %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
 
 <% if user_signed_in? %>
   <% if @post_image.favorited_by?(current_user) %>

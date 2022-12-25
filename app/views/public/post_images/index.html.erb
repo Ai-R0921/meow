@@ -1,22 +1,43 @@
-<h1>Cats</h1>
-<% @post_images.each do |post_image| %>
-  <%= post_image.title %>
-  <%= link_to post_image_path(post_image) do %>
-    <% if post_image.image.attached? %>
-      <%= image_tag post_image.image, :size => '200x200' %>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h1>Cats</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <% @post_images.each do |post_image| %>
+    <div class="one-post">
+      <p class="caption"><%= post_image.title %></p>
+      <% if post_image.user.is_deleted %>
+        <% next %>
+      <% end %>
+      <%= link_to post_image_path(post_image) do %>
+        <% if post_image.image.attached? %>
+          <%= image_tag post_image.image, :size => '200x200', class:"ronded img-responsive" %>
+        <% end %>
+      <% end %>
+      <p class="caption"><%= post_image.user.user_name %></p>
+      <p class="caption"><%= link_to "#{post_image.post_image_comments.count} コメント", post_image_path(post_image) %></p>
+    </div>
     <% end %>
-  <% end %>
-  <%= post_image.user.user_name %>
-  <%= link_to "#{post_image.post_image_comments.count} コメント", post_image_path(post_image) %>
-<% end %>
-
-<h1>Ranking</h1>
-<% @all_ranks.each do |post_image| %>
-  <%= post_image.title %>
-  <%= link_to post_image_path(post_image) do %>
-    <% if post_image.image.attached? %>
-      <%= image_tag post_image.image, :size => '200x200' %>
+  </div>
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h1>Ranking</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <% @all_ranks.each do |post_image| %>
+    <div class="one-post">
+      <p class="caption"><%= post_image.title %></p>
+      <%= link_to post_image_path(post_image) do %>
+        <% if post_image.image.attached? %>
+          <%= image_tag post_image.image, :size => '200x200', class:"rounded img-responsive" %>
+        <% end %>
+      <% end %>
+      <p class="caption"><%= post_image.user.user_name %></p>
+      <p class="caption">♥<%= post_image.post_image_favorites.count %></p>
+    </div>
     <% end %>
-  <% end %>
-  <%= post_image.user.user_name %>
-<% end %>
+  </div>
+</div>
