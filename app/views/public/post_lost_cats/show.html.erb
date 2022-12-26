@@ -1,46 +1,85 @@
-<h1>Post Detail</h1>
-<% if @post_lost_cat.image.attached? %>
-  <%= image_tag @post_lost_cat.image, :size => '300x300' %>
-<% end %>
-<%= @post_lost_cat.created_at.strftime('%Y/%m/%d') %>
-<%= link_to user_path(@user) do %>
-  <%= @post_lost_cat.user.user_name %>
-<% end %>
-<%= @post_lost_cat.title %>
-<%= @post_lost_cat.body %>
-<%= @post_lost_cat.sex %>
-
-<% if user_signed_in? %>
-  <% if @post_lost_cat.favorited_by?(current_user) %>
-  <h3>
-    <%= link_to post_lost_cat_post_lost_cat_favorites_path(@post_lost_cat), method: :delete do %>
-      ♥<%= @post_lost_cat.post_lost_cat_favorites.count %>いいね
-    <% end %>
-  </h3>
-  <% else %>
-  <h3>
-    <%= link_to post_lost_cat_post_lost_cat_favorites_path(@post_lost_cat), method: :post do %>
-      ♡<%= @post_lost_cat.post_lost_cat_favorites.count %>いいね
-    <% end %>
-  </h3>
-  <% end %>
-<% end %>
-<% if @user == current_user %>
-  <%= link_to "Edit", edit_post_lost_cat_path(@post_lost_cat) %>
-<% end %>
-
-<p>コメント件数 : <%= @post_lost_cat.post_lost_cat_comments.count %></p>
-<% @post_lost_cat.post_lost_cat_comments.each do |post_lost_cat_comment| %>
-  <%= post_lost_cat_comment.user.user_name %>
-  <%= post_lost_cat_comment.created_at.strftime('%Y/%m/%d') %>
-  <%= post_lost_cat_comment.comment %>
-  <% if post_lost_cat_comment.user == current_user %>
-    <%= link_to "Delete", post_lost_cat_post_lost_cat_comment_path(post_lost_cat_comment.post_lost_cat, post_lost_cat_comment), method: :delete %>
-  <% end %>
-<% end %>
-<% if user_signed_in? %>
-  <%= form_with model: [@post_lost_cat, @post_lost_cat_comment] do |f| %>
-    <%= f.text_area :comment, placeholder:"comments" %>
-    <%= f.submit "Post" %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row text-center mt-5 mb-5">
+    <div class="col mx-auto">
+      <h1>Post Detail</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 text-right">
+      <% if @post_lost_cat.image.attached? %>
+        <%= image_tag @post_lost_cat.image, :size => '300x300', class:"rounded img-responsive" %>
+      <% end %>
+      <p class="caption">
+        <% if @user == current_user %>
+          <%= link_to "Edit", edit_post_lost_cat_path(@post_lost_cat), class:"btn btn-outline-success rounded-pill" %>
+        <% end %>
+      </p>
+    </div>
+    <div class="col-6">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td></td>
+            <td><%= @post_lost_cat.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to "#{@user.user_name}", user_path(@user) %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= @post_lost_cat.title %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= @post_lost_cat.body %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= @post_lost_cat.sex %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <% if user_signed_in? %>
+                <% if @post_lost_cat.favorited_by?(current_user) %>
+                <h3>
+                  <%= link_to post_lost_cat_post_lost_cat_favorites_path(@post_lost_cat), method: :delete do %>
+                    ♥<%= @post_lost_cat.post_lost_cat_favorites.count %>
+                  <% end %>
+                </h3>
+                <% else %>
+                <h3>
+                  <%= link_to post_lost_cat_post_lost_cat_favorites_path(@post_lost_cat), method: :post do %>
+                    ♡<%= @post_lost_cat.post_lost_cat_favorites.count %>
+                  <% end %>
+                </h3>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <p>コメント件数 : <%= @post_lost_cat.post_lost_cat_comments.count %></p>
+              <% @post_lost_cat.post_lost_cat_comments.each do |post_lost_cat_comment| %>
+                <%= post_lost_cat_comment.user.user_name %>
+                <%= post_lost_cat_comment.created_at.strftime('%Y/%m/%d') %>
+                <%= post_lost_cat_comment.comment %>
+                <% if post_lost_cat_comment.user == current_user %>
+                  <%= link_to "Delete", post_lost_cat_post_lost_cat_comment_path(post_lost_cat_comment.post_lost_cat, post_lost_cat_comment), method: :delete %>
+                <% end %>
+              <% end %>
+              <% if user_signed_in? %>
+                <%= form_with model: [@post_lost_cat, @post_lost_cat_comment] do |f| %>
+                  <%= f.text_area :comment, placeholder:"comments" %>
+                  <%= f.submit "Post", class:"btn btn-outline-success rounded-pill" %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

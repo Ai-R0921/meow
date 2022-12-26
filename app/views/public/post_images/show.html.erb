@@ -5,10 +5,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-4 text-right">
+    <div class="col-6 text-right">
       <% if @post_image.image.attached? %>
         <%= image_tag @post_image.image, :size => '300x300', class:"rounded img-responsive" %>
       <% end %>
+      <p class="caption">
+        <% if @user == current_user %>
+          <%= link_to "Edit", edit_post_image_path(@post_image), class:"btn btn-outline-success rounded-pill" %>
+        <% end %>
+      </p>
     </div>
     <div class="col-6">
       <table class="table table-borderless">
@@ -33,45 +38,48 @@
             <td></td>
             <td><%= @post_image.sex %></td>
           </tr>
+          <tr>
+            <td></td>
+            <td>
+              <% if user_signed_in? %>
+                <% if @post_image.favorited_by?(current_user) %>
+                <h3>
+                  <%= link_to post_image_post_image_favorites_path(@post_image), method: :delete do %>
+                    ♥<%= @post_image.post_image_favorites.count %>
+                  <% end %>
+                </h3>
+                <% else %>
+                <h3>
+                  <%= link_to post_image_post_image_favorites_path(@post_image), method: :post do %>
+                    ♡<%= @post_image.post_image_favorites.count %>
+                  <% end %>
+                </h3>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <p>コメント件数 : <%= @post_image.post_image_comments.count %></p>
+              <% @post_image.post_image_comments.each do |post_image_comment| %>
+                <%= post_image_comment.user.user_name %>
+                <%= post_image_comment.created_at.strftime('%Y/%m/%d') %>
+                <%= post_image_comment.comment %>
+                <% if post_image_comment.user == current_user %>
+                  <%= link_to "Delete", post_image_post_image_comment_path(post_image_comment.post_image, post_image_comment), method: :delete %>
+                <% end %>
+              <% end %>
+              <% if user_signed_in? %>
+                <%= form_with model: [@post_image, @post_image_comment] do |f| %>
+                  <%= f.text_area :comment, placeholder:"comments" %>
+                  <%= f.submit "Post", class:"btn btn-outline-success rounded-pill" %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
-
-
-
-
-<% if user_signed_in? %>
-  <% if @post_image.favorited_by?(current_user) %>
-  <h3>
-    <%= link_to post_image_post_image_favorites_path(@post_image), method: :delete do %>
-      ♥<%= @post_image.post_image_favorites.count %>いいね
-    <% end %>
-  </h3>
-  <% else %>
-  <h3>
-    <%= link_to post_image_post_image_favorites_path(@post_image), method: :post do %>
-      ♡<%= @post_image.post_image_favorites.count %>いいね
-    <% end %>
-  </h3>
-  <% end %>
-<% end %>
-<% if @user == current_user %>
-  <%= link_to "Edit", edit_post_image_path(@post_image) %>
-<% end %>
-
-<p>コメント件数 : <%= @post_image.post_image_comments.count %></p>
-<% @post_image.post_image_comments.each do |post_image_comment| %>
-  <%= post_image_comment.user.user_name %>
-  <%= post_image_comment.created_at.strftime('%Y/%m/%d') %>
-  <%= post_image_comment.comment %>
-  <% if post_image_comment.user == current_user %>
-    <%= link_to "Delete", post_image_post_image_comment_path(post_image_comment.post_image, post_image_comment), method: :delete %>
-  <% end %>
-<% end %>
-<% if user_signed_in? %>
-  <%= form_with model: [@post_image, @post_image_comment] do |f| %>
-    <%= f.text_area :comment, placeholder:"comments" %>
-    <%= f.submit "Post" %>
-  <% end %>
-<% end %>
+</div>
