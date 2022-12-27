@@ -1,13 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-// body{
-// background-image: image-url('nikukyu.jpg');
-// background-size: cover;
-// background-repeat: no-repeat;
-// height: 100%;
-// }
+main {
+background-image: url('../images/nikukyu.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 80vh;
+}
 
+.card-header h3{
+color: white;
+}
 
 .container{
 height: 100%;
@@ -19,7 +22,15 @@ height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+background-color: rgba(184,156,156,0.5) !important;
+}
+
+.remember{
+color: white;
+}
+
+.links{
+color: white;
 }
 
 .one-post {
