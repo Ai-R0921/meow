@@ -1,7 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-main {
+
+.sign-in {
 background-image: url('../images/nikukyu.jpg');
 background-size: cover;
 background-repeat: no-repeat;
@@ -24,6 +25,14 @@ margin-bottom: auto;
 width: 400px;
 background-color: rgba(184,156,156,0.5) !important;
 }
+
+.form-control fa::before {
+  font-family: "Font Awesome 5 Free";
+  width: 50px;
+  background-color: #FFC312;
+  color: black;
+  border:0 !important;
+  }
 
 .remember{
 color: white;
