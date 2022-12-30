@@ -28,6 +28,7 @@ background-color: rgba(184,156,156,0.5) !important;
 
 .form-control fa::before {
   font-family: "Font Awesome 5 Free";
+  font-weight: 400;
   width: 50px;
   background-color: #FFC312;
   color: black;
@@ -40,6 +41,25 @@ color: white;
 
 .links{
 color: white;
+}
+
+.sign-up {
+background-image: url('../images/signup.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 80vh;
+}
+
+.card2{
+height: 540px;
+margin-top: auto;
+margin-bottom: auto;
+width: 480px;
+background-color: rgba(232,182,150,0.6) !important;
+}
+
+.new-user {
+  margin-bottom: 0;
 }
 
 .one-post {
