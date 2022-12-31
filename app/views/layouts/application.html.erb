@@ -16,11 +16,14 @@
   <body>
     <header class="shadow-sm pt-3 pb-3">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <ul class="navbar-nav text-center">
+        <div class="container-fluid header">
+          <ul class="navbar-nav">
             <% if user_signed_in? %>
               Welcome, <%= current_user.user_name %>!
             <% end %>
+          </ul>
+          <ul class="navbar-nav">
+            <%= link_to image_tag("meow-title2.png", class:"logo_img"), "/" %>
           </ul>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

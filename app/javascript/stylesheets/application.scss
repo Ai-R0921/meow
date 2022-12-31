@@ -1,6 +1,28 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+.top {
+  background-color: #e4c9c0;
+}
+
+.about {
+  margin-top: 100px;
+  color: white;
+}
+
+.subtitle {
+  color: white;
+}
+
+.header {
+  justify-content: center;
+  display: flex;
+}
+
+.logo_img {
+  width: 120px;
+  height: 80px;
+}
 
 .sign-in {
 background-image: url('../images/nikukyu.jpg');
