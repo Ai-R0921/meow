@@ -1,8 +1,8 @@
-
+<div class="main top">
   <div class="container">
-    <div class="row text-center mt-5 mb-5">
+    <div class="row text-center mb-5">
       <div class="col mx-auto">
-        <h1>Cats</h1>
+        <h1 class="about">Cats</h1>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -14,7 +14,7 @@
         <% end %>
         <%= link_to post_image_path(post_image) do %>
           <% if post_image.image.attached? %>
-            <%= image_tag post_image.image, :size => '200x200', class:"ronded img-responsive" %>
+            <%= image_tag post_image.image, :size => '200x200', class:"rounded img-responsive" %>
           <% end %>
         <% end %>
         <p class="caption"><%= post_image.user.user_name %></p>
@@ -24,7 +24,7 @@
     </div>
     <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">
-        <h1>Ranking</h1>
+        <h1 class="subtitle">Ranking</h1>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -42,3 +42,4 @@
       <% end %>
     </div>
   </div>
+</div>

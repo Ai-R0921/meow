@@ -29,6 +29,8 @@ background-image: url('../images/nikukyu.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 80vh;
+background-color: rgba(255,255,255,0.3);
+background-blend-mode:lighten;
 }
 
 .card-header h3{
@@ -45,7 +47,7 @@ height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
-background-color: rgba(184,156,156,0.5) !important;
+background-color: rgba(228,201,192,0.6) !important;
 }
 
 .form-control fa::before {
@@ -70,6 +72,8 @@ background-image: url('../images/signup.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 80vh;
+background-color: rgba(255,255,255,0.3);
+background-blend-mode:lighten;
 }
 
 .card2{
@@ -77,7 +81,7 @@ height: 540px;
 margin-top: auto;
 margin-bottom: auto;
 width: 480px;
-background-color: rgba(232,182,150,0.6) !important;
+background-color: rgba(228,201,192,0.7) !important;
 }
 
 .new-user {

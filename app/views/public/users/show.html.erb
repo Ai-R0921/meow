@@ -1,71 +1,73 @@
-<div class="container">
-  <div class="row text-center mt-5 mb-5">
-    <div class="col mx-auto">
-      <h1>User show</h1>
+<div class="main top">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col mx-auto">
+        <h1 class="about">User show</h1>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-4 text-right">
-      <% if @user.profile_image.attached? %>
-        <%= image_tag @user.profile_image, :size => '200x200', class:"rounded img-responsive" %>
-      <% else %>
-        <%= image_tag 'NO_IMAGE.png', size: '200x200', class:"rounded img-responsive" %>
-      <% end %>
-    </div>
-    <div class="col-6">
-      <table class="table table-borderless">
-        <tbody>
-          <tr>
-            <td><%= @user.user_name %></td>
-          </tr>
-          <tr>
-            <td>
-              <% if @user != current_user %>
-                <% if @user.following?(current_user) %>
-                  <%= link_to "unfollow", user_relationships_path(@user), method: :delete %>
-                <% else %>
-                  <%= link_to "follow", user_relationships_path(@user), method: :post %>
-                <% end %>
-              <% end %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="row text-center mt-5 mb-5">
-    <div class="col mx-auto">
-      <h2>Posts</h2>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <% @post_images.each do |post_image| %>
-    <div class="one-post">
-      <p class="caption"><%= post_image.title %></p>
-      <%= image_tag post_image.image, size: '200x200', class:"rounded img-responsive" %>
-      <p><%= link_to "#{post_image.post_image_comments.count} Comments", post_image_path(post_image) %></p>
-    </div>
-    <% end %>
-    <% @post_lost_cats.each do |post_lost_cat| %>
-    <div class="one-post">
-      <p class="caption"><%= post_lost_cat.title %></p>
-      <%= image_tag post_lost_cat.image, size: '200x200', class:"rounded img-responsive" %>
-      <p><%= link_to "#{post_lost_cat.post_lost_cat_comments.count} Comments", post_lost_cat_path(post_lost_cat) %></p>
-    </div>
-    <% end %>
-  </div>
-  <% unless @user.id == current_user.id %>
-    <% if (current_user.following? @user) && (@user.following? current_user)  %>
-    <% if @isRoom == true %>
-      <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
-    <% else %>
-      <%= form_for @room do |f| %>
-        <%= fields_for @entry do |e| %>
-          <%= e.hidden_field :user_id, value: @user.id %>
+    <div class="row">
+      <div class="col-4 text-right">
+        <% if @user.profile_image.attached? %>
+          <%= image_tag @user.profile_image, :size => '200x200', class:"rounded img-responsive" %>
+        <% else %>
+          <%= image_tag 'NO_IMAGE.png', size: '200x200', class:"rounded img-responsive" %>
         <% end %>
-        <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+      </div>
+      <div class="col-6">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td><%= @user.user_name %></td>
+            </tr>
+            <tr>
+              <td>
+                <% if @user != current_user %>
+                  <% if @user.following?(current_user) %>
+                    <%= link_to "unfollow", user_relationships_path(@user), method: :delete %>
+                  <% else %>
+                    <%= link_to "follow", user_relationships_path(@user), method: :post %>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row text-center mt-5 mb-5">
+      <div class="col mx-auto">
+        <h2 class="subtitle">Posts</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <% @post_images.each do |post_image| %>
+      <div class="one-post">
+        <p class="caption"><%= post_image.title %></p>
+        <%= image_tag post_image.image, size: '200x200', class:"rounded img-responsive" %>
+        <p><%= link_to "#{post_image.post_image_comments.count} Comments", post_image_path(post_image) %></p>
+      </div>
+      <% end %>
+      <% @post_lost_cats.each do |post_lost_cat| %>
+      <div class="one-post">
+        <p class="caption"><%= post_lost_cat.title %></p>
+        <%= image_tag post_lost_cat.image, size: '200x200', class:"rounded img-responsive" %>
+        <p><%= link_to "#{post_lost_cat.post_lost_cat_comments.count} Comments", post_lost_cat_path(post_lost_cat) %></p>
+      </div>
+      <% end %>
+    </div>
+    <% unless @user.id == current_user.id %>
+      <% if (current_user.following? @user) && (@user.following? current_user)  %>
+      <% if @isRoom == true %>
+        <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+      <% else %>
+        <%= form_for @room do |f| %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field :user_id, value: @user.id %>
+          <% end %>
+          <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+        <% end %>
+      <% end %>
       <% end %>
     <% end %>
-    <% end %>
-  <% end %>
+  </div>
 </div>

@@ -1,23 +1,25 @@
-<div class="container">
-  <div class="row text-center mt-5 mb-5">
-    <div class="col mx-auto">
-      <h1>Lost Cats</h1>
+<div class="main top">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col mx-auto">
+        <h1 class="about">Lost Cats</h1>
+      </div>
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <% @post_lost_cats.each do |post_lost_cat| %>
-    <div class="one-post">
-      <p class="caption"><%= post_lost_cat.title %></p>
-      <% if post_lost_cat.user.is_deleted %>
-        <% next %>
-      <% end %>
-      <%= link_to post_lost_cat_path(post_lost_cat) do %>
-        <% if post_lost_cat.image.attached? %>
-          <%= image_tag post_lost_cat.image, :size => '200x200', class:"rounded img-responsive" %>
+    <div class="row justify-content-center">
+      <% @post_lost_cats.each do |post_lost_cat| %>
+      <div class="one-post">
+        <p class="caption"><%= post_lost_cat.title %></p>
+        <% if post_lost_cat.user.is_deleted %>
+          <% next %>
         <% end %>
+        <%= link_to post_lost_cat_path(post_lost_cat) do %>
+          <% if post_lost_cat.image.attached? %>
+            <%= image_tag post_lost_cat.image, :size => '200x200', class:"rounded img-responsive" %>
+          <% end %>
+        <% end %>
+        <p class="caption"><%= post_lost_cat.user.user_name %></p>
+      </div>
       <% end %>
-      <p class="caption"><%= post_lost_cat.user.user_name %></p>
     </div>
-    <% end %>
   </div>
 </div>

@@ -1,38 +1,40 @@
-<div class="container">
-  <div class="row text-center mt-5 mb-5">
-    <div class="col mx-auto">
-      <h1>Edit Profile</h1>
+<div class="main top">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col mx-auto">
+        <h1 class="about">Edit Profile</h1>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-6 mx-auto">
-      <table class="table table-borderless">
-        <tbody>
-          <%= form_with model: @user do |f| %>
-          <tr>
-            <td><%= f.label :user_name %></td>
-            <td><%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :email %></td>
-            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :profile_image %></td>
-            <td><%= f.file_field :profile_image, accept: "image/*" %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><%= f.submit "Save", class:"btn btn-outline-success rounded-pill" %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <table class="table table-borderless">
+          <tbody>
+            <%= form_with model: @user do |f| %>
+            <tr>
+              <td><%= f.label :user_name %></td>
+              <td><%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :email %></td>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :profile_image %></td>
+              <td><%= f.file_field :profile_image, accept: "image/*" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit "Save", class:"btn btn-outline-success rounded-pill" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col text-right">
-      <%= link_to "Delete an account >>", users_unsubscribe_path, class:"btn btn-outline-danger rounded-pill" %>
+    <div class="row">
+      <div class="col text-right">
+        <%= link_to "Delete an account >>", users_unsubscribe_path, class:"btn btn-outline-danger rounded-pill" %>
+      </div>
     </div>
   </div>
 </div>
