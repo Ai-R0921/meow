@@ -9,20 +9,24 @@
       <% @post_images.each do |post_image| %>
       <div class="one-post">
         <p class="caption"><%= post_image.title %></p>
-        <% if post_image.image.attached? %>
-          <%= image_tag post_image.image, :size => '200x200', class:"rounded img-responsive" %>
+        <%= link_to edit_post_image_path(post_image) do %>
+          <% if post_image.image.attached? %>
+            <%= image_tag post_image.image, :size => '200x200', class:"rounded img-responsive" %>
+          <% end %>
         <% end %>
-        <p class="caption"><%= post_image.body %></p>
+        <p class="caption"></p>
       </div>
       <% end %>
       <!--<div class="row justify-content-center">-->
         <% @post_lost_cats.each do |post_lost_cat| %>
         <div class="one-post">
         <p class="caption"><%= post_lost_cat.title %></p>
-        <% if post_lost_cat.image.attached? %>
-          <%= image_tag post_lost_cat.image, :size => '200x200', class:"rounded img-responsive" %>
+        <%= link_to edit_post_lost_cat_path(post_lost_cat) do %>
+          <% if post_lost_cat.image.attached? %>
+            <%= image_tag post_lost_cat.image, :size => '200x200', class:"rounded img-responsive" %>
+          <% end %>
         <% end %>
-        <p class="caption"><%= post_lost_cat.body %></p>
+        <p class="caption"></p>
       </div>
       <% end %>
     </div>

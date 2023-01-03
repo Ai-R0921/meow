@@ -13,6 +13,7 @@
         <p class="caption">
           <% if @user == current_user %>
             <%= link_to "Edit", edit_post_lost_cat_path(@post_lost_cat), class:"btn btn-outline-success rounded-pill" %>
+            <%= link_to "Delete Post", post_lost_cat_path(@post_lost_cat), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-outline-danger rounded-pill" %>
           <% end %>
         </p>
       </div>

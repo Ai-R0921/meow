@@ -1,53 +1,55 @@
-<div class="container">
-  <div class="row text-center mt-5 mb-5">
-    <div class="col mx-auto">
-      <h1>New Post</h1>
+<div class="main top">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col mx-auto">
+        <h1 class="about">New Post</h1>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-6 mx-auto">
-      <table class="table table-borderless">
-        <tbody>
-          <%= form_with model: @post_image, url:post_images_path, method: :post, local: true do |f| %>
-          <tr>
-            <td>Image</td>
-            <td><%= f.file_field :image, accept: "image/*" %></td>
-          </tr>
-          <tr>
-            <td>Title</td>
-            <td><%= f.text_field :title %></td>
-          </tr>
-          <tr>
-            <td>Body</td>
-            <td><%= f.text_area :body %></td>
-          </tr>
-          <tr>
-            <td>Type of cat</td>
-            <td><%= f.collection_select :type_id, Type.all, :id, :name, prompt: "Choose Type" %></td>
-          </tr>
-          <tr>
-            <td>Sex</td>
-            <td>
-              <%= f.radio_button :sex, PostImage.sexes.key(0), checked: "checked" %>
-              <%= f.label :sex, PostImage.sexes_i18n[:male] %>
-              <%= f.radio_button :sex, PostImage.sexes.key(1) %>
-              <%= f.label :sex, PostImage.sexes_i18n[:female] %>
-              <%= f.radio_button :sex, PostImage.sexes.key(2) %>
-              <%= f.label :sex, PostImage.sexes_i18n[:unknown] %>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <%= f.select :status, PostImage.statuses.keys.map { |k| [t("enums.post_image.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= f.submit "Post", class:"btn btn-outline-success rounded-pill" %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <table class="table table-borderless">
+          <tbody>
+            <%= form_with model: @post_image, url:post_images_path, method: :post, local: true do |f| %>
+            <tr>
+              <td>Image</td>
+              <td><%= f.file_field :image, accept: "image/*" %></td>
+            </tr>
+            <tr>
+              <td>Title</td>
+              <td><%= f.text_field :title %></td>
+            </tr>
+            <tr>
+              <td>Body</td>
+              <td><%= f.text_area :body %></td>
+            </tr>
+            <tr>
+              <td>Type of cat</td>
+              <td><%= f.collection_select :type_id, Type.all, :id, :name, prompt: "Choose Type" %></td>
+            </tr>
+            <tr>
+              <td>Sex</td>
+              <td>
+                <%= f.radio_button :sex, PostImage.sexes.key(0), checked: "checked" %>
+                <%= f.label :sex, PostImage.sexes_i18n[:male] %>
+                <%= f.radio_button :sex, PostImage.sexes.key(1) %>
+                <%= f.label :sex, PostImage.sexes_i18n[:female] %>
+                <%= f.radio_button :sex, PostImage.sexes.key(2) %>
+                <%= f.label :sex, PostImage.sexes_i18n[:unknown] %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%= f.select :status, PostImage.statuses.keys.map { |k| [t("enums.post_image.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+              </td>
+            </tr>
+            <tr>
+              <td><%= f.submit "Post", class:"btn btn-outline-success rounded-pill" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
