@@ -1,10 +1,9 @@
 <div class="main top">
   <div class="container">
     <div class="row text-center">
-      <div class="col mx-auto">
+      <div class="col mx-auto margin">
         <h1 class="about">What's meow?</h1>
-        <h4>猫好きによる猫好きのためのコミュニティサイト</h4>
-        <div class="box"></div>
+        <h4 class="about-text">猫好きによる猫好きのためのコミュニティサイト</h4>
       </div>
     </div>
     <div class="row text-center mt-5 mb-5">
@@ -29,11 +28,11 @@
       <% end %>
     </div>
     <div class="row justify-content-center">
-      <%= link_to "show more >>", post_images_path, class:"btn btn-outline-primary rounded-pill" %>
+      <%= link_to "show more >>", post_images_path, class:"btn btn-light rounded-pill" %>
     </div>
     <div class="row mt-3 justify-content-center">
       <% if user_signed_in? %>
-        <%= link_to "New Post", new_post_image_path, class:"btn btn-outline-success rounded-pill" %>
+        <%= link_to "New Post", new_post_image_path, class:"btn btn-outline-light rounded-pill" %>
       <% end %>
     </div>
     <div class="row text-center mt-5 mb-5">

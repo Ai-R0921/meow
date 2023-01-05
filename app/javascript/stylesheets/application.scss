@@ -5,21 +5,25 @@
   background-color: #e4c9c0;
 }
 
-.box {
-  width: 200px;
-  height: 35px;
-  background-color: #a68b62;
-  position: absolute;
-  top: 50px;
+.margin {
+  margin-top: 80px;
 }
 
 .about {
-  margin-top: 80px;
   color: white;
+  display: inline;
+  background: linear-gradient(transparent 40%, #a68b62 40%);
+}
+
+.about-text {
+  color: white;
+  margin-top: 50px;
 }
 
 .subtitle {
   color: white;
+  display: inline;
+  background: linear-gradient(transparent 40%, #a68b62 40%);
 }
 
 .header {
@@ -30,6 +34,12 @@
 .logo_img {
   width: 120px;
   height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 .sign-in {
