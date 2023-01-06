@@ -32,14 +32,14 @@
               </div>
             <% end %>
     				<div class="row mt-3 justify-content-center">
-              <%= f.submit "Log in", class: "btn btn-outline-light rounded-pill" %>
+              <%= f.submit "Log in", class: "login-button" %>
             </div>
           <% end %>
   			</div>
   			<div class="card-footer">
   				<div class="d-flex justify-content-center links">
   					アカウントをお持ちでない方⇒
-  					<%= link_to "Sign up", new_user_registration_path %>
+  					<%= link_to "Sign up", new_user_registration_path, class:"signup-links" %>
   				</div>
   			</div>
   		</div>
