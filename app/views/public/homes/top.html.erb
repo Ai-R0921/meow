@@ -61,7 +61,7 @@
         <%= link_to "New Post", new_post_lost_cat_path, class:"btn btn-outline-success rounded-pill" %>
       <% end %>
     </div>
-    <div class="row text-center mt-5">
+    <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">
         <h1 class="subtitle">Search Cats</h1>
       </div>
@@ -77,8 +77,10 @@
         <% @results.each do |result| %>
         <div class="one-post">
           <p class="caption"><%= result.title %></p>
-          <% if result.image.attached? %>
-            <%= image_tag result.image, size: "200x200", class:"rounded img-responsive" %>
+          <%= link_to post_image_path(result) do %>
+            <% if result.image.attached? %>
+              <%= image_tag result.image, size: "200x200", class:"rounded img-responsive" %>
+            <% end %>
           <% end %>
           <p class="caption"><%= result.user.user_name %></p>
         </div>

@@ -55,7 +55,7 @@ background-color: rgba(255,255,255,0.5);
 }
 
 .card-header h3{
-color: #a68b62;
+color: black;
 font-family: 'Montserrat Alternates', sans-serif;
 }
 
@@ -78,11 +78,11 @@ font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .links{
-color: white;
+color: black;
 font-family: 'Zen Maru Gothic', sans-serif;
 }
 
-.signup-links {
+.signup-links, .signin-links {
   color: white;
   font-family: 'Montserrat Alternates', sans-serif;
 }
@@ -128,9 +128,17 @@ background-color: rgba(228,201,192,0.7) !important;
   text-decoration: none;
 }
 
-.login-button {
+.label {
+  color: white;
+}
+
+.signup-button {
+  margin: auto;
+}
+
+.login-button, .signup-button, .post-button {
   width: 100px;
-  height: 30px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,7 +156,7 @@ background-color: rgba(228,201,192,0.7) !important;
   outline: none;
   }
 
-.login-button:hover {
+.login-button:hover, .signup-button:hover, .post-button:hover {
   background-color: #a68b62;
   box-shadow: 0px 15px 20px rgba(166, 139, 98, 0.4);
   color: #fff;
@@ -180,4 +188,18 @@ background-color: rgba(228,201,192,0.7) !important;
   box-shadow: 0px 15px 20px rgba(166, 139, 98, 0.4);
   color: #fff;
   transform: translateY(-7px);
+}
+
+.post-button {
+  margin: auto;
+}
+
+.text {
+  width: 300px;
+  height: 40px;
+}
+
+.area {
+width: 300px;
+height: 200px;
 }

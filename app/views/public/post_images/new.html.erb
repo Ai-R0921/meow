@@ -1,7 +1,7 @@
 <div class="main top">
   <div class="container">
     <div class="row text-center mb-5">
-      <div class="col mx-auto">
+      <div class="col mx-auto margin">
         <h1 class="about">New Post</h1>
       </div>
     </div>
@@ -11,23 +11,23 @@
           <tbody>
             <%= form_with model: @post_image, url:post_images_path, method: :post, local: true do |f| %>
             <tr>
-              <td>Image</td>
+              <td class="label">Image</td>
               <td><%= f.file_field :image, accept: "image/*" %></td>
             </tr>
             <tr>
-              <td>Title</td>
-              <td><%= f.text_field :title %></td>
+              <td class="label">Title</td>
+              <td><%= f.text_field :title, class:"form-control text" %></td>
             </tr>
             <tr>
-              <td>Body</td>
-              <td><%= f.text_area :body %></td>
+              <td class="label">Body</td>
+              <td><%= f.text_area :body, class:"form-control area" %></td>
             </tr>
             <tr>
-              <td>Type of cat</td>
+              <td class="label">Type of cat</td>
               <td><%= f.collection_select :type_id, Type.all, :id, :name, prompt: "Choose Type" %></td>
             </tr>
             <tr>
-              <td>Sex</td>
+              <td class="label">Sex</td>
               <td>
                 <%= f.radio_button :sex, PostImage.sexes.key(0), checked: "checked" %>
                 <%= f.label :sex, PostImage.sexes_i18n[:male] %>
@@ -44,7 +44,7 @@
               </td>
             </tr>
             <tr>
-              <td><%= f.submit "Post", class:"btn btn-outline-success rounded-pill" %></td>
+              <td colspan = "3"><%= f.submit "Post", class:"post-button" %></td>
             </tr>
             <% end %>
           </tbody>
