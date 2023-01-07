@@ -1,12 +1,12 @@
 <div class="main top">
   <div class="container">
     <div class="row text-center mb-5">
-      <div class="col mx-auto">
+      <div class="col mx-auto margin">
         <h1 class="about">My Page</h1>
       </div>
     </div>
     <div class="row">
-      <div class="col-4 text-right">
+      <div class="col-6 text-right">
         <% if @user.profile_image.attached? %>
           <%= image_tag @user.profile_image, :size => '200x200', class:"rounded img-responsive" %>
         <% else %>
@@ -20,17 +20,19 @@
               <td><%= @user.user_name %></td>
             </tr>
             <tr>
-              <td><%= link_to "Favorites", favorites_user_path(current_user), class:"btn btn-outline-info rounded-pill" %></td>
-            </tr>
-            <tr>
-              <td><%= link_to "Edit", edit_user_path, class:"btn btn-outline-success rounded-pill" %></td>
-            </tr>
-            <tr>
-              <td><%= link_to "Drafts", confirm_post_images_path, class:"btn btn-outline-dark rounded-pill" %></td>
+              <td><%= @user.email %></td>
             </tr>
           </tbody>
         </table>
       </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+
+        <%= link_to "New post", new_post_image_path, class:"mypage-button" %>
+        <%= link_to "Favorites", favorites_user_path(current_user), class:"mypage-button" %>
+        <%= link_to "User edit", edit_user_path, class:"mypage-button" %>
+        <%= link_to "Drafts", confirm_post_images_path, class:"mypage-button" %>
+
     </div>
     <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">

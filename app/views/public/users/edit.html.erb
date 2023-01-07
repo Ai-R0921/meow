@@ -1,15 +1,15 @@
 <div class="main top">
   <div class="container">
     <div class="row text-center mb-5">
-      <div class="col mx-auto">
+      <div class="col mx-auto margin">
         <h1 class="about">Edit Profile</h1>
       </div>
     </div>
     <div class="row">
       <div class="col-6 mx-auto">
+        <%= form_with model: @user do |f| %>
         <table class="table table-borderless">
           <tbody>
-            <%= form_with model: @user do |f| %>
             <tr>
               <td><%= f.label :user_name %></td>
               <td><%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %></td>
@@ -22,13 +22,10 @@
               <td><%= f.label :profile_image %></td>
               <td><%= f.file_field :profile_image, accept: "image/*" %></td>
             </tr>
-            <tr>
-              <td></td>
-              <td><%= f.submit "Save", class:"btn btn-outline-success rounded-pill" %></td>
-            </tr>
-            <% end %>
           </tbody>
         </table>
+        <%= f.submit "Save", class:"post-button" %>
+        <% end %>
       </div>
     </div>
     <div class="row">

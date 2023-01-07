@@ -7,9 +7,9 @@
     </div>
     <div class="row">
       <div class="col-6 mx-auto">
+        <%= form_with model: @post_lost_cat, url:post_lost_cats_path, method: :post, local: true do |f| %>
         <table class="table table-borderless">
           <tbody>
-            <%= form_with model: @post_lost_cat, url:post_lost_cats_path, method: :post, local: true do |f| %>
             <tr>
               <td>Image</td>
               <td><%= f.file_field :image, accept: "image/*" %></td>
@@ -43,13 +43,10 @@
                 <%= f.select :status, PostLostCat.statuses.keys.map { |k| [t("enums.post_lost_cat.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
               </td>
             </tr>
-            <tr>
-              <td></td>
-              <td><%= f.submit "Post", class:"btn btn-outline-success rounded-pill" %></td>
-            </tr>
-            <% end %>
           </tbody>
         </table>
+        <%= f.submit "Post", class:"post-button" %>
+        <% end %>
       </div>
     </div>
   </div>
