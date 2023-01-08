@@ -40,7 +40,7 @@
             <tr>
               <td></td>
               <td>
-                <%= f.select :status, PostImage.statuses.keys.map { |k| [t("enums.post_image.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+                <%= f.select :status, PostImage.statuses_i18n.invert, {}, {class: "custom-select w-25"} %>
               </td>
             </tr>
           </tbody>

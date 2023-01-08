@@ -3,4 +3,4 @@ ja:
     post:
       status:
         published: '投稿する'
-        draft: '下書きする'
+        draft: '下書き保存'

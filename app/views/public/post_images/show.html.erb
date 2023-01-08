@@ -1,7 +1,7 @@
 <div class="main top">
   <div class="container">
     <div class="row text-center mb-5">
-      <div class="col mx-auto">
+      <div class="col mx-auto margin">
         <h1 class="about">Post Detail</h1>
       </div>
     </div>
@@ -21,12 +21,12 @@
         <table class="table table-borderless">
           <tbody>
             <tr>
-              <td></td>
+              <td>投稿日</td>
               <td><%= @post_image.created_at.strftime('%Y/%m/%d') %></td>
             </tr>
             <tr>
-              <td></td>
-              <td><%= link_to "#{@user.user_name}", user_path(@user) %></td>
+              <td>ユーザー</td>
+              <td class="white"><%= link_to "#{@user.user_name}", user_path(@user) %></td>
             </tr>
             <tr>
               <td></td>
@@ -38,20 +38,20 @@
             </tr>
             <tr>
               <td></td>
-              <td><%= @post_image.sex %></td>
+              <td><%= @post_image.sex_i18n %></td>
             </tr>
             <tr>
               <td></td>
               <td>
                 <% if user_signed_in? %>
                   <% if @post_image.favorited_by?(current_user) %>
-                  <h3>
+                  <h3 class="white">
                     <%= link_to post_image_post_image_favorites_path(@post_image), method: :delete do %>
                       ♥<%= @post_image.post_image_favorites.count %>
                     <% end %>
                   </h3>
                   <% else %>
-                  <h3>
+                  <h3 class="white">
                     <%= link_to post_image_post_image_favorites_path(@post_image), method: :post do %>
                       ♡<%= @post_image.post_image_favorites.count %>
                     <% end %>
@@ -60,26 +60,43 @@
                 <% end %>
               </td>
             </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 text-right">
+        <% if user_signed_in? %>
+          <%= form_with model: [@post_image, @post_image_comment] do |f| %>
+            <%= f.text_area :comment, placeholder:"comments" %>
+            <%= f.submit "Post", class:"comment-button" %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-6">
+        <p class="links">コメント件数 : <%= @post_image.post_image_comments.count %></p>
+        <table class="table table-borderless">
+          <thead>
             <tr>
-              <td></td>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @post_image.post_image_comments.each do |post_image_comment| %>
+            <tr>
+              <td><%= post_image_comment.created_at.strftime('%Y/%m/%d') %></td>
+              <td><%= post_image_comment.user.user_name %></td>
+              <td><%= post_image_comment.comment %></td>
               <td>
-                <p>コメント件数 : <%= @post_image.post_image_comments.count %></p>
-                <% @post_image.post_image_comments.each do |post_image_comment| %>
-                  <%= post_image_comment.user.user_name %>
-                  <%= post_image_comment.created_at.strftime('%Y/%m/%d') %>
-                  <%= post_image_comment.comment %>
-                  <% if post_image_comment.user == current_user %>
-                    <%= link_to "Delete", post_image_post_image_comment_path(post_image_comment.post_image, post_image_comment), method: :delete %>
-                  <% end %>
-                <% end %>
-                <% if user_signed_in? %>
-                  <%= form_with model: [@post_image, @post_image_comment] do |f| %>
-                    <%= f.text_area :comment, placeholder:"comments" %>
-                    <%= f.submit "Post", class:"btn btn-outline-success rounded-pill" %>
-                  <% end %>
+                <% if post_image_comment.user == current_user %>
+                  <%= link_to "Delete", post_image_post_image_comment_path(post_image_comment.post_image, post_image_comment), method: :delete %>
                 <% end %>
               </td>
             </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

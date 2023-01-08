@@ -74,7 +74,7 @@ background-color: rgba(255,255,255,0.5);
 }
 
 .card-header h3{
-color: black;
+color: white;
 font-family: 'Montserrat Alternates', sans-serif;
 }
 
@@ -123,6 +123,10 @@ width: 480px;
 background-color: rgba(228,201,192,0.7) !important;
 }
 
+.table {
+ font-family: 'Zen Maru Gothic', sans-serif;
+}
+
 .new-user {
   margin-bottom: 0;
 }
@@ -148,7 +152,8 @@ background-color: rgba(228,201,192,0.7) !important;
 }
 
 .label {
-  color: white;
+  color: black;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .signup-button {
@@ -165,35 +170,13 @@ background-color: rgba(228,201,192,0.7) !important;
 
 
 
-.login-button, .signup-button, .post-button, .mypage-button {
-  width: 100px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: black;
-  background-color: #e4c9c0;
-  border: 1px solid #a68b62;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
+.login-button, .signup-button, .post-button, .mypage-button, .yes-button, .no-button, .comment-button {
+  width: 100px !important;
+  height: 35px !important;
+  font-size: 13px !important;
   }
 
-.login-button:hover, .signup-button:hover, .post-button:hover, .mypage-button:hover {
-  background-color: #a68b62;
-  box-shadow: 0px 15px 20px rgba(166, 139, 98, 0.4);
-  color: #fff;
-  text-decoration: none;
-  transform: translateY(-7px);
-}
-
-.button {
+.button, .login-button, .signup-button, .post-button, .mypage-button, .yes-button, .no-button, .comment-button {
   width: 160px;
   height: 45px;
   display: flex;
@@ -213,15 +196,24 @@ background-color: rgba(228,201,192,0.7) !important;
   outline: none;
   }
 
-.button:hover {
+.button:hover, .login-button:hover, .signup-button:hover, .post-button:hover, .mypage-button:hover, .yes-button:hover, .no-button:hover, .comment-button:hover {
   background-color: #a68b62;
   box-shadow: 0px 15px 20px rgba(166, 139, 98, 0.4);
   color: #fff;
+  text-decoration: none;
   transform: translateY(-7px);
 }
 
 .post-button {
   margin: 15px auto;
+}
+
+.no-button, .comment-button {
+  margin: 0 0 0 auto;
+}
+
+.yes-button {
+  margin: 0 auto 0 0;
 }
 
 .text {
@@ -232,4 +224,8 @@ background-color: rgba(228,201,192,0.7) !important;
 .area {
 width: 300px;
 height: 200px;
+}
+
+.white {
+  color: white;
 }
