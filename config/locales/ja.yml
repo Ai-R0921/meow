@@ -5,3 +5,14 @@ ja:
         male: 'オス'
         female: 'メス'
         unknown: '不明'
+      status:
+        published: '投稿'
+        draft: '下書き'
+    post_lost_cat:
+      sex:
+        male: 'オス'
+        female: 'メス'
+        unknown: '不明'
+      status:
+        published: '投稿'
+        draft: '下書き'

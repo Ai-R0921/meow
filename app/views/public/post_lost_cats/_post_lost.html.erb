@@ -16,15 +16,15 @@
 </div>
 <div class="post-form">
   <h4 class="label">Sex</h4>
-  <%= f.radio_button :sex, PostImage.sexes.key(0), checked: "checked" %>
-  <%= f.label :sex, PostImage.sexes_i18n[:male] %>
-  <%= f.radio_button :sex, PostImage.sexes.key(1) %>
-  <%= f.label :sex, PostImage.sexes_i18n[:female] %>
-  <%= f.radio_button :sex, PostImage.sexes.key(2) %>
-  <%= f.label :sex, PostImage.sexes_i18n[:unknown] %><br>
+  <%= f.radio_button :sex, PostLostCat.sexes.key(0), checked: "checked" %>
+  <%= f.label :sex, PostLostCat.sexes_i18n[:male] %>
+  <%= f.radio_button :sex, PostLostCat.sexes.key(1) %>
+  <%= f.label :sex, PostLostCat.sexes_i18n[:female] %>
+  <%= f.radio_button :sex, PostLostCat.sexes.key(2) %>
+  <%= f.label :sex, PostLostCat.sexes_i18n[:unknown] %><br>
 </div>
 <div class="post-form">
-  <%= f.select :status, PostImage.statuses.keys.map { |k| [t("enums.post_image.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+  <%= f.select :status, PostLostCat.statuses.keys.map { |k| [t("enums.post_lost_cat.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
 </div>
 <% if local_assigns[:edit_flag].present? %>
   <%= f.submit "Save", class:"post-button" %>

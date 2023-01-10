@@ -6,46 +6,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6 mx-auto">
+      <div class="col-4 mx-auto">
         <%= form_with model: @post_lost_cat, url:post_lost_cats_path, method: :post, local: true do |f| %>
-        <table class="table table-borderless">
-          <tbody>
-            <tr>
-              <td>Image</td>
-              <td><%= f.file_field :image, accept: "image/*" %></td>
-            </tr>
-            <tr>
-              <td>Title</td>
-              <td><%= f.text_field :title %></td>
-            </tr>
-            <tr>
-              <td>Body</td>
-              <td><%= f.text_area :body %></td>
-            </tr>
-            <tr>
-              <td>Type of cat</td>
-              <td><%= f.collection_select :type_id, Type.all, :id, :name, prompt: "Choose Type" %></td>
-            </tr>
-            <tr>
-              <td>Sex</td>
-              <td>
-                <%= f.radio_button :sex, PostLostCat.sexes.key(0), checked: "checked" %>
-                <%= f.label :sex, PostLostCat.sexes_i18n[:male] %>
-                <%= f.radio_button :sex, PostLostCat.sexes.key(1) %>
-                <%= f.label :sex, PostLostCat.sexes_i18n[:female] %>
-                <%= f.radio_button :sex, PostLostCat.sexes.key(2) %>
-                <%= f.label :sex, PostLostCat.sexes_i18n[:unknown] %>
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                <%= f.select :status, PostLostCat.statuses.keys.map { |k| [t("enums.post_lost_cat.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <%= f.submit "Post", class:"post-button" %>
+          <%= render :partial => 'post_lost', :locals => {:f => f} %>
         <% end %>
       </div>
     </div>

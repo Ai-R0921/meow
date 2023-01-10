@@ -66,10 +66,10 @@
         <h1 class="subtitle">Search Cats</h1>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center table">
       <%= form_tag({controller:"homes", action:"top"}, method: :get) do %>
         <%= select_tag :type_search, options_from_collection_for_select(@type, "id", "name") %>
-        <%= submit_tag "Go", class:"btn btn-outline-primary btn-sm" %>
+        <%= submit_tag "Go", class:"go-button" %>
       <% end %>
     </div>
     <div class="row mt-5 justify-content-center">
