@@ -3,7 +3,7 @@ class Public::HomesController < ApplicationController
     @post_images = PostImage.order('id DESC').limit(4).published
     @post_lost_cats = PostLostCat.order('id DESC').limit(4).published
 
-    @type = Type.select("name", "id")
+    @type = Type.select("name", "id").order("name asc")
     type_search = params[:type_search]
     if type_search != nil
       searched_post_images = Type.find_by(id: type_search).post_images.published

@@ -20,7 +20,7 @@
             </tr>
             <tr>
               <td>ユーザー</td>
-              <td class="white"><%= link_to "#{@user.user_name}", user_path(@user) %></td>
+              <td><%= link_to "#{@user.user_name}", user_path(@user) %></td>
             </tr>
             <tr>
               <td></td>
@@ -43,13 +43,13 @@
               <td>
                 <% if user_signed_in? %>
                   <% if @post_image.favorited_by?(current_user) %>
-                  <h3 class="white">
+                  <h3>
                     <%= link_to post_image_post_image_favorites_path(@post_image), method: :delete do %>
                       ♥<%= @post_image.post_image_favorites.count %>
                     <% end %>
                   </h3>
                   <% else %>
-                  <h3 class="white">
+                  <h3>
                     <%= link_to post_image_post_image_favorites_path(@post_image), method: :post do %>
                       ♡<%= @post_image.post_image_favorites.count %>
                     <% end %>
@@ -60,8 +60,8 @@
             </tr>
             <tr>
               <% if @user == current_user %>
-              <td><%= link_to "Edit", edit_post_image_path(@post_image) %></td>
-              <td><%= link_to "Delete Post", post_image_path(@post_image), method: :delete, data: { confirm: "Are you sure?" } %></td>
+              <td><%= link_to "Edit", edit_post_image_path(@post_image), class:"remember" %></td>
+              <td><%= link_to "Delete Post", post_image_path(@post_image), method: :delete, data: { confirm: "Are you sure?" }, class:"remember" %></td>
               <% end %>
             </tr>
           </tbody>

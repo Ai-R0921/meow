@@ -12,19 +12,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&family=Zen+Maru+Gothic:wght@300;400&display=swap" rel="stylesheet">
   </head>
-
   <body>
     <header class="shadow-sm pt-3 pb-3">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid header">
-          <ul class="navbar-nav welcome">
+          <div class="navbar-nav welcome">
             <% if user_signed_in? %>
               Welcome, <%= current_user.user_name %>!
             <% end %>
-          </ul>
-          <ul class="navbar-nav">
+          </div>
+          <div class="navbar-nav">
             <%= link_to image_tag("meow-title2.png", class:"logo_img"), "/" %>
-          </ul>
+          </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

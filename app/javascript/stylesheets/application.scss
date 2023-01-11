@@ -5,19 +5,46 @@
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
-nav ul{
-  display: flex;
-  justify-content:space-between;
-	list-style: none;
-	padding: 0;
-	margin: 1em auto 0 auto;
-	width: 95%;
-	text-align: center;
+// .header {
+//   display: flex;
+//   align-items: center;
+//   flex-direction: column;
+//   margin: 0 auto;
+// }
+
+// nav ul {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// nav li {
+// 	padding: 10px 20px;
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: black;
 }
 
-nav li{
-	display: block;
-	width: 100%;
+a {
+  color: white;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.logo_img {
+  width: 120px;
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  display: inline-block;
 }
 
 .top {
@@ -53,17 +80,6 @@ nav li{
   display: flex;
 }
 
-.logo_img {
-  width: 120px;
-  height: 80px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-
 .sign-in {
 background-image: url('../images/nikukyu.jpg');
 background-size: cover;
@@ -93,7 +109,7 @@ background-color: rgba(228,201,192,0.6) !important;
 
 .remember{
 color: white;
-font-family: 'Montserrat Alternates', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif !important;
 }
 
 .links{
@@ -125,6 +141,7 @@ background-color: rgba(228,201,192,0.7) !important;
 
 .table {
  font-family: 'Zen Maru Gothic', sans-serif;
+ font-size: 20px;
 }
 
 .new-user {
@@ -228,8 +245,4 @@ background-color: rgba(228,201,192,0.7) !important;
 .area {
 width: 300px;
 height: 200px;
-}
-
-.white {
-  color: white;
 }

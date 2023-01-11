@@ -6,24 +6,37 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6 mx-auto">
+      <div class="col-4 mx-auto">
         <%= form_with model: @user do |f| %>
-        <table class="table table-borderless">
-          <tbody>
-            <tr>
-              <td class="label"><%= f.label :user_name %></td>
-              <td><%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %></td>
-            </tr>
-            <tr>
-              <td class="label"><%= f.label :email %></td>
-              <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-            </tr>
-            <tr>
-              <td class="label"><%= f.label :profile_image %></td>
-              <td><%= f.file_field :profile_image, accept: "image/*" %></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="post-form">
+          <h5 class="label">User name</h5>
+          <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class:"form-control" %>
+        </div>
+        <div class="post-form">
+          <h5 class="label">Email</h5>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+        </div>
+        <div class="post-form">
+          <h5 class="label">Profile image</h5>
+          <%= f.file_field :profile_image, accept: "image/*" %>
+        </div>
+
+        <!--<table class="table table-borderless">-->
+        <!--  <tbody>-->
+        <!--    <tr>-->
+        <!--      <td class="label"><%#= f.label :user_name, class:"label" %></td>-->
+        <!--      <td></td>-->
+        <!--    </tr>-->
+        <!--    <tr>-->
+        <!--      <td class="label"><%#= f.label :email %></td>-->
+        <!--      <td></td>-->
+        <!--    </tr>-->
+        <!--    <tr>-->
+        <!--      <td class="label"><%#= f.label :profile_image %></td>-->
+        <!--      <td></td>-->
+        <!--    </tr>-->
+        <!--  </tbody>-->
+        <!--</table>-->
         <%= f.submit "Save", class:"post-button" %>
         <% end %>
       </div>
