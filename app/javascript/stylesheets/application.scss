@@ -3,33 +3,48 @@
 
 .welcome {
   font-family: 'Montserrat Alternates', sans-serif;
+  margin-right: 60px;
 }
 
-// .header {
-//   display: flex;
-//   align-items: center;
-//   flex-direction: column;
-//   margin: 0 auto;
-// }
+header {
+  height: 150px;
+}
 
-// nav ul {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
+.middle {
+  width: 14%;
+  margin: 0 auto;
+}
 
-// nav li {
-// 	padding: 10px 20px;
+.nav2 {
+text-align: center;
+
+}
+
+.search_box {
+  display: flex;
+}
+
+.search_field {
+  margin-right: 10px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.section_title {
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
 
 ul {
   padding: 0;
   margin: 0;
   list-style: none;
-  color: black;
+}
+
+li {
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 a {
-  color: white;
+  color: black;
 }
 a:hover {
   text-decoration: none;
@@ -38,13 +53,6 @@ a:hover {
 .logo_img {
   width: 120px;
   height: 80px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  display: inline-block;
 }
 
 .top {

@@ -18,42 +18,47 @@
         <div class="container-fluid header">
           <div class="navbar-nav welcome">
             <% if user_signed_in? %>
-              Welcome, <%= current_user.user_name %>!
+               Welcome, <%= current_user.user_name %>!
             <% end %>
           </div>
-          <div class="navbar-nav">
-            <%= link_to image_tag("meow-title2.png", class:"logo_img"), "/" %>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <% if user_signed_in? %>
-                <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-                <li><%= link_to "My page", user_path(id: "my_page") %></li>
-                <li><%= link_to "Cats", post_images_path %></li>
-                <li><%= link_to "Lost cats", post_lost_cats_path %></li>
-              <% elsif admin_signed_in? %>
-                <%= link_to "Users", admin_top_path %>
-                <%= link_to "Types", admin_types_path %>
-                <%= link_to "Comments", admin_post_image_comments_path %>
-                <%= link_to "Posts", admin_post_images_path %>
-                <%= link_to "Log out",destroy_admin_session_path, method: :delete %>
-              <% else %>
-                <%= link_to "Sign up", new_user_registration_path %>
-                <%= link_to "Sign in", new_user_session_path %>
-                <%= link_to "Cats", post_images_path %>
-                <%= link_to "Lost cats", post_lost_cats_path %>
-              <% end %>
-              <div class="post_image_search">
-                <%= form_with url: search_post_images_path, method: :get, local: true do |f| %>
-                  <%= f.text_field :search, class: "form-control", placeholder: "キーワード検索" %>
-                  <%= f.submit "Go" %>
+          <div class="middle">
+            <div class="nav2">
+              <%= link_to image_tag("meow-title2.png", class:"logo_img"), "/" %>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
+              <ul class="navbar-nav" style="width: 400px; margin-left: 50px;">
+                <% if user_signed_in? %>
+                  <li style="margin-right: 15px"><%= link_to "New Post", new_post_image_path %></li>
+                  <li style="margin-right: 15px"><%= link_to "Cats", post_images_path %></li>
+                  <li style="margin-right: 15px"><%= link_to "Lost cats", post_lost_cats_path %></li>
+                  <li style="margin-right: 15px"><%= link_to "My page", user_path(id: "my_page") %></li>
+                  <li style="margin-right: 15px"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                <% elsif admin_signed_in? %>
+                  <%= link_to "Users", admin_top_path %>
+                  <%= link_to "Types", admin_types_path %>
+                  <%= link_to "Comments", admin_post_image_comments_path %>
+                  <%= link_to "Posts", admin_post_images_path %>
+                  <%= link_to "Log out",destroy_admin_session_path, method: :delete %>
+                <% else %>
+                  <%= link_to "Sign up", new_user_registration_path %>
+                  <%= link_to "Sign in", new_user_session_path %>
+                  <%= link_to "Cats", post_images_path %>
+                  <%= link_to "Lost cats", post_lost_cats_path %>
                 <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class="post_image_search">
+            <%= form_with url: search_post_images_path, method: :get, local: true do |f| %>
+            <div class="search_box">
+              <%= f.text_field :search, class: "form-control search_field ", placeholder: "キーワード検索" %>
+              <%= f.submit "Go", class:"go-button" %>
               </div>
-            </ul>
+            <% end %>
           </div>
         </div>
       </nav>

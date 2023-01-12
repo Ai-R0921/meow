@@ -1,8 +1,27 @@
-<%= @section_title %>
-<% @post_images.each do |post_image| %>
-  <%= post_image.title %>
-  <%= link_to post_image_path(post_image) do %>
-    <%= image_tag post_image.image, :size => '200x200' %>
-  <% end %>
-  <%= post_image.user.user_name %>
-<% end %>
+<div class="main top">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col mx-auto margin">
+        <h1 class="about">Search result</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center section_title">
+      <%= @section_title %>
+    </div>
+    <div class="row justify-content-center">
+      <% @post_images.each do |post_image| %>
+      <div class="one-post">
+        <p class="caption"><%= post_image.title %></p>
+        <% if post_image.user.is_deleted %>
+          <% next %>
+        <% end %>
+        <%= link_to post_image_path(post_image) do %>
+          <%= image_tag post_image.image, :size => '200x200', class:"rounded img-responsive" %>
+        <% end %>
+        <p class="caption"><%= post_image.user.user_name %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
