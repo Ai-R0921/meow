@@ -10,7 +10,7 @@
       <div class="one-post">
         <p class="caption"><%= post_image.title %></p>
         <%= link_to post_image_path(post_image) do %>
-          <%= image_tag post_image.image, size: "200x200", class:"rounded img-responsive" %>
+          <%= image_tag post_image.image, size: "200x200", class:"image-shape" %>
         <% end %>
         <p class="caption"><%= post_image.user.user_name %></p>
       </div>
@@ -20,7 +20,7 @@
         <p class="caption"><%= post_lost_cat.title %></p>
         <%= link_to post_lost_cat_path(post_lost_cat) do %>
           <%# if post_lost_cat.image.attached? %>
-            <%= image_tag post_lost_cat.image, size: '200x200', class:"rounded img-responsive" %>
+            <%= image_tag post_lost_cat.image, size: '200x200', class:"image-shape" %>
           <%# end %>
         <% end %>
         <p class="caption"><%= post_lost_cat.user.user_name %></p>

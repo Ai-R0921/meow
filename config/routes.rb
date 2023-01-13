@@ -35,10 +35,14 @@ Rails.application.routes.draw do
       resource :post_lost_cat_favorites, only: [:create, :destroy]
       resources :post_lost_cat_comments, only: [:create, :destroy]
     end
+
+    # get 'messages/:id' => 'messages#show', as: 'message'
+    # resources :messages, only: [:create]
   end
 
-  resources :messages, only: [:create]
+  resources :messages, only: [:create, :show]
   resources :rooms, only: [:create, :show]
+
 
   namespace :admin do
     get "/" => "homes#top", as: "top"

@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-6 text-right">
         <% if @post_image.image.attached? %>
-          <%= image_tag @post_image.image, :size => '300x300', class:"rounded img-responsive" %>
+          <%= image_tag @post_image.image, :size => '300x300', class:"image-shape" %>
         <% end %>
       </div>
       <div class="col-6">
@@ -20,7 +20,7 @@
             </tr>
             <tr>
               <td>ユーザー</td>
-              <td><%= link_to "#{@user.user_name}", user_path(@user) %></td>
+              <td><%= link_to "#{@user.user_name}", user_path(@user), class:"white" %></td>
             </tr>
             <tr>
               <td></td>
@@ -44,13 +44,13 @@
                 <% if user_signed_in? %>
                   <% if @post_image.favorited_by?(current_user) %>
                   <h3>
-                    <%= link_to post_image_post_image_favorites_path(@post_image), method: :delete do %>
+                    <%= link_to post_image_post_image_favorites_path(@post_image), class:"white", method: :delete do %>
                       ♥<%= @post_image.post_image_favorites.count %>
                     <% end %>
                   </h3>
                   <% else %>
                   <h3>
-                    <%= link_to post_image_post_image_favorites_path(@post_image), method: :post do %>
+                    <%= link_to post_image_post_image_favorites_path(@post_image), class:"white", method: :post do %>
                       ♡<%= @post_image.post_image_favorites.count %>
                     <% end %>
                   </h3>
@@ -96,7 +96,7 @@
               <td><%= post_image_comment.comment %></td>
               <td>
                 <% if post_image_comment.user == current_user %>
-                  <%= link_to "Delete", post_image_post_image_comment_path(post_image_comment.post_image, post_image_comment), method: :delete %>
+                  <%= link_to "Delete", post_image_post_image_comment_path(post_image_comment.post_image, post_image_comment), class:"remember", method: :delete %>
                 <% end %>
               </td>
             </tr>

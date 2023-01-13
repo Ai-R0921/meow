@@ -14,11 +14,11 @@
         <% end %>
         <%= link_to post_image_path(post_image) do %>
           <% if post_image.image.attached? %>
-            <%= image_tag post_image.image, :size => '200x200', class:"rounded img-responsive" %>
+            <%= image_tag post_image.image, :size => '200x200', class:"image-shape" %>
           <% end %>
         <% end %>
         <p class="caption"><%= post_image.user.user_name %></p>
-        <p class="caption1"><%= link_to "#{post_image.post_image_comments.count} コメント", post_image_path(post_image) %></p>
+        <p class="caption"><%= link_to "#{post_image.post_image_comments.count} コメント", post_image_path(post_image), class:"white" %></p>
       </div>
       <% end %>
     </div>
@@ -33,7 +33,7 @@
         <p class="caption"><%= post_image.title %></p>
         <%= link_to post_image_path(post_image) do %>
           <% if post_image.image.attached? %>
-            <%= image_tag post_image.image, :size => '200x200', class:"rounded img-responsive" %>
+            <%= image_tag post_image.image, :size => '200x200', class:"image-shape" %>
           <% end %>
         <% end %>
         <p class="caption"><%= post_image.user.user_name %></p>

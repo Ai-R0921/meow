@@ -11,7 +11,7 @@
         <p class="caption"><%= post_image.title %></p>
         <%= link_to edit_post_image_path(post_image) do %>
           <% if post_image.image.attached? %>
-            <%= image_tag post_image.image, :size => '200x200', class:"rounded img-responsive" %>
+            <%= image_tag post_image.image, :size => '200x200', class:"image-shape" %>
           <% end %>
         <% end %>
         <p class="caption"></p>
@@ -23,7 +23,7 @@
         <p class="caption"><%= post_lost_cat.title %></p>
         <%= link_to edit_post_lost_cat_path(post_lost_cat) do %>
           <% if post_lost_cat.image.attached? %>
-            <%= image_tag post_lost_cat.image, :size => '200x200', class:"rounded img-responsive" %>
+            <%= image_tag post_lost_cat.image, :size => '200x200', class:"image-shape" %>
           <% end %>
         <% end %>
         <p class="caption"></p>

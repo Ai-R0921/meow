@@ -20,7 +20,7 @@
         <% end %>
         <%= link_to post_image_path(post_image) do %>
           <% if post_image.image.attached? %>
-            <%= image_tag post_image.image, :size =>'200x200', class:"rounded img-responsive" %>
+            <%= image_tag post_image.image, :size =>'200x200', class:"image-shape" %>
           <% end %>
         <% end %>
         <p class="caption"><%= post_image.user.user_name %></p>
@@ -41,7 +41,7 @@
         <p class="caption"><%= post_lost_cat.title %></p>
         <%= link_to post_lost_cat_path(post_lost_cat) do %>
           <% if post_lost_cat.image.attached? %>
-            <%= image_tag post_lost_cat.image, :size =>'200x200', class:"rounded img-responsive" %>
+            <%= image_tag post_lost_cat.image, :size =>'200x200', class:"image-shape" %>
           <% end %>
         <% end %>
         <p class="caption"><%= post_lost_cat.user.user_name %></p>
@@ -50,11 +50,6 @@
     </div>
     <div class="row justify-content-end">
       <%= link_to "show more >>", post_lost_cats_path, class:"button" %>
-    </div>
-    <div class="row mt-3 justify-content-center">
-      <% if user_signed_in? %>
-        <%= link_to "New Post", new_post_lost_cat_path, class:"btn btn-outline-success rounded-pill" %>
-      <% end %>
     </div>
     <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">
@@ -74,7 +69,7 @@
           <p class="caption"><%= result.title %></p>
           <%= link_to post_image_path(result) do %>
             <% if result.image.attached? %>
-              <%= image_tag result.image, size: "200x200", class:"rounded img-responsive" %>
+              <%= image_tag result.image, size: "200x200", class:"image-shape" %>
             <% end %>
           <% end %>
           <p class="caption"><%= result.user.user_name %></p>

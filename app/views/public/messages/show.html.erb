@@ -1,0 +1,79 @@
+<div class="main top">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col mx-auto margin">
+        <h1 class="about">Chat</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <% @users.each do |user| %>
+      <div class="one-post">
+        <strong>
+          <% if user.profile_image.attached? %>
+            <%= image_tag user.profile_image, size: '100x100', class:"user-image" %>
+          <% else %>
+            <%= image_tag 'NO_IMAGE.png', size: '100x100', class:"user-image" %>
+          <% end %>
+          <p class="caption"><%= link_to "#{user.user_name}さん", user_path(user), class:"table" %></p>
+        </strong>
+      </div>
+      <% end %>
+    </div>
+    <hr>
+    <% if @messages.present? %>
+      <% @messages.each do |m| %>
+        <% if m.user == current_user %>
+          <div class="row justify-content-center">
+            <!-- アイコンを左側に表示する -->
+            <div class="col-2">
+              <% if m.user.profile_image.attached? %>
+                <%= image_tag m.user.profile_image, size: '80x80', class:"user-image" %>
+              <% else %>
+                <%= image_tag 'NO_IMAGE.png', size: '80x80', class:"user-image" %>
+              <% end %>
+            </div>
+            <!-- メッセージを右側に表示する -->
+            <div class="col-10">
+              <%= m.user.user_name %>
+              <!-- 自分用の吹き出しCSSクラスを適用する -->
+              <div class="says">
+                <p><%= safe_join(m.content.split("\n"),tag(:br)) %></p>
+                <span><%= l m.created_at %></span>
+              </div>
+            </div>
+          </div>
+          <!-- 自分以外のメッセージの場合 -->
+        <% else %>
+          <tr class="row justify-content-center">
+            <!-- メッセージを左側に表示する -->
+            <td class="col-10">
+              <div class="col-11 float-right">
+                <%= m.user.user_name %>
+              </div>
+              <!-- 自分以外用の吹き出しCSSクラスを適用する -->
+              <div class="other-user-says">
+                <p><%= safe_join(m.content.split("\n"),tag(:br)) %></p>
+                <span><%= l m.created_at %></span>
+              </div>
+            </td>
+            <!-- アイコンを右側に表示する -->
+            <td class="col-2">
+              <% if m.user.profile_image.attached? %>
+                <%= image_tag m.user.profile_image, size: '80x80', class:"user-image" %>
+              <% else %>
+                <%= image_tag 'NO_IMAGE.png', size: '80x80', class:"user-image" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+    <div class="posts">
+      <%= form_with model: @message, remote: true do |f| %>
+        <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.submit "投稿",class: 'post-button'%>
+      <% end %>
+    </div>
+  </div>
+</div>

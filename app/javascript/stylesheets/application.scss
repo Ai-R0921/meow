@@ -171,14 +171,10 @@ background-color: rgba(228,201,192,0.7) !important;
   transform: scale(1.2,1.2);
 }
 
-.caption, .caption1 {
+.caption {
   font-size: 20px;
   font-family: 'Zen Maru Gothic', sans-serif;
   text-decoration: none;
-}
-
-.caption1 {
-  color: white !important;
 }
 
 .label {
@@ -260,8 +256,12 @@ width: 300px;
 height: 200px;
 }
 
-.user-image {
+.image-shape {
   border-radius: 20px;
+}
+
+.white {
+  color: white;
 }
 
 // 自分のメッセージの吹き出し

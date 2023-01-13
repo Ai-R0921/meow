@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
               <ul class="navbar-nav" style="width: 600px; margin-left: 50px;">
                 <% if user_signed_in? %>
-                  <li style="margin-right: 15px"><%= link_to "New post", new_post_image_path %></li>
+                  <li style="color: red; margin-right: 15px;"><%= link_to "New post", new_post_image_path %></li>
                   <li style="margin-right: 15px"><%= link_to "Cats", post_images_path %></li>
                   <li style="margin-right: 15px"><%= link_to "New post(Lost)", new_post_lost_cat_path %></li>
                   <li style="margin-right: 15px"><%= link_to "Lost cats", post_lost_cats_path %></li>
