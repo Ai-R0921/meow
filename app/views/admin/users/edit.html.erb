@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row text-center mt-5 mb-5">
-    <div class="col mx-auto">
+    <div class="col mx-auto admin-subtitle">
       <h2>ユーザー編集</h2>
     </div>
   </div>
   <div class="row">
     <div class="col-6 mx-auto">
+      <%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
       <table class="table table-borderless">
         <tbody>
-          <%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
           <tr>
             <td>会員ID</td>
             <td><%= @user.id %></td>
@@ -30,13 +30,10 @@
               <%= f.label :is_deleted, "退会", {value: true, style: "display: inline-block;"} %>
             </td>
           </tr>
-          <tr>
-            <td></td>
-            <td><%= f.submit "変更を保存", class: "btn btn-outline-success rounded-pill" %></td>
-          </tr>
-          <% end %>
         </tbody>
       </table>
+      <%= f.submit "変更を保存", class: "btn btn-outline-success rounded-pill save" %>
+      <% end %>
     </div>
   </div>
 </div>
