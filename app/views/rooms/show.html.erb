@@ -1,42 +1,77 @@
-<div class="left-button">
-  <%= link_to "ユーザー一覧に戻る", "/users/index",class:"edit-link" %>
-</div>
-<h4 class="rooms-title">気になる同士</h4>
-<% @entries.each do |e| %>
-  <div class="user-name">
-  <strong>
-    <% if e.user.profile_image.attached? %>
-      <%= image_tag e.user.profile_image, size: '200x200', class:"user-image" %>
-    <% end %>
-      <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-        <%= e.user.user_name %>さん
-      </a>
-  </strong>
-  </div>
-<% end %>
-<hr>
-<div class="chats">
-  <div class="chat">
+<div class="main top">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col mx-auto margin">
+        <h1 class="about">Chat</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <% @entries.each do |e| %>
+      <strong>
+        <% if e.user.profile_image.attached? %>
+          <%= image_tag e.user.profile_image, size: '100x100', class:"user-image" %>
+        <% else %>
+          <%= image_tag 'NO_IMAGE.png', size: '100x100', class:"user-image" %>
+        <% end %>
+          <%= link_to "#{e.user.user_name}さん", user_path(e.user) %>
+      </strong>
+      <% end %>
+    </div>
+    <hr>
     <% if @messages.present? %>
       <% @messages.each do |m| %>
-        <div class="chat-box">
-          <div class="chat-face">
-            <% if m.user.profile_image.attached? %>
-              <%= image_tag m.user.profile_image, size: '200x200', class:"user-image" %>
-            <% end %>
-          </div>
-          <div class="chat-hukidashi"> <strong><%= m.content %></strong> <br>
-            <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
-          </div>
-        </div>
+        <% if m.user == current_user %>
+          <tr class="row justify-content-center">
+            <!-- アイコンを左側に表示する -->
+            <td class="col-2">
+              <% if m.user.profile_image.attached? %>
+                <%= image_tag m.user.profile_image, size: '80x80', class:"user-image" %>
+              <% else %>
+                <%= image_tag 'NO_IMAGE.png', size: '80x80', class:"user-image" %>
+              <% end %>
+            </td>
+            <!-- メッセージを右側に表示する -->
+            <td class="col-10">
+              <%= m.user.user_name %> <br>
+              <!-- 自分用の吹き出しCSSクラスを適用する -->
+              <div class="says">
+                <p><%= safe_join(m.content.split("\n"),tag(:br)) %></p>
+                <span><%= l m.created_at %></span>
+              </div>
+            </td>
+          </tr>
+          <!-- 自分以外のメッセージの場合 -->
+        <% else %>
+          <tr class="row justify-content-center">
+            <!-- メッセージを左側に表示する -->
+            <td class="col-10">
+              <div class="col-11 float-right">
+                <%= m.user.user_name %> <br>
+              </div>
+              <!-- 自分以外用の吹き出しCSSクラスを適用する -->
+              <div class="other-user-says">
+                <p><%= safe_join(m.content.split("\n"),tag(:br)) %></p>
+                <span><%= l m.created_at %></span>
+              </div>
+            </td>
+            <!-- アイコンを右側に表示する -->
+            <td class="col-2">
+              <% if m.user.profile_image.attached? %>
+                <%= image_tag m.user.profile_image, size: '80x80', class:"user-image" %>
+              <% else %>
+                <%= image_tag 'NO_IMAGE.png', size: '80x80', class:"user-image" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
     <% end %>
-  </div>
-  <div class="posts">
-    <%= form_for @message do |f| %>
-      <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
+    <div class="posts">
+      <%= form_for @message do |f| %>
+        <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+          <%= f.hidden_field :room_id, value: @room.id %>
           <%= f.submit "投稿",class: 'form-submit'%>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
