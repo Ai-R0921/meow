@@ -20,7 +20,7 @@
         <% end %>
         <%= link_to post_image_path(post_image) do %>
           <% if post_image.image.attached? %>
-            <%= image_tag post_image.image, :size =>'200x200', class:"image-shape" %>
+            <%= image_tag post_image.image, class:"image-shape" %>
           <% end %>
         <% end %>
         <p class="caption"><%= post_image.user.user_name %></p>
@@ -41,7 +41,7 @@
         <p class="caption"><%= post_lost_cat.title %></p>
         <%= link_to post_lost_cat_path(post_lost_cat) do %>
           <% if post_lost_cat.image.attached? %>
-            <%= image_tag post_lost_cat.image, :size =>'200x200', class:"image-shape" %>
+            <%= image_tag post_lost_cat.image, class:"image-shape" %>
           <% end %>
         <% end %>
         <p class="caption"><%= post_lost_cat.user.user_name %></p>
@@ -69,7 +69,7 @@
           <p class="caption"><%= result.title %></p>
           <%= link_to post_image_path(result) do %>
             <% if result.image.attached? %>
-              <%= image_tag result.image, size: "200x200", class:"image-shape" %>
+              <%= image_tag result.image, class:"image-shape" %>
             <% end %>
           <% end %>
           <p class="caption"><%= result.user.user_name %></p>

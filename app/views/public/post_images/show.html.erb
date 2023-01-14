@@ -8,19 +8,27 @@
     <div class="row">
       <div class="col-6 text-right">
         <% if @post_image.image.attached? %>
-          <%= image_tag @post_image.image, :size => '300x300', class:"image-shape" %>
+          <%= image_tag @post_image.image, class:"image-show" %>
         <% end %>
       </div>
       <div class="col-6">
         <table class="table table-borderless">
           <tbody>
             <tr>
-              <td style="width: 20%">投稿日</td>
+              <td class="font-weight-bold" style="width: 20%">投稿日</td>
               <td><%= @post_image.created_at.strftime('%Y/%m/%d') %></td>
             </tr>
             <tr>
-              <td>ユーザー</td>
+              <td class="font-weight-bold">ユーザー</td>
               <td><%= link_to "#{@user.user_name}", user_path(@user), class:"white" %></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bold">猫種</td>
+              <td><%= @post_image.type.name %></td>
+            </tr>
+            <tr>
+              <td class="font-weight-bold">性別</td>
+              <td><%= @post_image.sex_i18n %></td>
             </tr>
             <tr>
               <td></td>
@@ -29,14 +37,6 @@
             <tr>
               <td></td>
               <td><%= @post_image.body %></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><%= @post_image.type.name %></td>
-            </tr>
-            <tr>
-              <td>性別</td>
-              <td><%= @post_image.sex_i18n %></td>
             </tr>
             <tr>
               <td></td>

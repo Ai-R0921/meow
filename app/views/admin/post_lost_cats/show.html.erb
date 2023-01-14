@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-6 text-right">
       <% if @post_lost_cat.image.attached? %>
-        <%= image_tag @post_lost_cat.image, :size => '300x300', class:"rounded img-responsive" %>
+        <%= image_tag @post_lost_cat.image, class:"image-show" %>
       <% end %>
     </div>
     <div class="col-6">
@@ -22,20 +22,20 @@
             <td><%= link_to "#{@user.user_name}", admin_user_path(@user) %></td>
           </tr>
           <tr>
-            <td class="font-weight-bold">タイトル</td>
-            <td><%= @post_lost_cat.title %></td>
-          </tr>
-          <tr>
-            <td class="font-weight-bold">本文</td>
-            <td><%= @post_lost_cat.body %></td>
-          </tr>
-          <tr>
             <td class="font-weight-bold">猫種</td>
             <td><%= @post_lost_cat.type.name %></td>
           </tr>
           <tr>
             <td class="font-weight-bold">性別</td>
             <td><%= @post_lost_cat.sex_i18n %></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold">タイトル</td>
+            <td><%= @post_lost_cat.title %></td>
+          </tr>
+          <tr>
+            <td class="font-weight-bold">本文</td>
+            <td><%= @post_lost_cat.body %></td>
           </tr>
         </tbody>
       </table>

@@ -14,7 +14,7 @@
         <p class="caption"><%= post_image.title %></p>
         <%= link_to admin_post_image_path(post_image) do %>
           <% if post_image.image.attached? %>
-            <%= image_tag post_image.image, :size => '200x200', class:"rounded img-responsive" %>
+            <%= image_tag post_image.image, class:"image-shape" %>
           <% end %>
         <% end %>
         <p class="caption"><%= post_image.user.user_name %></p>

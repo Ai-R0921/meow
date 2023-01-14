@@ -7,9 +7,9 @@
   <div class="row">
     <div class="col-4 text-right">
       <% if @user.profile_image.attached? %>
-        <%= image_tag @user.profile_image, :size => '200x200', class:"rounded img-responsive" %>
+        <%= image_tag @user.profile_image, class:"image-shape" %>
       <% else %>
-        <%= image_tag 'NO_IMAGE.png', size: '200x200', class:"rounded img-responsive" %>
+        <%= image_tag 'NO_IMAGE.png', class:"image-shape" %>
       <% end %>
     </div>
     <div class="col-6">

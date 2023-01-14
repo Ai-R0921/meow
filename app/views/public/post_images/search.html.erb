@@ -16,7 +16,7 @@
           <% next %>
         <% end %>
         <%= link_to post_image_path(post_image) do %>
-          <%= image_tag post_image.image, :size => '200x200', class:"image-shape" %>
+          <%= image_tag post_image.image, class:"image-shape" %>
         <% end %>
         <p class="caption"><%= post_image.user.user_name %></p>
       </div>
