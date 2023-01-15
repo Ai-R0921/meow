@@ -21,32 +21,34 @@
     </div>
     <hr>
     <% if @messages.present? %>
+    <table class="table-size">
       <% @messages.each do |m| %>
         <% if m.user == current_user %>
-          <div class="row justify-content-center">
-            <!-- アイコンを左側に表示する -->
-            <div class="col-2">
+        <tbody>
+          <tr class="row justify-content-center">
+              <!-- アイコンを左側に表示する -->
+            <td class="col-2 text-right">
               <% if m.user.profile_image.attached? %>
-                <%= image_tag m.user.profile_image, size: '80x80', class:"user-image" %>
+                <%= image_tag m.user.profile_image, class:"user-image" %>
               <% else %>
-                <%= image_tag 'NO_IMAGE.png', size: '80x80', class:"user-image" %>
+                <%= image_tag 'NO_IMAGE.png', class:"user-image" %>
               <% end %>
-            </div>
+            </td>
             <!-- メッセージを右側に表示する -->
-            <div class="col-10">
+            <td class="col-10 table">
               <%= m.user.user_name %>
               <!-- 自分用の吹き出しCSSクラスを適用する -->
               <div class="says">
                 <p><%= safe_join(m.content.split("\n"),tag(:br)) %></p>
                 <span><%= l m.created_at %></span>
               </div>
-            </div>
-          </div>
+            </td>
+          </tr>
           <!-- 自分以外のメッセージの場合 -->
         <% else %>
           <tr class="row justify-content-center">
             <!-- メッセージを左側に表示する -->
-            <td class="col-10">
+            <td class="col-10 table">
               <div class="col-11 float-right">
                 <%= m.user.user_name %>
               </div>
@@ -59,14 +61,16 @@
             <!-- アイコンを右側に表示する -->
             <td class="col-2">
               <% if m.user.profile_image.attached? %>
-                <%= image_tag m.user.profile_image, size: '80x80', class:"user-image" %>
+                <%= image_tag m.user.profile_image, class:"user-image" %>
               <% else %>
-                <%= image_tag 'NO_IMAGE.png', size: '80x80', class:"user-image" %>
+                <%= image_tag 'NO_IMAGE.png', class:"user-image" %>
               <% end %>
             </td>
           </tr>
+        </tbody>
         <% end %>
       <% end %>
+      </table>
     <% end %>
     <div class="posts">
       <%= form_with model: @message, remote: true do |f| %>

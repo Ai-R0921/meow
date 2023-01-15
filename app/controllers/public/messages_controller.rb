@@ -1,19 +1,27 @@
-class MessagesController < ApplicationController
+class Public::MessagesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :show]
 
   def show
+    #チャットするユーザーのidを取得
     @user = User.find(params[:id])
+    #今まで入ったroomのidを取得
     rooms = current_user.entries.pluck(:room_id)
+    #ユーザーidとroom_idが一致するentryを探す
     entries = Entry.find_by(user_id: @user.id, room_id: rooms)
 
     unless entries.nil?
+      #entryがある場合、そのroomに入る
       @room = entries.room
     else
+      #entryがなかった場合、新しいroomを作成
       @room = Room.new
       @room.save
+      #現在ログインしているユーザーと相手のユーザーでentryが作られる
       Entry.create(user_id: current_user.id, room_id: @room.id)
       Entry.create(user_id: @user.id, room_id: @room.id)
     end
+    @users = @room.users
+    #今までやりとりしたmessageを取得
     @messages = @room.messages
     @message = Message.new(room_id: @room.id)
   end

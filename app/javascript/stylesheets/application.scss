@@ -8,6 +8,11 @@ body {
   margin-bottom: 100px;
 }
 
+// body > footer {
+//   position: sticky;
+//   top: 100vh;
+// }
+
 // main {
 //   flex: 1;
 //   background-color: #e4c9c0;
@@ -291,7 +296,7 @@ height: 200px;
 .says {
   float: left;
   position: relative;
-  width: calc(100% - 500px);
+  width: calc(100% - 56px);
   padding: 16px;
   background: #ffffff;
   border-radius: 15px;
@@ -333,6 +338,13 @@ height: 200px;
   transform: rotate(145deg);
 }
 
+.user-image {
+  border-radius: 50px;
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+
 .admin-subtitle, .rounded-pill {
   font-family: 'Zen Maru Gothic', sans-serif;
 }
@@ -347,4 +359,8 @@ footer {
   left: 0;
   width: 100%;
   height: 100px;
+}
+
+.table-size {
+  width: 100%;
 }

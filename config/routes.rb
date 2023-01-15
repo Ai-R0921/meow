@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "users/unsubscribe"
     patch "users/withdraw"
+    resources :messages, only: [:create, :show]
+    resources :rooms, only: [:create, :show]
     resources :users, only: [:edit, :update, :show] do
       member do
         get :favorites
@@ -39,9 +41,6 @@ Rails.application.routes.draw do
     # get 'messages/:id' => 'messages#show', as: 'message'
     # resources :messages, only: [:create]
   end
-
-  resources :messages, only: [:create, :show]
-  resources :rooms, only: [:create, :show]
 
 
   namespace :admin do
