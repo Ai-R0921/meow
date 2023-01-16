@@ -1,26 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-body {
-  // display: flex;
-  // flex-flow: column;
-  // min-height: 100vh;
-  margin-bottom: 100px;
-}
 
-// body > footer {
-//   position: sticky;
-//   top: 100vh;
-// }
-
-// main {
-//   flex: 1;
-//   background-color: #e4c9c0;
-// }
 
 .content {
-  min-height: calc(100vh - 100px);
   background-color: #e4c9c0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .welcome {
@@ -34,8 +21,7 @@ header {
 }
 
 .middle {
-  width: 14%;
-  margin: 0 auto;
+  width: 200px;
 }
 
 .nav2 {
@@ -353,11 +339,12 @@ background-color: rgba(228,201,192,0.7) !important;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  margin-top: auto;
   height: 100px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .admin-subtitle, .rounded-pill {

@@ -16,51 +16,62 @@
     <div class="content">
       <header class="shadow-sm pt-3 pb-3">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container-fluid header">
-            <div class="navbar-nav welcome">
-              <% if user_signed_in? %>
-                 Welcome, <%= current_user.user_name %>!
-              <% end %>
-            </div>
-            <div class="middle">
-              <div class="nav2">
-                <%= link_to image_tag("meow-title2.png", class:"logo_img"), "/" %>
+          <div class="container header" style="flex-wrap: wrap">
+            <div class="col-4">
+              <div class="navbar-nav welcome">
+                <% if user_signed_in? %>
+                   Welcome, <br><%= current_user.user_name %>!
+                <% end %>
               </div>
+            </div>
+            <div class="col-4">
+              <div class="mx-auto">
+                <div class="nav2">
+                  <%= link_to image_tag("meow-title2.png", class:"logo_img"), "/" %>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <div class="post_image_search">
+                <%= form_with url: search_post_images_path, method: :get, local: true do |f| %>
+                <div class="search_box">
+                  <%= f.text_field :search, class: "form-control search_field ", placeholder: "キーワード検索" %>
+                  <%= f.submit "Go", class:"go-button" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="offset-9 col-3 text-right">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
-                <ul class="navbar-nav" style="width: 600px; margin-left: 50px;">
-                  <% if user_signed_in? %>
-                    <li style="margin-right: 15px"><%= link_to "New post", new_post_image_path %></li>
-                    <li style="margin-right: 15px"><%= link_to "Cats", post_images_path %></li>
-                    <li style="margin-right: 15px"><%= link_to "New post(Lost)", new_post_lost_cat_path %></li>
-                    <li style="margin-right: 15px"><%= link_to "Lost cats", post_lost_cats_path %></li>
-                    <li style="margin-right: 15px"><%= link_to "My page", user_path(id: "my_page") %></li>
-                    <li style="margin-right: 15px"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-                  <% elsif admin_signed_in? %>
-                    <%= link_to "Users", admin_top_path %>
-                    <%= link_to "Types", admin_types_path %>
-                    <%= link_to "Comments", admin_post_image_comments_path %>
-                    <%= link_to "Posts", admin_post_images_path %>
-                    <%= link_to "Log out",destroy_admin_session_path, method: :delete %>
-                  <% else %>
-                    <%= link_to "Sign up", new_user_registration_path %>
-                    <%= link_to "Sign in", new_user_session_path %>
-                    <%= link_to "Cats", post_images_path %>
-                    <%= link_to "Lost cats", post_lost_cats_path %>
-                  <% end %>
-                </ul>
-              </div>
             </div>
-            <div class="post_image_search">
-              <%= form_with url: search_post_images_path, method: :get, local: true do |f| %>
-              <div class="search_box">
-                <%= f.text_field :search, class: "form-control search_field ", placeholder: "キーワード検索" %>
-                <%= f.submit "Go", class:"go-button" %>
+            <div class="offset-2 col-8">
+              <div class="mx-auto">
+                <div class="collapse navbar-collapse flex-column row" id="navbarNavDropdown" style="align-items: normal">
+                  <ul class="navbar-nav text-center">
+                    <% if user_signed_in? %>
+                      <li class="col text-nowrap"><%= link_to "New post", new_post_image_path %></li>
+                      <li class="col text-nowrap"><%= link_to "Cats", post_images_path %></li>
+                      <li class="col text-nowrap"><%= link_to "New post(Lost)", new_post_lost_cat_path %></li>
+                      <li class="col text-nowrap"><%= link_to "Lost cats", post_lost_cats_path %></li>
+                      <li class="col text-nowrap"><%= link_to "My page", user_path(id: "my_page") %></li>
+                      <li class="col text-nowrap"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                    <% elsif admin_signed_in? %>
+                      <%= link_to "Users", admin_top_path %>
+                      <%= link_to "Types", admin_types_path %>
+                      <%= link_to "Comments", admin_post_image_comments_path %>
+                      <%= link_to "Posts", admin_post_images_path %>
+                      <%= link_to "Log out",destroy_admin_session_path, method: :delete %>
+                    <% else %>
+                      <li class="col"><%= link_to "Sign up", new_user_registration_path %></li>
+                      <li class="col"><%= link_to "Sign in", new_user_session_path %></li>
+                      <li class="col"><%= link_to "Cats", post_images_path %></li>
+                      <li class="col"><%= link_to "Lost cats", post_lost_cats_path %></li>
+                    <% end %>
+                  </ul>
                 </div>
-              <% end %>
             </div>
           </div>
         </nav>
