@@ -166,15 +166,17 @@ width: 490px;
 background-color: rgba(228,201,192,0.7) !important;
 }
 
+.new-user {
+  margin-bottom: 0;
+  font-size: 16px !important;
+}
+
 .table {
  font-family: 'Zen Maru Gothic', sans-serif;
  font-size: 20px;
 }
 
-.new-user {
-  margin-bottom: 0;
-  font-size: 16px !important;
-}
+
 
 .post-form {
   margin-bottom: 20px;
@@ -193,6 +195,9 @@ background-color: rgba(228,201,192,0.7) !important;
   font-size: 20px;
   font-family: 'Zen Maru Gothic', sans-serif;
   text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .label {
@@ -211,8 +216,6 @@ background-color: rgba(228,201,192,0.7) !important;
   padding: 0;
 	margin: 15px;
 }
-
-
 
 .login-button, .signup-button, .post-button, .mypage-button, .yes-button, .no-button, .comment-button, .go-button {
   width: 100px !important;
@@ -270,8 +273,8 @@ background-color: rgba(228,201,192,0.7) !important;
 }
 
 .area {
-width: 300px;
-height: 200px;
+  width: 300px;
+  height: 200px;
 }
 
 .image-shape {
@@ -345,12 +348,8 @@ height: 200px;
   object-fit: cover;
 }
 
-.admin-subtitle, .rounded-pill {
-  font-family: 'Zen Maru Gothic', sans-serif;
-}
-
-.admin-thead {
-  background-color: #e4c9c0;
+.table-size {
+  width: 100%;
 }
 
 footer {
@@ -361,6 +360,34 @@ footer {
   height: 100px;
 }
 
-.table-size {
-  width: 100%;
+.admin-subtitle, .rounded-pill {
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.admin-thead {
+  background-color: #e4c9c0;
+}
+
+
+@media screen and (max-width: 425px) {
+  header {
+    width: 100%;
+  }
+
+  .nav2 {
+    margin-right: auto;
+  }
+
+  .sign-in {
+    background-position: top right;
+  }
+
+  .card2 {
+    width: 100%;
+  }
+
+  .card-footer {
+    height: 50px;
+    background-color: rgba(228,201,192,0.7)
+  }
 }

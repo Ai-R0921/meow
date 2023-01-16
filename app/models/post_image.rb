@@ -4,8 +4,10 @@ class PostImage < ApplicationRecord
   belongs_to :type
   has_many :post_image_favorites, dependent: :destroy
   has_many :post_image_comments, dependent: :destroy
-  
+
   validates :image,presence: true
+  validates :title, length: { maximum: 20 }
+  validates :body, length: { maximum: 100 }
 
   enum sex: {
     male: 0, female: 1, unknown: 2

@@ -1,4 +1,6 @@
 class Public::PostLostCatsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def new
     @post_lost_cat = PostLostCat.new
   end

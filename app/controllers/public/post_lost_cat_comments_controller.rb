@@ -1,4 +1,6 @@
 class Public::PostLostCatCommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     post_lost_cat = PostLostCat.find(params[:post_lost_cat_id])
     comment = current_user.post_lost_cat_comments.new(post_lost_cat_comment_params)
