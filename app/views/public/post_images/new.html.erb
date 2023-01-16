@@ -7,6 +7,14 @@
     </div>
     <div class="row">
       <div class="col-4 mx-auto">
+        <% if @post_image.errors.any? %>
+          <%= @post_image.errors.count %>件のエラー
+          <ul>
+            <% @post_image.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        <% end %>
         <%= form_with model: @post_image, url:post_images_path, method: :post, local: true do |f| %>
           <%= render :partial => 'post', :locals => {:f => f} %>
         <% end %>

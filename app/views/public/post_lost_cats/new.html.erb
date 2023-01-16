@@ -7,6 +7,14 @@
     </div>
     <div class="row">
       <div class="col-4 mx-auto">
+        <% if @post_lost_cat.errors.any? %>
+          <%= @post_lost_cat.errors.count %>件のエラー
+          <ul>
+            <% @post_lost_cat.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        <% end %>
         <%= form_with model: @post_lost_cat, url:post_lost_cats_path, method: :post, local: true do |f| %>
           <%= render :partial => 'post_lost', :locals => {:f => f} %>
         <% end %>

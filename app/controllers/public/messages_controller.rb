@@ -1,5 +1,5 @@
 class Public::MessagesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :show]
+  before_action :authenticate_user!
 
   def show
     #チャットするユーザーのidを取得

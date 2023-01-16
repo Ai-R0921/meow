@@ -5,6 +5,8 @@ class PostLostCat < ApplicationRecord
   has_many :post_lost_cat_comments, dependent: :destroy
   has_many :post_lost_cat_favorites, dependent: :destroy
 
+  validates :image,presence: true
+
   enum sex: {
     male: 0, female: 1, unknown: 2
   }

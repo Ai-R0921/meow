@@ -16,7 +16,6 @@ ja:
       status:
         published: '投稿'
         draft: '下書き'
-ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"

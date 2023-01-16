@@ -16,13 +16,9 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
 
-  # def follow(user_id)
-  #   relationships.create(following_id: user_id)
-  # end
-
-  # def unfollow(user_id)
-  #   relationships.find_by(following_id: user_id).destroy
-  # end
+  validates :user_name,length: { minimum: 1, maximum: 20 }
+  validates :email,presence: true
+  validates :password,presence: true
 
   def following?(user)
     reverse_of_relationships.find_by(following_id: user.id).present?
