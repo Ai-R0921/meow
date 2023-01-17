@@ -376,10 +376,14 @@ footer {
     width: 100%;
   }
 
-  .card-footer {
+  .card2-footer {
     height: 50px;
     background-color: rgba(228,201,192,0.7);
     font-size: 0.9em;
+  }
+
+  .card-footer {
+    font-size: 0.8em;
   }
 
   .go-button {
@@ -416,7 +420,23 @@ footer {
 	}
 
 	.menu {
+	  max-width: 180px;
 	  z-index: 1;
-	  background-color: #e3c8bf;
+	  background-color: #efe8d9;
+	  margin-top: -64px;
+	  margin-left: 190px;
+	  border-radius: 10px;
 	}
+}
+
+@media screen and (max-width: 375px) {
+  .menu {
+    margin-left: 141px
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .menu {
+    margin-left: 92px;
+  }
 }
