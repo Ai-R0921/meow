@@ -17,7 +17,7 @@
       <header class="shadow-sm pt-3 pb-3">
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container header" style="flex-wrap: wrap">
-            <div class="col-4">
+            <div class="col-4 welcome-wrapper">
               <div class="navbar-nav welcome">
                 <% if user_signed_in? %>
                    Welcome, <br><%= current_user.user_name %>!
@@ -41,13 +41,13 @@
                 <% end %>
               </div>
             </div>
-            <div class="offset-9 col-3 text-right">
+            <div class="offset-9 col-3 text-right humberger-menu">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
             </div>
-            <div class="offset-2 col-8">
+            <div class="offset-2 col-8 menu">
               <div class="mx-auto">
                 <div class="collapse navbar-collapse flex-column row" id="navbarNavDropdown" style="align-items: normal">
                   <ul class="navbar-nav text-center">

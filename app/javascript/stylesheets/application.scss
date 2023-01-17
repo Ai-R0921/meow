@@ -361,6 +361,9 @@ footer {
     width: 100%;
   }
 
+  .welcome-wrapper {
+    display: none;
+  }
   .nav2 {
     margin-right: auto;
   }
@@ -375,11 +378,45 @@ footer {
 
   .card-footer {
     height: 50px;
-    background-color: rgba(228,201,192,0.7)
+    background-color: rgba(228,201,192,0.7);
+    font-size: 0.9em;
   }
 
   .go-button {
     margin-left: auto;
     display: block;
   }
+
+  .table {
+    font-size: 0.8em;
+	}
+	.table th,
+	.table td{
+		display: block;
+		padding: 0;
+	}
+	.table td {
+	  margin-bottom: 10px;
+	}
+  .table th {
+    font-weight: 500;
+  }
+	label {
+	  margin: 0;
+	}
+
+	input[type="file"] {
+	  font-size: 0.9em;
+	}
+
+	.humberger-menu {
+	  position: absolute;
+    top: 22px;
+    right: 23px;
+	}
+
+	.menu {
+	  z-index: 1;
+	  background-color: #e3c8bf;
+	}
 }

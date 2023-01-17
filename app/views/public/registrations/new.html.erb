@@ -11,19 +11,19 @@
           <table class="table table-borderless new-user">
             <tbody>
               <tr>
-                <td class="label"><%= f.label :user_name %></td>
+                <th class="label"><%= f.label :user_name %></th>
                 <td><%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %></td>
               </tr>
               <tr>
-                <td class="label"><%= f.label :profile_image %></td>
+                <th class="label"><%= f.label :profile_image %></th>
                 <td><%= f.file_field :profile_image, accept: "image/*" %></td>
               </tr>
               <tr>
-                <td class="label"><%= f.label :email %></td>
+                <th class="label"><%= f.label :email %></th>
                 <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
               </tr>
               <tr>
-                <td class="label"><%= f.label :password %></td>
+                <th class="label"><%= f.label :password %></th>
                 <td class="label">
                   <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -32,7 +32,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="label"><%= f.label :password_confirmation %></td>
+                <th class="label"><%= f.label :password_confirmation %></th>
                 <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
               </tr>
             </tbody>
@@ -42,7 +42,7 @@
         </div>
         <div class="card-footer">
 				  <div class="d-flex justify-content-center links">
-				    アカウントをお持ちの方⇒
+				    アカウントをお持ちの方 ⇒ 
             <%= link_to "Sign in", new_user_session_path, class:"signin-links" %>
           </div>
         </div>
