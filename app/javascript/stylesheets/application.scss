@@ -36,6 +36,7 @@ text-align: center;
 .search_field {
   margin-right: 10px;
   font-family: 'Zen Maru Gothic', sans-serif;
+  border-radius: 10px;
 }
 
 .section_title {
@@ -63,10 +64,6 @@ a:hover {
 .logo_img {
   width: 120px;
   height: 80px;
-}
-
-.top {
-
 }
 
 .margin {
@@ -152,6 +149,18 @@ width: 490px;
 background-color: rgba(228,201,192,0.7) !important;
 }
 
+.card2-footer {
+  height: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  font-weight: 500;
+}
+
 .new-user {
   margin-bottom: 0;
   font-size: 16px !important;
@@ -162,7 +171,9 @@ background-color: rgba(228,201,192,0.7) !important;
  font-size: 20px;
 }
 
-
+.select_type {
+  border-radius: 10px;
+}
 
 .post-form {
   margin-bottom: 20px;
@@ -325,6 +336,11 @@ background-color: rgba(228,201,192,0.7) !important;
   border-right: 18px solid #ffffff;
   -webkit-transform: rotate(145deg);
   transform: rotate(145deg);
+}
+
+.form-text-field {
+  border-radius: 10px;
+  border: none;
 }
 
 .user-image {

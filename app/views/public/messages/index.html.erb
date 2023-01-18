@@ -1,0 +1,43 @@
+<div class="main top">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col mx-auto margin">
+        <h1 class="about">Chat</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <% @users.each do |user| %>
+      <div class="one-post">
+        <strong>
+          <% if user.profile_image.attached? %>
+            <%= image_tag user.profile_image, size: '100x100', class:"user-image" %>
+          <% else %>
+            <%= image_tag 'NO_IMAGE.png', size: '100x100', class:"user-image" %>
+          <% end %>
+          <p class="caption"><%= link_to "#{user.user_name}さん", user_path(user), class:"table" %></p>
+        </strong>
+      </div>
+      <% end %>
+    </div>
+    <hr>
+    <div id="messages">
+      <%= render "message", messages: @messages %>
+    </div>
+    <div class="posts">
+      <% if @message.errors.any? %>
+        <ul>
+          <% @message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      <% end %>
+      <div class="row justify-content-center">
+        <%= form_with model: [@user, @message], local: false do |f| %>
+          <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.submit "投稿",class: 'post-button'%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

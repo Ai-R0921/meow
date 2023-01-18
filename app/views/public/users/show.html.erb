@@ -21,7 +21,7 @@
             </tr>
             <tr>
               <td>
-                <% if @user != current_user %>
+                <% if user_signed_in? && @user != current_user %>
                   <% if @user.following?(current_user) %>
                     <%= link_to "フォローを外す", user_relationships_path(@user), class:"white", method: :delete %>
                   <% else %>
@@ -36,19 +36,9 @@
     </div>
     <div class="row justify-content-center mt-3">
       <%= link_to "Favorites", favorites_user_path(@user), class:"mypage-button" %>
-      <% unless @user.id == current_user.id %>
+      <% if user_signed_in? && @user.id != current_user.id %>
         <% if (current_user.following? @user) && (@user.following? current_user)  %>
-        <% if @isRoom == true %>
-          <%= link_to "Chat", message_path(@user), class:"mypage-button" %>
-          <!--<p class="user-show-room"><a href="/rooms/<%#= @roomId %>" class="mypage-button">Chat</a>-->
-        <% else %>
-          <%= form_for @room do |f| %>
-            <%= fields_for @entry do |e| %>
-              <%= e.hidden_field :user_id, value: @user.id %>
-            <% end %>
-            <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
-          <% end %>
-        <% end %>
+          <%= link_to "Chat", user_messages_path(@user), class:"mypage-button" %>
         <% end %>
       <% end %>
     </div>

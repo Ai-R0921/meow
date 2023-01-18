@@ -1,9 +1,9 @@
 class Public::MessagesController < ApplicationController
   before_action :authenticate_user!
 
-  def show
+  def index
     #チャットするユーザーのidを取得
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     #今まで入ったroomのidを取得
     rooms = current_user.entries.pluck(:room_id)
     #ユーザーidとroom_idが一致するentryを探す
@@ -29,12 +29,14 @@ class Public::MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(message_params)
     @message.save
-    redirect_to request.referer
+    room = Room.find(message_params[:room_id])
+    @messages = room.messages
+    #redirect_to request.referer
   end
 
   private
   def message_params
-    params.require(:message).permit(:content, :room_id, :user)
+    params.require(:message).permit(:content, :room_id)
   end
 end
 

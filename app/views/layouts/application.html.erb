@@ -59,11 +59,11 @@
                       <li class="col text-nowrap"><%= link_to "My page", user_path(id: "my_page") %></li>
                       <li class="col text-nowrap"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
                     <% elsif admin_signed_in? %>
-                      <%= link_to "Users", admin_top_path %>
-                      <%= link_to "Types", admin_types_path %>
-                      <%= link_to "Comments", admin_post_image_comments_path %>
-                      <%= link_to "Posts", admin_post_images_path %>
-                      <%= link_to "Log out",destroy_admin_session_path, method: :delete %>
+                      <li class="col text-nowrap"><%= link_to "Users", admin_top_path %>
+                      <li class="col text-nowrap"><%= link_to "Types", admin_types_path %>
+                      <li class="col text-nowrap"><%= link_to "Comments", admin_post_image_comments_path %>
+                      <li class="col text-nowrap"><%= link_to "Posts", admin_post_images_path %>
+                      <li class="col text-nowrap"><%= link_to "Log out",destroy_admin_session_path, method: :delete %>
                     <% else %>
                       <li class="col"><%= link_to "Sign up", new_user_registration_path %></li>
                       <li class="col"><%= link_to "Sign in", new_user_session_path %></li>

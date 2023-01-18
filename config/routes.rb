@@ -16,9 +16,9 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "users/unsubscribe"
     patch "users/withdraw"
-    resources :messages, only: [:create, :show]
     resources :rooms, only: [:create, :show]
     resources :users, only: [:edit, :update, :show] do
+      resources :messages, only: [:create, :index]
       member do
         get :favorites
       end

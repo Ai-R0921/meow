@@ -58,7 +58,7 @@
     </div>
     <div class="row justify-content-center table">
       <%= form_tag({controller:"homes", action:"top"}, method: :get) do %>
-        <%= select_tag :type_search, options_from_collection_for_select(@type, "id", "name") %>
+        <%= select_tag :type_search, options_from_collection_for_select(@type, "id", "name"), prompt: "Choose Cat", class:"select_type" %>
         <%= submit_tag "Go", class:"go-button" %>
       <% end %>
     </div>
