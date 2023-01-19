@@ -7,10 +7,13 @@ Rails.application.routes.draw do
     registrations:"public/registrations",
     sessions:"public/sessions"
   }
+  
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
 
   get "users/my_page", to: "public/users#my_page", as:"my_page"
   get "users/infomation/edit", to: "public/users#edit", as:"edit_user"
-
 
   scope module: "public" do
     root to: "homes#top"
@@ -37,9 +40,6 @@ Rails.application.routes.draw do
       resource :post_lost_cat_favorites, only: [:create, :destroy]
       resources :post_lost_cat_comments, only: [:create, :destroy]
     end
-
-    # get 'messages/:id' => 'messages#show', as: 'message'
-    # resources :messages, only: [:create]
   end
 
 

@@ -12,7 +12,7 @@
 </div>
 <div class="post-form">
   <h4 class="label">Type of cat</h4>
-  <%= f.collection_select :type_id, Type.order("name asc"), :id, :name, prompt: "Choose Type" %>
+  <%= f.collection_select :type_id,  Type.order("name asc") - [Type.find(28)] + [Type.find(28)], :id, :name, prompt: "Choose Type" %>
 </div>
 <div class="post-form">
   <h4 class="label">Sex</h4>

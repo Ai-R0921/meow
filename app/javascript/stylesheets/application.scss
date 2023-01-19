@@ -59,6 +59,7 @@ a {
 
 a:hover {
   text-decoration: none;
+  color: black;
 }
 
 .logo_img {
@@ -97,6 +98,11 @@ background-repeat: no-repeat;
 height: 80vh;
 background-color: rgba(255,255,255,0.5);
 // background-blend-mode:lighten;
+}
+
+.login-position {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .card-header h3{
@@ -217,17 +223,17 @@ label {
 .login-button, .signup-button, .post-button, .mypage-button, .yes-button, .no-button, .comment-button, .go-button {
   width: 100px !important;
   height: 35px !important;
-  font-size: 13px !important;
+  // font-size: 13px !important;
   }
 
 .button, .login-button, .signup-button, .post-button, .mypage-button, .yes-button, .no-button, .comment-button, .go-button {
-  width: 160px;
-  height: 45px;
+  width: 130px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Montserrat Alternates', sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 2.5px;
   font-weight: 500;
   color: black;

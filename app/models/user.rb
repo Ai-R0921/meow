@@ -27,6 +27,14 @@ class User < ApplicationRecord
   def post_count
     self.post_images.count + self.post_lost_cats.count
   end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@sample.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.user_name = "Guest"
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+  end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
