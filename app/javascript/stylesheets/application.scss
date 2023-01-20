@@ -123,7 +123,7 @@ width: 400px;
 background-color: rgba(228,201,192,0.6) !important;
 }
 
-.remember{
+.remember, .signup-links, .signin-links {
 color: white;
 font-family: 'Montserrat Alternates', sans-serif !important;
 }
@@ -131,11 +131,6 @@ font-family: 'Montserrat Alternates', sans-serif !important;
 .links{
 color: black;
 font-family: 'Zen Maru Gothic', sans-serif;
-}
-
-.signup-links, .signin-links {
-  color: white;
-  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .sign-up {
@@ -177,7 +172,7 @@ label {
  font-size: 20px;
 }
 
-.select_type {
+.select_type, .comment-box {
   border-radius: 10px;
 }
 
@@ -220,14 +215,16 @@ label {
 	margin: 15px;
 }
 
-.login-button, .signup-button, .post-button, .mypage-button, .yes-button, .no-button, .comment-button, .go-button {
-  width: 100px !important;
-  height: 35px !important;
-  // font-size: 13px !important;
-  }
 
-.button, .login-button, .signup-button, .post-button, .mypage-button, .yes-button, .no-button, .comment-button, .go-button {
-  width: 130px;
+
+.button {
+  width: 150px !important;
+  height: 40px !important;
+  font-size: 15px !important;
+}
+
+.button, .login-button, .signup-button, .post-button, .mypage-button, .yes-button, .no-button, .comment-button, .go-button, .guest-button, .back-button {
+  width: 100px;
   height: 35px;
   display: flex;
   align-items: center;
@@ -246,7 +243,7 @@ label {
   outline: none;
   }
 
-.button:hover, .login-button:hover, .signup-button:hover, .post-button:hover, .mypage-button:hover, .yes-button:hover, .no-button:hover, .comment-button:hover, .go-button:hover {
+.button:hover, .login-button:hover, .signup-button:hover, .post-button:hover, .mypage-button:hover, .yes-button:hover, .no-button:hover, .comment-button:hover, .go-button:hover, .guest-button:hover, .back-button:hover {
   background-color: #a68b62;
   box-shadow: 0px 15px 20px rgba(166, 139, 98, 0.4);
   color: #fff;
@@ -254,7 +251,11 @@ label {
   transform: translateY(-7px);
 }
 
-.post-button {
+.guest-button {
+  width: 130px !important;
+}
+
+.post-button, .back-button {
   margin: 15px auto;
 }
 
@@ -268,6 +269,7 @@ label {
 
 .go-button {
   display: inline !important;
+  border-radius: 10px !important;
 }
 
 .text {

@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
+  
+  # devise_scope :admin do
+  #   post 'admin/guest_sign_in', to: 'admin/sessions#guest_sign_in'
+  # end
 
   get "users/my_page", to: "public/users#my_page", as:"my_page"
   get "users/infomation/edit", to: "public/users#edit", as:"edit_user"

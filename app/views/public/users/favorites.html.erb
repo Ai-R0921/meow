@@ -27,5 +27,14 @@
       </div>
       <% end %>
     </div>
+    <div class="row text-center">
+      <div class="col mx-auto margin">
+        <% if @user == current_user %>
+          <%= link_to "Back", user_path(id: "my_page"), class:"back-button" %>
+        <% else %>
+          <%= link_to "Back", user_path(@user), class:"back-button" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
