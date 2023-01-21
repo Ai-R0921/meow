@@ -17,9 +17,8 @@
         <p class="caption"></p>
       </div>
       <% end %>
-      <!--<div class="row justify-content-center">-->
-        <% @post_lost_cats.each do |post_lost_cat| %>
-        <div class="one-post">
+      <% @post_lost_cats.each do |post_lost_cat| %>
+      <div class="one-post">
         <p class="caption"><%= post_lost_cat.title %></p>
         <%= link_to edit_post_lost_cat_path(post_lost_cat) do %>
           <% if post_lost_cat.image.attached? %>

@@ -6,26 +6,8 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <% @post_image_favorites.each do |post_image| %>
-      <div class="one-post">
-        <p class="caption"><%= post_image.title %></p>
-        <%= link_to post_image_path(post_image) do %>
-          <%= image_tag post_image.image, class:"image-shape" %>
-        <% end %>
-        <p class="caption"><%= post_image.user.user_name %></p>
-      </div>
-      <% end %>
-      <% @post_lost_cat_favorites.each do |post_lost_cat| %>
-      <div class="one-post">
-        <p class="caption"><%= post_lost_cat.title %></p>
-        <%= link_to post_lost_cat_path(post_lost_cat) do %>
-          <%# if post_lost_cat.image.attached? %>
-            <%= image_tag post_lost_cat.image, class:"image-shape" %>
-          <%# end %>
-        <% end %>
-        <p class="caption"><%= post_lost_cat.user.user_name %></p>
-      </div>
-      <% end %>
+      <%= render "public/post_images/image_index", post_images: @post_image_favorites %>
+      <%= render "public/post_lost_cats/lost_image_index", post_lost_cats: @post_lost_cat_favorites %>
     </div>
     <div class="row text-center">
       <div class="col mx-auto margin">

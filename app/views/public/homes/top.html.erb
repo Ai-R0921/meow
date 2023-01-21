@@ -12,20 +12,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <% @post_images.each do |post_image| %>
-      <div class="one-post">
-        <p class="caption"><%= post_image.title %></p>
-        <% if post_image.user.is_deleted %>
-          <% next %>
-        <% end %>
-        <%= link_to post_image_path(post_image) do %>
-          <% if post_image.image.attached? %>
-            <%= image_tag post_image.image, class:"image-shape" %>
-          <% end %>
-        <% end %>
-        <p class="caption"><%= post_image.user.user_name %></p>
-      </div>
-      <% end %>
+      <%= render "public/post_images/image_index", post_images: @post_images %>
     </div>
     <div class="row justify-content-end">
       <%= link_to "Show more >>", post_images_path, class:"button" %>
@@ -36,17 +23,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <% @post_lost_cats.each do |post_lost_cat| %>
-      <div class="one-post">
-        <p class="caption"><%= post_lost_cat.title %></p>
-        <%= link_to post_lost_cat_path(post_lost_cat) do %>
-          <% if post_lost_cat.image.attached? %>
-            <%= image_tag post_lost_cat.image, class:"image-shape" %>
-          <% end %>
-        <% end %>
-        <p class="caption"><%= post_lost_cat.user.user_name %></p>
-      </div>
-      <% end %>
+      <%= render "public/post_lost_cats/lost_image_index", post_lost_cats: @post_lost_cats %>
     </div>
     <div class="row justify-content-end">
       <%= link_to "Show more >>", post_lost_cats_path, class:"button" %>

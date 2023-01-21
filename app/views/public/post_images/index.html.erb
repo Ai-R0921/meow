@@ -6,24 +6,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <% @post_images.each do |post_image| %>
-      <div class="one-post">
-        <p class="caption"><%= post_image.title %></p>
-        <% if post_image.user.is_deleted %>
-          <% next %>
-        <% end %>
-        <%= link_to post_image_path(post_image) do %>
-          <% if post_image.image.attached? %>
-            <%= image_tag post_image.image, class:"image-shape" %>
-          <% end %>
-        <% end %>
-        <p class="caption"><%= post_image.user.user_name %></p>
-        <p class="caption">
-          <i class="fa-solid fa-heart white"></i>&nbsp;<%= link_to "#{post_image.post_image_favorites.count}", post_image_path(post_image) %>&emsp;
-          <i class="fa-solid fa-comment white"></i>&nbsp;<%= link_to "#{post_image.post_image_comments.count}", post_image_path(post_image) %>
-        </p>
-      </div>
-      <% end %>
+      <%= render "image_index", post_images: @post_images %>
     </div>
     <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">
@@ -31,21 +14,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <% @all_ranks.each do |post_image| %>
-      <div class="one-post">
-        <p class="caption"><%= post_image.title %></p>
-        <%= link_to post_image_path(post_image) do %>
-          <% if post_image.image.attached? %>
-            <%= image_tag post_image.image, class:"image-shape" %>
-          <% end %>
-        <% end %>
-        <p class="caption"><%= post_image.user.user_name %></p>
-        <p class="caption">
-          <i class="fa-solid fa-heart white"></i>&nbsp;<%= link_to "#{post_image.post_image_favorites.count}" %>&emsp;
-          <i class="fa-solid fa-comment white"></i>&nbsp;<%= link_to "#{post_image.post_image_comments.count}", post_image_path(post_image) %>
-        </p>
-      </div>
-      <% end %>
+      <%= render "image_index", post_images: @all_ranks %>
     </div>
   </div>
 </div>
