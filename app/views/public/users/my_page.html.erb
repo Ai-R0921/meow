@@ -23,10 +23,10 @@
               <td><%= @user.email %></td>
             </tr>
             <tr>
-              <td><%= link_to "Follow", user_followings_path(@user), class:"remember" %> <%= @user.followings.count %></td>
+              <td><%= link_to "Follow", user_followings_path(@user), class:"remember" %>&emsp;<%= @user.followings.count %></td>
             </tr>
             <tr>
-              <td><%= link_to "Follower", user_followers_path(@user), class:"remember" %> <%= @user.followers.count %></td>
+              <td><%= link_to "Follower", user_followers_path(@user), class:"remember" %>&emsp;<%= @user.followers.count %></td>
             </tr>
           </tbody>
         </table>
@@ -53,7 +53,8 @@
             <%= image_tag post_image.image, class:"image-shape" %>
           <% end %>
         <% end %>
-        <p class="caption"><%= link_to "#{post_image.post_image_comments.count} コメント", post_image_path(post_image), class:"white" %></p>
+        <p class="caption">
+          <%= link_to "#{post_image.post_image_comments.count} コメント", post_image_path(post_image), class:"white" %></p>
       </div>
       <% end %>
       <% @post_lost_cats.each do |post_lost_cat| %>

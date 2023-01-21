@@ -4,7 +4,7 @@
       <tbody>
         <% users.each do |user| %>
         <tr>
-          <td style="width: 30%">
+          <td style="width: 30%; vertical-align: none;">
             <% if user.profile_image.attached? %>
               <%= image_tag user.profile_image, class:"user-image" %>
             <% else %>
@@ -29,6 +29,10 @@
 </div>
 <div class="row text-center">
   <div class="col mx-auto margin">
-    <%= link_to "Back", user_path(id: "my_page"), class:"back-button" %>
+    <% if user == current_user %>
+      <%= link_to "Back", user_path(id: "my_page"), class:"back-button" %>
+    <% else %>
+      <%= link_to "Back", user_path(user), class:"back-button" %>
+    <% end %>
   </div>
 </div>

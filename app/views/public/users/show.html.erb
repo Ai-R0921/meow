@@ -41,6 +41,8 @@
           <%= link_to "Chat", user_messages_path(@user), class:"mypage-button" %>
         <% end %>
       <% end %>
+      <%= link_to "Follow", user_followings_path(@user), class:"mypage-button" %>
+      <%= link_to "Follower", user_followers_path(@user), class:"mypage-button" %>
     </div>
     <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">
