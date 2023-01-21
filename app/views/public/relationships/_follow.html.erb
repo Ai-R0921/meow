@@ -4,7 +4,7 @@
       <tbody>
         <% users.each do |user| %>
         <tr>
-          <td style="width: 30%; vertical-align: none;">
+          <td style="width: 30%;">
             <% if user.profile_image.attached? %>
               <%= image_tag user.profile_image, class:"user-image" %>
             <% else %>

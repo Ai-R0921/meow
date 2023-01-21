@@ -19,8 +19,8 @@
         <% end %>
         <p class="caption"><%= post_image.user.user_name %></p>
         <p class="caption">
-          <i class="fa-solid fa-heart"></i>&nbsp;<%= post_image.post_image_favorites.count %>&emsp;
-          <i class="fa-solid fa-comment"></i>&nbsp;<%= link_to "#{post_image.post_image_comments.count}", post_image_path(post_image), class:"white" %>
+          <i class="fa-solid fa-heart white"></i>&nbsp;<%= link_to "#{post_image.post_image_favorites.count}", post_image_path(post_image) %>&emsp;
+          <i class="fa-solid fa-comment white"></i>&nbsp;<%= link_to "#{post_image.post_image_comments.count}", post_image_path(post_image) %>
         </p>
       </div>
       <% end %>
@@ -41,8 +41,8 @@
         <% end %>
         <p class="caption"><%= post_image.user.user_name %></p>
         <p class="caption">
-          <i class="fa-solid fa-heart"></i>&nbsp;<%= post_image.post_image_favorites.count %>&emsp;
-          <i class="fa-solid fa-comment"></i>&nbsp;<%= link_to "#{post_image.post_image_comments.count}", post_image_path(post_image), class:"white" %>
+          <i class="fa-solid fa-heart white"></i>&nbsp;<%= link_to "#{post_image.post_image_favorites.count}" %>&emsp;
+          <i class="fa-solid fa-comment white"></i>&nbsp;<%= link_to "#{post_image.post_image_comments.count}", post_image_path(post_image) %>
         </p>
       </div>
       <% end %>

@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   validates :user_name,length: { minimum: 1, maximum: 20 }
   validates :email,presence: true
-  validates :password,presence: true
+  validates :password,presence: true, on: :create
 
   def following?(user)
     reverse_of_relationships.find_by(following_id: user.id).present?

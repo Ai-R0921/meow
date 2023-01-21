@@ -23,9 +23,9 @@
               <td>
                 <% if user_signed_in? && @user != current_user %>
                   <% if @user.following?(current_user) %>
-                    <%= link_to "Unfollow", user_relationships_path(@user), class:"remember", method: :delete %>
+                    <%= link_to "Unfollow", user_relationships_path(@user), class:"unfollow-button", method: :delete %>
                   <% else %>
-                    <%= link_to "Follow", user_relationships_path(@user), class:"remember", method: :post %>
+                    <%= link_to "Follow", user_relationships_path(@user), class:"follow-button", method: :post %>
                   <% end %>
                 <% end %>
               </td>
@@ -41,8 +41,8 @@
           <%= link_to "Chat", user_messages_path(@user), class:"mypage-button" %>
         <% end %>
       <% end %>
-      <%= link_to "Follow", user_followings_path(@user), class:"mypage-button" %>
-      <%= link_to "Follower", user_followers_path(@user), class:"mypage-button" %>
+      <%= link_to "Following", user_followings_path(@user), class:"mypage-button" %>
+      <%= link_to "Followers", user_followers_path(@user), class:"mypage-button" %>
     </div>
     <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">

@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col-4 mx-auto">
-        <%= form_with model: @user do |f| %>
+　　　　<%= form_with model: @user, local: true do |f| %>
         <div class="post-form">
           <h5 class="label">User name</h5>
           <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class:"form-control" %>

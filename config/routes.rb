@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :admin, controllers: {
-    sessions:"admin/sessions"
+    sessions: "admin/sessions"
   }
   devise_for :users, controllers: {
-    registrations:"public/registrations",
-    sessions:"public/sessions"
+    registrations: "public/registrations",
+    sessions: "public/sessions"
   }
   
   devise_scope :user do
