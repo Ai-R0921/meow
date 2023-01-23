@@ -6,6 +6,8 @@ class PostLostCat < ApplicationRecord
   has_many :post_lost_cat_favorites, dependent: :destroy
 
   validates :image,presence: true
+  validates :title, length: { maximum: 20 }
+  validates :body, length: { maximum: 100 }
 
   enum sex: {
     male: 0, female: 1, unknown: 2
