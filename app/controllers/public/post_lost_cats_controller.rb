@@ -1,5 +1,7 @@
 class Public::PostLostCatsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :prevent_url, only: [:edit, :update, :destroy]
 
   def new
     @post_lost_cat = PostLostCat.new
@@ -46,4 +48,15 @@ class Public::PostLostCatsController < ApplicationController
   def post_lost_cat_params
     params.require(:post_lost_cat).permit(:user_id, :type_id, :image, :title, :body, :sex, :status)
   end
+
+  def set_user
+    @post_image = PostImage.find(params[:id])
+  end
+
+  def prevent_url
+    if @post_image.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
+
 end

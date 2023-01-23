@@ -1,5 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show, :favorites]
+  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :prevent_url, only: [:edit, :update, :destroy]
 
   def show
     @user = User.find(params[:id])
@@ -59,6 +61,16 @@ class Public::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:user_name, :profile_image, :email, :is_deleted, :encrypted_password)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def prevent_url
+    if @user != current_user.id
+      redirect_to root_path
+    end
   end
 
 end

@@ -1,5 +1,7 @@
 class Public::PostImagesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :prevent_url, only: [:edit, :update, :destroy]
 
   def new
     @post_image = PostImage.new
@@ -90,5 +92,15 @@ class Public::PostImagesController < ApplicationController
 
   def post_image_params
     params.require(:post_image).permit(:user_id, :type_id, :image, :title, :body, :sex, :status)
+  end
+
+  def set_user
+    @post_image = PostImage.find(params[:id])
+  end
+
+  def prevent_url
+    if @post_image.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 end
