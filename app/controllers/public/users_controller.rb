@@ -34,9 +34,14 @@ class Public::UsersController < ApplicationController
 
   def withdraw
     @user = current_user
-    @user.update(is_deleted: true)
-    reset_session
-    redirect_to root_path
+    if @user.email == "guest@sample.com"
+      @user.destroy
+      redirect_to root_path
+    else
+      @user.update(is_deleted: true)
+      reset_session
+      redirect_to root_path
+    end
   end
 
   def favorites
@@ -64,11 +69,12 @@ class Public::UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def prevent_url
-    if @user != current_user.id
+    @user = User.find(params[:id])
+    if @user.id != current_user.id
       redirect_to root_path
     end
   end

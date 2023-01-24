@@ -6,7 +6,7 @@ class PostImage < ApplicationRecord
   has_many :post_image_comments, dependent: :destroy
 
   validates :image,presence: true
-  validates :title, length: { maximum: 20 }
+  validates :title, length: { maximum: 10 }
   validates :body, length: { maximum: 100 }
 
   enum sex: {

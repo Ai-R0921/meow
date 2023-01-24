@@ -7,17 +7,17 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
-  
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
-  
+
   # devise_scope :admin do
   #   post 'admin/guest_sign_in', to: 'admin/sessions#guest_sign_in'
   # end
 
   get "users/my_page", to: "public/users#my_page", as:"my_page"
-  get "users/infomation/edit", to: "public/users#edit", as:"edit_user"
+  get "users/infomation/edit", to: "public/users#edit", as:"info_edit_user"
 
   scope module: "public" do
     root to: "homes#top"

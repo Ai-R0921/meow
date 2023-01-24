@@ -36,7 +36,7 @@
       <%= link_to "New post", new_post_image_path, class:"mypage-button" %>
       <%= link_to "Lost cat", new_post_lost_cat_path, class:"mypage-button" %>
       <%= link_to "Favorites", favorites_user_path(current_user), class:"mypage-button" %>
-      <%= link_to "User edit", edit_user_path, class:"mypage-button" %>
+      <%= link_to "User edit", edit_user_path(@user), class:"mypage-button" %>
       <%= link_to "Drafts", confirm_post_images_path, class:"mypage-button" %>
     </div>
     <div class="row text-center mt-5 mb-5">
