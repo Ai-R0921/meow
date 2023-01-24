@@ -50,11 +50,11 @@ class Public::PostLostCatsController < ApplicationController
   end
 
   def set_user
-    @post_image = PostImage.find(params[:id])
+    @post_lost_cat = PostLostCat.find(params[:id])
   end
 
   def prevent_url
-    if @post_image.user_id != current_user.id
+    if @post_lost_cat.user_id != current_user.id
       redirect_to root_path
     end
   end
