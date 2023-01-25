@@ -1,18 +1,18 @@
 <% post_images.each do |post_image| %>
-  <div class="one-post">
-    <p class="caption"><%= post_image.title %></p>
-    <% if post_image.user.is_deleted %>
-      <% next %>
-    <% end %>
-    <%= link_to post_image_path(post_image) do %>
-      <% if post_image.image.attached? %>
+  <% if post_image.image.attached? %>
+    <div class="one-post">
+      <p class="caption"><%= post_image.title %></p>
+      <% if post_image.user.is_deleted %>
+        <% next %>
+      <% end %>
+      <%= link_to post_image_path(post_image) do %>
         <%= image_tag post_image.image, class:"image-shape" %>
       <% end %>
-    <% end %>
-    <p class="caption"><%= post_image.user.user_name %></p>
-    <p class="caption">
-      <i class="fa-solid fa-heart white"></i>&nbsp;<%= link_to "#{post_image.post_image_favorites.count}", post_image_path(post_image) %>&emsp;
-      <i class="fa-solid fa-comment white"></i>&nbsp;<%= link_to "#{post_image.post_image_comments.count}", post_image_path(post_image) %>
-    </p>
-  </div>
+      <p class="caption"><%= post_image.user.user_name %></p>
+      <p class="caption">
+        <i class="fa-solid fa-heart white"></i>&nbsp;<%= link_to "#{post_image.post_image_favorites.count}", post_image_path(post_image) %>&emsp;
+        <i class="fa-solid fa-comment white"></i>&nbsp;<%= link_to "#{post_image.post_image_comments.count}", post_image_path(post_image) %>
+      </p>
+    </div>
+  <% end %>
 <% end %>
