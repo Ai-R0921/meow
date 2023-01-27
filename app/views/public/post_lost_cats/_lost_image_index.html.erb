@@ -1,7 +1,7 @@
 <% post_lost_cats.each do |post_lost_cat| %>
   <% if post_lost_cat.image.attached? %>
     <div class="one-post">
-      <p class="caption"><%= post_lost_cat.title %></p>
+      <p class="caption"><%= post_lost_cat.title.truncate(12, omission: "...") %></p>
       <% if post_lost_cat.user.is_deleted %>
         <% next %>
       <% end %>

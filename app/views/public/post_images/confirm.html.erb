@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row text-center mb-5">
       <div class="col mx-auto margin">
-        <h1 class="about">Drafts</h1>
+        <h1 class="about"><i class="icon"></i>Drafts</h1>
       </div>
     </div>
     <div class="row justify-content-center">
       <% @post_images.each do |post_image| %>
       <div class="one-post">
-        <p class="caption"><%= post_image.title %></p>
+        <p class="caption"><%= post_image.title.truncate(12, omission: "...") %></p>
         <%= link_to edit_post_image_path(post_image) do %>
           <% if post_image.image.attached? %>
             <%= image_tag post_image.image, class:"image-shape" %>
@@ -19,7 +19,7 @@
       <% end %>
       <% @post_lost_cats.each do |post_lost_cat| %>
       <div class="one-post">
-        <p class="caption"><%= post_lost_cat.title %></p>
+        <p class="caption"><%= post_lost_cat.title.truncate(12, omission: "...") %></p>
         <%= link_to edit_post_lost_cat_path(post_lost_cat) do %>
           <% if post_lost_cat.image.attached? %>
             <%= image_tag post_lost_cat.image, class:"image-shape" %>

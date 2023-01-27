@@ -84,6 +84,14 @@ a:hover {
   margin-top: 50px;
 }
 
+.icon::before {
+  font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: "\f1b0";
+	font-synthesis: none;
+	padding-right: 10px;
+}
+
 .subtitle {
   font-family: 'Montserrat Alternates', sans-serif;
   color: white;
@@ -92,7 +100,7 @@ a:hover {
 }
 
 .sign-in {
-background-image: url('../images/nikukyu.jpg');
+background-image: url("../images/nikukyu.jpg");
 background-size: cover;
 background-repeat: no-repeat;
 height: 80vh;
@@ -134,7 +142,7 @@ font-family: 'Zen Maru Gothic', sans-serif;
 }
 
 .sign-up {
-background-image: url('../images/signup.jpg');
+background-image: url("../images/signup.jpg");
 background-size: cover;
 background-repeat: no-repeat;
 height: 80vh;

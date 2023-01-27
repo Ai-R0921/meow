@@ -1,7 +1,7 @@
 <% post_images.each do |post_image| %>
   <% if post_image.image.attached? %>
     <div class="one-post">
-      <p class="caption"><%= post_image.title %></p>
+      <p class="caption"><%= post_image.title.truncate(12, omission: "...") %></p>
       <% if post_image.user.is_deleted %>
         <% next %>
       <% end %>

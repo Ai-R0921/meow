@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row text-center">
       <div class="col mx-auto margin">
-        <h1 class="about">What's meow?</h1>
+        <h1 class="about"><i class="icon"></i>What's meow?</h1>
         <h4 class="about-text">猫好きによる猫好きのためのコミュニティサイト</h4>
       </div>
     </div>
     <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">
-        <h1 class="subtitle">What's New</h1>
+        <h1 class="subtitle"><i class="icon"></i>What's New</h1>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -19,7 +19,7 @@
     </div>
     <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">
-        <h1 class="subtitle">Lost Cats</h1>
+        <h1 class="subtitle"><i class="icon"></i>Lost Cats</h1>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -30,7 +30,7 @@
     </div>
     <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">
-        <h1 class="subtitle">Search Cats</h1>
+        <h1 class="subtitle"><i class="icon"></i>Search Cats</h1>
       </div>
     </div>
     <div class="row justify-content-center table">
@@ -43,7 +43,7 @@
       <% if @results.present? %>
         <% @results.each do |result| %>
         <div class="one-post">
-          <p class="caption"><%= result.title %></p>
+          <p class="caption"><%= result.title.truncate(12, omission: "...") %></p>
           <%= link_to post_image_path(result) do %>
             <% if result.image.attached? %>
               <%= image_tag result.image, class:"image-shape" %>
