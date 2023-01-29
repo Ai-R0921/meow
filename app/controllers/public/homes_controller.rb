@@ -3,7 +3,7 @@ class Public::HomesController < ApplicationController
     @post_images = PostImage.order('id DESC').limit(4).published
     @post_lost_cats = PostLostCat.order('id DESC').limit(4).published
 
-    @type = Type.select("name", "id").order("name asc") - [Type.find(28)] + [Type.find(28)]
+    @type = Type.select("name", "id").order("name asc") - [Type.find_by(name: 'その他')] + [Type.find_by(name: 'その他')]
     type_search = params[:type_search]
     if type_search != nil
       searched_post_images = Type.find_by(id: type_search).post_images.published
@@ -25,7 +25,7 @@ class Public::HomesController < ApplicationController
       @results = @results.sort.to_h.values
     end
   end
-  
+
   # def guest_sign_in
   #   user = User.find_or_create_by!(email: "guest@sample.com") do |user|
   #     user.password = SecureRandom.urlsafe_base64
