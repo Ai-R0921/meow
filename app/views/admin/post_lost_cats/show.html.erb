@@ -14,27 +14,27 @@
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td class="font-weight-bold" style="width: 20%;">投稿日</td>
+            <td class="admin-table">投稿日</td>
             <td><%= @post_lost_cat.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
           <tr>
-            <td class="font-weight-bold">ユーザー</td>
+            <td class="admin-table">ユーザー</td>
             <td><%= link_to "#{@user.user_name}", admin_user_path(@user) %></td>
           </tr>
           <tr>
-            <td class="font-weight-bold">猫種</td>
+            <td class="admin-table">猫種</td>
             <td><%= @post_lost_cat.type.name %></td>
           </tr>
           <tr>
-            <td class="font-weight-bold">性別</td>
+            <td class="admin-table">性別</td>
             <td><%= @post_lost_cat.sex_i18n %></td>
           </tr>
           <tr>
-            <td class="font-weight-bold">タイトル</td>
+            <td class="admin-table">タイトル</td>
             <td><%= @post_lost_cat.title %></td>
           </tr>
           <tr>
-            <td class="font-weight-bold">本文</td>
+            <td class="admin-table">本文</td>
             <td><%= @post_lost_cat.body %></td>
           </tr>
         </tbody>
