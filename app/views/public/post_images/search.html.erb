@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
       <% @post_images.each do |post_image| %>
         <div class="one-post">
-          <p class="caption"><%= post_image.title %></p>
+          <p class="caption"><%= post_image.title.truncate(10, omission: "...") %></p>
           <% if post_image.user.is_deleted %>
             <% next %>
           <% end %>

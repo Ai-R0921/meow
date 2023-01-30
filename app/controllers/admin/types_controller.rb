@@ -16,7 +16,7 @@ class Admin::TypesController < ApplicationController
   end
 
   def index
-    @types = Type.order("name")
+    @types = Type.order("name asc") - [Type.find_by(name: 'その他')] + [Type.find_by(name: 'その他')]
   end
 
 

@@ -10,15 +10,15 @@
     </div>
     <div class="row justify-content-center">
       <% @post_lost_cats.each do |post_lost_cat| %>
-      <div class="one-post">
-        <p class="caption"><%= post_lost_cat.title %></p>
-        <%= link_to admin_post_lost_cat_path(post_lost_cat) do %>
-          <% if post_lost_cat.image.attached? %>
-            <%= image_tag post_lost_cat.image, class:"image-shape" %>
-          <% end %>
+        <% if post_lost_cat.image.attached? %>
+          <div class="one-post">
+            <p class="caption"><%= post_lost_cat.title.truncate(10, omission: "...") %></p>
+            <%= link_to admin_post_lost_cat_path(post_lost_cat) do %>
+              <%= image_tag post_lost_cat.image, class:"image-shape" %>
+            <% end %>
+            <p class="caption"><%= post_lost_cat.user.user_name %></p>
+          </div>
         <% end %>
-        <p class="caption"><%= post_lost_cat.user.user_name %></p>
-      </div>
       <% end %>
     </div>
   </div>
