@@ -10,9 +10,9 @@
 #   password: '123456'
 #   )
 
-
+Admin.destroy_all
 admins = [
-  {email: 'abcd@hotmail.com', password: '123456'},
+  {email: 'abcd@sample.com', password: '123456'},
 ]
 admins.each do |admin|
   admin_data = Admin.find_by(email: admin[:email])
