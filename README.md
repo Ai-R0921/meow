@@ -27,7 +27,11 @@
 https://docs.google.com/spreadsheets/d/1NeITCMYAVs80t_osapsWdeMSAHNrXICrejMq6nNsspU/edit?usp=sharing
 
 ## 設計書
+- テーブル定義書
+https://docs.google.com/spreadsheets/d/1UD2nA4T9GjvEYNk5NDCWUif1dlH2fNMx55uck_gkxGI/edit?usp=sharing
 
+- ER図
+https://app.diagrams.net/#G1uzcWKiiR5Z3yXAain6yD2YnEeh37k0l6
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -37,4 +41,17 @@ https://docs.google.com/spreadsheets/d/1NeITCMYAVs80t_osapsWdeMSAHNrXICrejMq6nNs
 - IDE：Cloud9
 
 ## 使用素材
-使用検討中です。
+- shutterstock
+https://www.shutterstock.com/ja/explore/japan-stock-images-1219?c3apidt=p17945798380&gclid=CjwKCAiAleOeBhBdEiwAfgmXf5yOsE2FJPbP5wuIqE1aaxHhOQJJfUw-8qDx6Jx3uTyt4HPBVOzStxoCP3UQAvD_BwE&gclsrc=aw.ds&kw=shutterstock
+
+- Fontawesome
+https://fontawesome.com/
+
+- イラストAC
+https://www.ac-illust.com/
+
+- ぱくたそ
+https://www.pakutaso.com/
+
+- O-DAN
+https://o-dan.net/ja/
