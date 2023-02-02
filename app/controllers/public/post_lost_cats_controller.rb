@@ -32,15 +32,17 @@ class Public::PostLostCatsController < ApplicationController
   end
 
   def update
-    @post_lost_cat = PostLostCat.find(params[:id])
-    @post_lost_cat.update(post_lost_cat_params)
-    redirect_to post_lost_cat_path(@post_lost_cat)
+    if @post_lost_cat.user_id == current_user.id
+      @post_lost_cat.update(post_lost_cat_params)
+      redirect_to post_lost_cat_path(@post_lost_cat)
+    end
   end
 
   def destroy
-    @post_lost_cat = PostLostCat.find(params[:id])
-    @post_lost_cat.destroy
-    redirect_to my_page_path
+    if @post_lost_cat.user_id == current_user.id
+      @post_lost_cat.destroy
+      redirect_to my_page_path
+    end
   end
 
   private

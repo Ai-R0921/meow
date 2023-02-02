@@ -33,15 +33,17 @@ class Public::PostImagesController < ApplicationController
   end
 
   def update
-    @post_image = PostImage.find(params[:id])
-    @post_image.update(post_image_params)
-    redirect_to post_image_path(@post_image)
+    if @post_image.user_id == current_user.id
+      @post_image.update(post_image_params)
+      redirect_to post_image_path(@post_image)
+    end
   end
 
   def destroy
-    @post_image = PostImage.find(params[:id])
-    @post_image.destroy
-    redirect_to my_page_path
+    if @post_image.user_id == current_user.id
+      @post_image.destroy
+      redirect_to my_page_path
+    end
   end
 
   def search
