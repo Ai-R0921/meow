@@ -18,7 +18,7 @@ class Public::PostImagesController < ApplicationController
   end
 
   def index
-    @post_images = PostImage.published
+    @post_images = PostImage.published.page(params[:page]).per(8)
     @all_ranks = PostImage.create_all_ranks
   end
 

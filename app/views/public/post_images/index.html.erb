@@ -8,6 +8,9 @@
     <div class="row justify-content-center">
       <%= render "image_index", post_images: @post_images %>
     </div>
+    <div class="row justify-content-center">
+      <%= paginate @post_images %>
+    </div>
     <div class="row text-center mt-5 mb-5">
       <div class="col mx-auto">
         <h1 class="subtitle"><i class="icon"></i>Ranking</h1>
