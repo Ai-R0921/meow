@@ -399,6 +399,11 @@ label {
   border: none;
 }
 
+.first, .prev, .next, .page, .last {
+  margin-right: 10px;
+  font-family: 'Montserrat Alternates', sans-serif
+}
+
 footer {
   margin-top: auto;
   height: 100px;
