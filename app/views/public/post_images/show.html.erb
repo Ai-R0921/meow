@@ -40,22 +40,8 @@
             </tr>
             <tr>
               <td></td>
-              <td>
-                <% if user_signed_in? %>
-                  <% if @post_image.favorited_by?(current_user) %>
-                  <h3>
-                    <%= link_to post_image_post_image_favorites_path(@post_image), class:"white", method: :delete do %>
-                      ♥<%= @post_image.post_image_favorites.count %>
-                    <% end %>
-                  </h3>
-                  <% else %>
-                  <h3>
-                    <%= link_to post_image_post_image_favorites_path(@post_image), class:"white", method: :post do %>
-                      ♡<%= @post_image.post_image_favorites.count %>
-                    <% end %>
-                  </h3>
-                  <% end %>
-                <% end %>
+              <td id="post_favorite">
+                <%= render "favorites", post_image: @post_image %>
               </td>
             </tr>
             <tr>
