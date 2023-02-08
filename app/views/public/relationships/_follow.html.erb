@@ -12,14 +12,8 @@
             <% end %>
           </td>
           <td><%= link_to "#{user.user_name}", user_path(user), class:"white" %></td>
-          <td>
-            <% if user_signed_in? && user != current_user %>
-              <% if user.following?(current_user) %>
-                <%= link_to "Unfollow", user_relationships_path(user), class:"remember", method: :delete %>
-              <% else %>
-                <%= link_to "Follow", user_relationships_path(user), class:"remember", method: :post %>
-              <% end %>
-            <% end %>
+          <td id="follow_button_<%= user.id %>">
+            <%= render "public/users/follow_user", user: user %>
           </td>
         </tr>
         <% end %>
