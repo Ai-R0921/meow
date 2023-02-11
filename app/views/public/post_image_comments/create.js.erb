@@ -1,0 +1,5 @@
+$('#comments_table').html("<%= j(render 'public/post_images/post_comments', post_image: @post_image, post_image_comment: @post_image_comment) %>");
+
+<!--$('textarea').val('');-->
+
+$('#comments_form').html("<%= j(render 'public/post_images/form', post_image: @post_image, post_image_comment: @post_image_comment) %>");

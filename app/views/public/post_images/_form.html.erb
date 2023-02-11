@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <%= form_with model: [post_image, post_image_comment] do |f| %>
+    <%= f.text_area :comment, placeholder:"comments", class:"comment-box" %>
+    <%= f.submit "Post", class:"comment-button", remote: true %>
+  <% end %>
+<% end %>

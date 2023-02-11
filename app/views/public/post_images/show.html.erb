@@ -56,40 +56,17 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-4">
-        <% if user_signed_in? %>
-          <%= form_with model: [@post_image, @post_image_comment] do |f| %>
-            <%= f.text_area :comment, placeholder:"comments", class:"comment-box" %>
-            <%= f.submit "Post", class:"comment-button" %>
-          <% end %>
-        <% end %>
+        <div id="comments_form">
+          <%= render "form", post_image: @post_image, post_image_comment: @post_image_comment %>
+        </div>
       </div>
     </div>
     <div class="row mt-3 justify-content-center">
       <div class="col-8">
         <p class="links"><i class="fa-solid fa-comment white"></i>&nbsp;Comments : <%= @post_image.post_image_comments.count %></p>
-        <table class="table table-borderd comment-table">
-          <tbody>
-            <% @post_image.post_image_comments.each do |post_image_comment| %>
-            <tr>
-              <td><%= post_image_comment.created_at.strftime('%Y/%m/%d') %></td>
-              <td>
-                <% if post_image_comment.user.profile_image.attached? %>
-                  <%= image_tag post_image_comment.user.profile_image, class:"comment-image" %>
-                <% else %>
-                  <%= image_tag 'NO_IMAGE.png', class:"comment-image" %>
-                <% end %>
-              </td>
-              <td style="width:20%;"><%= post_image_comment.user.user_name %></td>
-              <td><%= post_image_comment.comment %></td>
-              <td>
-                <% if post_image_comment.user == current_user %>
-                  <%= link_to "Delete", post_image_post_image_comment_path(post_image_comment.post_image, post_image_comment), class:"remember", method: :delete %>
-                <% end %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <div id="comments_table">
+          <%= render "post_comments", post_image: @post_image %>
+        </div>
       </div>
     </div>
   </div>
