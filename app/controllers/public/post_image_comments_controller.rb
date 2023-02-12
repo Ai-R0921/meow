@@ -8,6 +8,8 @@ class Public::PostImageCommentsController < ApplicationController
     comment = current_user.post_image_comments.new(post_image_comment_params)
     comment.post_image_id = @post_image.id
     comment.save
+    
+    @post_image_comment = PostImageComment.new
     # redirect_to post_image_path(post_image)
   end
 
