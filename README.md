@@ -31,11 +31,12 @@ https://docs.google.com/spreadsheets/d/1NeITCMYAVs80t_osapsWdeMSAHNrXICrejMq6nNs
 https://docs.google.com/spreadsheets/d/1UD2nA4T9GjvEYNk5NDCWUif1dlH2fNMx55uck_gkxGI/edit?usp=sharing
 
 - ER図
-https://app.diagrams.net/#G1uzcWKiiR5Z3yXAain6yD2YnEeh37k0l6
+https://drive.google.com/file/d/1uzcWKiiR5Z3yXAain6yD2YnEeh37k0l6/view?usp=sharing
+
 
 ## 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- OS：Linux(Amazon Linux2)
+- 言語：HTML,CSS,JavaScript,Ruby
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
