@@ -38,7 +38,6 @@ https://drive.google.com/file/d/1uzcWKiiR5Z3yXAain6yD2YnEeh37k0l6/view?usp=shari
 - OS：Linux(Amazon Linux2)
 - 言語：HTML,CSS,JavaScript,Ruby
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
 - IDE：Cloud9
 
 ## 使用素材
