@@ -16,6 +16,7 @@ class Admin::TypesController < ApplicationController
   end
 
   def index
+    # あいうえお順に並び替え-'その他'を選択肢から消す+'その他'を選択肢に加える→'その他'が選択肢の最後にくる
     @types = Type.order("name asc") - [Type.find_by(name: 'その他')] + [Type.find_by(name: 'その他')]
   end
 
