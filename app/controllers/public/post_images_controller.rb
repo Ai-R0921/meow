@@ -64,16 +64,18 @@ class Public::PostImagesController < ApplicationController
     end
 
     # ハッシュ
-    # @post_imagesという空の箱を用意する
+    # @post_imagesと@post_lost_catsという空の箱を用意する
     @post_images = {}
+    @post_lost_cats = {}
     # 上の検索結果としてのpost_imagesをeachでひとつづつ取り出す
     post_images.each do |post_image|
       # @post_imagesにpost_imageを追加する
       @post_images[post_image.created_at] = post_image
     end
+    # 上の検索結果としてのpost_lost_catsをeachでひとつづつ取り出す
     post_lost_cats.each do |post_lost_cat|
-      # @post_imagesにpost_lost_catを追加する
-      @post_images[post_lost_cat.created_at] = post_lost_cat
+      # @post_lost_catsにpost_lost_catを追加する
+      @post_lost_cats[post_lost_cat.created_at] = post_lost_cat
     end
 
     # 日付順で並び替えを行い、htmlでeachできる形に変換する
@@ -81,6 +83,7 @@ class Public::PostImagesController < ApplicationController
     # sortをすると{["2022-11-25" => post_image],["2022-11-29" => post_lost_cat],["2022-12-1" => post_image]}
     # .to_h.valuesをすると[post_image,post_lost_cat,post_image]
     @post_images = @post_images.sort.to_h.values
+    @post_lost_cats = @post_lost_cats.sort.to_h.values
     # 60-77行目までコピーしてタグ検索にも使用
 
   end

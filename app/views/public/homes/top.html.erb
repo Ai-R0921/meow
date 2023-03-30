@@ -50,6 +50,27 @@
             <% end %>
           <% end %>
           <p class="caption"><%= result.user.user_name %></p>
+          <p class="caption">
+            <i class="fa-solid fa-heart white"></i>&nbsp;<%= link_to "#{result.post_image_favorites.count}", post_image_path(result) %>&emsp;
+            <i class="fa-solid fa-comment white"></i>&nbsp;<%= link_to "#{result.post_image_comments.count}", post_image_path(result) %>
+          </p>
+        </div>
+        <% end %>
+      <% end %>
+      <% if @results_lost.present? %>
+        <% @results_lost.each do |result_lost| %>
+        <div class="one-post">
+          <p class="caption"><%= result_lost.title.truncate(12, omission: "...") %></p>
+          <%= link_to post_lost_cat_path(result_lost) do %>
+            <% if result_lost.image.attached? %>
+              <%= image_tag result_lost.image, class:"image-shape" %>
+            <% end %>
+          <% end %>
+          <p class="caption"><%= result_lost.user.user_name %></p>
+          <p class="caption">
+            <i class="fa-solid fa-heart white"></i>&nbsp;<%= link_to "#{result_lost.post_lost_cat_favorites.count}", post_lost_cat_path(result_lost) %>&emsp;
+            <i class="fa-solid fa-comment white"></i>&nbsp;<%= link_to "#{result_lost.post_lost_cat_comments.count}", post_lost_cat_path(result_lost) %>
+          </p>
         </div>
         <% end %>
       <% end %>
