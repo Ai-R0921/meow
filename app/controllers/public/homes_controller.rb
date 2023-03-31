@@ -14,19 +14,22 @@ class Public::HomesController < ApplicationController
     if type_search != nil
       searched_post_lost_cats = Type.find_by(id: type_search).post_lost_cats.published
     end
-
+    # type検索
     if params[:type_search].present?
-      # resultsという箱を用意する
+      # @resultsと@results_lostという空の箱を用意する
       @results = {}
       @results_lost = {}
-      #上記で取得したデータをひとつずつ取り出して@resultsに日付順に配列させる
+      #上の検索結果としてのsearched_post_imagesをひとつずつ取り出す
       searched_post_images.each do |searched_post_image|
+        # @resultsにsearched_post_imageを追加する
         @results[searched_post_image.created_at] = searched_post_image
       end
 
       searched_post_lost_cats.each do |searched_post_lost_cat|
         @results_lost[searched_post_lost_cat.created_at] = searched_post_lost_cat
       end
+
+      # 日付順で並び替えを行い、htmlでeachできる形に変換する
       @results = @results.sort.to_h.values
       @results_lost = @results_lost.sort.to_h.values
     end

@@ -84,8 +84,6 @@ class Public::PostImagesController < ApplicationController
     # .to_h.valuesをすると[post_image,post_lost_cat,post_image]
     @post_images = @post_images.sort.to_h.values
     @post_lost_cats = @post_lost_cats.sort.to_h.values
-    # 60-77行目までコピーしてタグ検索にも使用
-
   end
 
   def confirm

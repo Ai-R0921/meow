@@ -21,7 +21,7 @@ class Public::MessagesController < ApplicationController
       Entry.create(user_id: @user.id, room_id: @room.id)
     end
     @users = @room.users
-    #今までやりとりしたmessageを取得
+    #今までやりとりしたmessageを取得。roomとmessagesは1対多
     @messages = @room.messages
     @message = Message.new(room_id: @room.id)
   end
@@ -31,7 +31,6 @@ class Public::MessagesController < ApplicationController
     @message.save
     room = Room.find(message_params[:room_id])
     @messages = room.messages
-    #redirect_to request.referer
   end
 
   private
