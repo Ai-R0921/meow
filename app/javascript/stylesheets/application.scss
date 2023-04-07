@@ -427,6 +427,15 @@ footer {
   background-color: #e4c9c0;
 }
 
+@media screen and (max-width: 768px) {
+  .menu {
+    max-width: 180px;
+	  z-index: 1;
+	  background-color: #efe8d9;
+	  margin-left: 525px;
+	  border-radius: 10px;
+  }
+}
 
 @media screen and (max-width: 425px) {
   header {
@@ -511,4 +520,8 @@ footer {
   .menu {
     margin-left: 92px;
   }
+
+  // .go-button {
+  //   display: block;
+  // }
 }
