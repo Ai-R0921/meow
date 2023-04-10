@@ -7,10 +7,12 @@ class User < ApplicationRecord
   has_many :post_image_favorites, dependent: :destroy
   has_many :post_lost_cat_favorites, dependent: :destroy
 
+  # フォローをした、されたの関係
   has_many :relationships, class_name: "Relationship", foreign_key: "following_id", dependent: :destroy
-  has_many :followings, through: :relationships, source: :follower
-
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  
+  # 一覧で
+  has_many :followings, through: :relationships, source: :follower
   has_many :followers, through: :reverse_of_relationships, source: :following
 
   has_many :messages, dependent: :destroy
