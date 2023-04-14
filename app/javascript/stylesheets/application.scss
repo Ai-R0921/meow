@@ -508,6 +508,20 @@ footer {
 	  margin-left: 190px;
 	  border-radius: 10px;
 	}
+
+	.image-shape {
+	  height: 120px;
+	  width: 120px;
+	}
+
+	.caption {
+	  font-size: 15px;
+	}
+
+	.image-show {
+	  height: 200px;
+	  width: 200px;
+	}
 }
 
 @media screen and (max-width: 375px) {
@@ -521,7 +535,12 @@ footer {
     margin-left: 92px;
   }
 
-  // .go-button {
-  //   display: block;
-  // }
+  .image-shape {
+    height: 100px;
+    width: 100px;
+  }
+
+  .caption {
+    font-size: 12px;
+  }
 }
